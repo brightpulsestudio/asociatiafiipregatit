@@ -1,12 +1,389 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asociația Fii Pregătit</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asociația Fii Pregătit · Dezvoltare personală în natură pentru copii · Brașov</title>
+<meta name="description" content="Activități de dezvoltare personală în natură pentru copii de 7–12 ani, în jurul Brașovului. Educație, sănătate, siguranță. Curaj, calm și decizii bune, învățate pe traseu.">
+<meta property="og:title" content="Asociația Fii Pregătit · Brașov">
+<meta property="og:description" content="Dezvoltare personală în natură pentru copii de 7–12 ani. Educație · Sănătate · Siguranță.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<style>
+:root{--green-deep:#1b340c;--green:#10380e;--green-2:#173a10;--orange:#ff5502;--orange-2:#ff7a1f;--cream:#f4efe4;--cream-2:#fbf9f4;--ink:#22301a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+.disp{font-family:'Fraunces',Georgia,serif}
+.wrap{max-width:1100px;margin:0 auto}
+section{scroll-margin-top:74px}
+a{color:inherit}
+img{max-width:100%;display:block}
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:var(--green-deep);display:flex;align-items:center;gap:18px;padding:13px 30px;flex-wrap:wrap}
+.navlink{color:#cfe0c5;font-size:13px;text-decoration:none;font-weight:500}
+.navlink:hover{color:var(--orange)}
+.nav-cta{background:var(--orange);color:#fff;font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:5px;text-decoration:none}
+.nav-cta:hover{background:#e64d02}
+/* HERO */
+.hero{position:relative;overflow:hidden;min-height:600px}
+.hero svg.bg{position:absolute;inset:0;width:100%;height:100%}
+.hero .frame{position:absolute;inset:18px;border:1px solid rgba(255,255,255,.28);pointer-events:none}
+.hero .inner{position:relative;padding:74px 40px 64px;max-width:580px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px}
+.eyebrow span.bar{width:26px;height:3px;background:var(--orange);display:inline-block}
+.eyebrow span.tx{color:#ffd9a0;font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:600}
+.hero h1{font-size:clamp(40px,7vw,64px);font-weight:900;line-height:1.0;color:#fff;letter-spacing:-1px;margin-bottom:22px}
+.hero p{color:#e6e9df;font-size:16px;line-height:1.7;max-width:450px;margin-bottom:30px}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:13px 24px;border-radius:6px;text-decoration:none;cursor:pointer}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-orange:hover{background:#e64d02}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.btn-ghost:hover{background:rgba(255,255,255,.18)}
+.row-btns{display:flex;gap:12px;flex-wrap:wrap}
+/* SECTIONS */
+.sec{padding:62px 40px}
+.eb{color:var(--orange);font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.eb-light{color:var(--orange-2)}
+h2.t{font-size:clamp(26px,4.5vw,38px);font-weight:600;line-height:1.06;margin-bottom:12px}
+.lead{font-size:13.5px;line-height:1.75;max-width:540px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.grid4-auto{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.card{border-radius:10px;transition:border-color .2s,transform .2s}
+.card.hov:hover{border-color:var(--orange)!important;transform:translateY(-2px)}
+.fp-input{width:100%;padding:10px 12px;border:1px solid #d8d2c4;border-radius:5px;font-size:13px;background:var(--cream-2);outline:none;font-family:inherit;color:var(--ink)}
+.fp-input:focus{border-color:var(--orange);background:#fff}
+.soc{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid #cdd6bd;border-radius:50%;color:var(--green-deep);text-decoration:none;font-size:20px;transition:.2s}
+.soc:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+canvas{cursor:crosshair;touch-action:none;display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fadeup{animation:fadeUp .4s ease forwards}
+@media(max-width:760px){
+  .grid2{grid-template-columns:1fr}
+  .sec{padding:48px 22px}
+  .nav{padding:11px 18px;gap:12px}
+  .hero .inner{padding:54px 24px 48px}
+  .nav-links-wrap{display:flex;gap:14px;flex-wrap:wrap;width:100%;margin-top:4px}
+}
+</style>
 </head>
 <body>
-  <h1>Asociația Fii Pregătit</h1>
-  <p>Site în construcție. Revenim în curând! :)</p>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none">
+    <svg viewBox="0 0 260 92" style="height:40px;width:auto" role="img" aria-label="Logo Fii Pregătit">
+      <polyline points="10,84 64,20 108,52 152,30 190,54 214,42 250,80" fill="none" stroke="#ff5502" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="72" y1="82" x2="230" y2="82" stroke="#ff5502" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="66" cy="42" r="20" fill="none" stroke="#ff5502" stroke-width="2"/>
+      <path d="M66,24 L70.95,37.05 L84,42 L70.95,46.95 L66,60 L61.05,46.95 L48,42 L61.05,37.05 Z" fill="#ff5502"/>
+    </svg>
+    <span style="line-height:1.05">
+      <span style="display:block;color:#fff;font-weight:600;font-size:12px;letter-spacing:.5px">ASOCIAȚIA</span>
+      <span class="disp" style="display:block;color:#fff;font-weight:600;font-size:15px">Fii Pregătit</span>
+    </span>
+  </a>
+  <div style="margin-left:auto;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+    <a class="navlink" href="#activitati">Activități</a>
+    <a class="navlink" href="#metoda">Metoda</a>
+    <a class="navlink" href="#sustine">Susține-ne</a>
+    <a class="navlink" href="#contact">Contact</a>
+    <a class="nav-cta" href="https://wa.me/40745482705" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="top" class="hero">
+  <svg class="bg" viewBox="0 0 680 560" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Munte în zori, lumină portocalie peste creste de pădure">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b340c"/><stop offset="0.45" stop-color="#264417"/><stop offset="0.72" stop-color="#7a4a16"/><stop offset="0.88" stop-color="#d9641a"/><stop offset="1" stop-color="#ff7a1f"/></linearGradient>
+      <radialGradient id="sun" cx="0.72" cy="0.78" r="0.42"><stop offset="0" stop-color="#ffd9a0" stop-opacity="0.95"/><stop offset="0.4" stop-color="#ff7a1f" stop-opacity="0.5"/><stop offset="1" stop-color="#ff7a1f" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="680" height="560" fill="url(#sky)"/>
+    <circle cx="490" cy="430" r="220" fill="url(#sun)"/>
+    <circle cx="490" cy="438" r="34" fill="#ffe6bd" opacity="0.9"/>
+    <path d="M0 360 L120 300 L210 345 L320 285 L430 340 L540 295 L680 350 L680 560 L0 560 Z" fill="#173a10" opacity="0.85"/>
+    <path d="M0 410 L100 365 L220 410 L340 360 L470 410 L600 370 L680 400 L680 560 L0 560 Z" fill="#10380e"/>
+    <path d="M0 460 L140 425 L280 465 L420 420 L560 465 L680 440 L680 560 L0 560 Z" fill="#0c2c0a"/>
+    <g fill="#071c07"><path d="M40 560 L52 470 L58 478 L64 470 L72 560 Z"/><path d="M96 560 L106 490 L112 497 L118 490 L126 560 Z"/><path d="M150 560 L162 460 L169 469 L176 460 L186 560 Z"/><path d="M600 560 L612 475 L618 482 L624 475 L634 560 Z"/><path d="M540 560 L549 500 L555 506 L561 500 L569 560 Z"/></g>
+    <rect x="0" y="500" width="680" height="60" fill="#071c07"/>
+  </svg>
+  <div class="frame"></div>
+  <div class="inner">
+    <div class="eyebrow"><span class="bar"></span><span class="tx">Dezvoltare personală în natură · Brașov</span></div>
+    <h1 class="disp">Crește un copil<br>care știe să stea<br><span style="color:#ff7a1f">drept în furtună.</span></h1>
+    <p>Activități pentru copii de 7–12 ani, în munții din jurul Brașovului. Curaj, calm și decizii bune — învățate pe traseu, nu din manual.</p>
+    <div class="row-btns">
+      <a class="btn btn-orange" href="#activitati">Vezi activitățile</a>
+      <a class="btn btn-ghost" href="#contact">Înscrie copilul</a>
+    </div>
+  </div>
+</header>
+
+<!-- PILONI -->
+<section class="sec" style="background:var(--green)">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:30px">
+      <div class="eb eb-light" style="margin-bottom:8px">Pilonii noștri</div>
+      <h2 class="t disp" style="color:#fff">Educație · Sănătate · Siguranță</h2>
+    </div>
+    <div class="grid3">
+      <div style="text-align:center;padding:8px"><i class="ti ti-book" style="color:var(--orange-2);font-size:30px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Educație</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Învățare prin experiență — autonomie, decizii bune și cunoaștere practică.</p></div>
+      <div style="text-align:center;padding:8px"><i class="ti ti-heartbeat" style="color:var(--orange-2);font-size:30px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Sănătate</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Mișcare, aer curat și o conexiune reală cu natura, departe de ecran.</p></div>
+      <div style="text-align:center;padding:8px"><i class="ti ti-shield-check" style="color:var(--orange-2);font-size:30px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Siguranță</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Instructori pregătiți, trasee verificate și grijă constantă față de fiecare copil.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CINE SUNTEM -->
+<section class="sec" style="background:var(--cream)">
+  <div class="wrap grid2" style="align-items:center;gap:34px">
+    <div>
+      <div class="eb">Cine suntem</div>
+      <h2 class="t disp" style="color:var(--green-deep)">Doi părinți, doi instructori, și muntele ca sală de clasă.</h2>
+      <p style="color:#4c5440;font-size:14px;line-height:1.8;margin-bottom:12px">Lucrăm pe autonomie, reziliență și decizii bune — nu prin teorie, ci prin experiențe reale, pe traseu.</p>
+      <p style="color:#4c5440;font-size:14px;line-height:1.8">Ieșirile sunt ghidate de cel puțin doi instructori. În principal noi doi: eu și soțul meu, <strong>Lau</strong> — cadru M.A.I. la Serviciul pentru Acțiuni Speciale și negociator în situații de criză. Suntem părinți de băieți, de 5 și 8 ani, care ne însoțesc mereu.</p>
+    </div>
+    <!-- Înlocuiește acest div cu o fotografie reală: <img src="poze/echipa.jpg" alt="..."> -->
+    <div style="background:#dfe6d3;border:1px solid #cdd6bd;border-radius:10px;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px">
+      <i class="ti ti-photo" style="font-size:30px;color:#8a9676" aria-hidden="true"></i>
+      <span style="color:#6f7a5c;font-size:12px;margin-top:10px;max-width:200px;line-height:1.5">Spațiu foto — voi doi cu copiii pe traseu, lumină de dimineață</span>
+    </div>
+  </div>
+</section>
+
+<!-- METODA -->
+<section id="metoda" class="sec" style="background:var(--green)">
+  <div class="wrap">
+    <div class="eb eb-light">Metoda din spatele activităților</div>
+    <h2 class="t disp" style="color:#fff">S.T.O.P. — patru pași între impuls și decizie.</h2>
+    <p class="lead" style="color:#aebda3;margin-bottom:30px">Copiii descoperă cum reacționează creierul când apar frica sau panica și exersează un model simplu de decizie — pe care îl duc apoi acasă: la temă, la ceartă, la ecran.</p>
+    <div class="grid4-auto" style="gap:10px">
+      <div style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">S</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Stop</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Oprește-te. Câteva secunde de pauză înainte de orice.</div></div>
+      <div style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">T</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Think</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Gândește. Ce e important acum? Ce risc există?</div></div>
+      <div style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">O</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Observe</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Observă. Ce e în jur, ce repere, cine mai e implicat.</div></div>
+      <div style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">P</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Planifică</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Acționează cu un plan clar, nu din impuls.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CELE 5 DIMENSIUNI -->
+<section class="sec" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="eb">Cele cinci dimensiuni</div>
+    <h2 class="t disp" style="color:var(--green-deep)">Nu cine ajunge primul. Cine crește pe dinăuntru.</h2>
+    <p class="lead" style="color:#4c5440;margin-bottom:30px">Sub cei trei piloni, fiecare activitate atinge cinci dimensiuni ale copilului. Nu le predăm ca pe o lecție — le trăiesc, pas cu pas, prin poveste și provocare reală.</p>
+    <div class="grid4-auto" style="gap:10px;margin-bottom:26px">
+      <div class="card hov" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px"><i class="ti ti-heart" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">Inima</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Empatie și inteligență emoțională. Să-și recunoască emoțiile și să aibă grijă de ceilalți.</div></div>
+      <div class="card hov" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px"><i class="ti ti-bulb" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">Mintea</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Gândire limpede sub presiune. Să observe, să gândească, apoi să acționeze.</div></div>
+      <div class="card hov" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px"><i class="ti ti-flame" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">Voința</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Curaj și reziliență. Să-și stăpânească frica și să nu renunțe la primul „nu pot".</div></div>
+      <div class="card hov" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px"><i class="ti ti-users" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">Tribul</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">„Eu sunt pentru că noi suntem." Echipă în care nimeni nu e lăsat în urmă.</div></div>
+      <div class="card hov" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px"><i class="ti ti-mountain" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">Muntele</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Respect și responsabilitate. Față de natură, față de echipă și față de sine.</div></div>
+    </div>
+    <div style="border-left:3px solid var(--orange);padding:6px 0 6px 18px;max-width:560px"><p class="disp" style="color:var(--green-deep);font-size:17px;line-height:1.55;font-style:italic">„Inteligența emoțională înseamnă echilibru, responsabilitate și respect — față de tine, față de echipă, față de munte."</p></div>
+  </div>
+</section>
+
+<!-- ACTIVITATI -->
+<section id="activitati" class="sec" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="eb">Tipuri de activități</div>
+    <h2 class="t disp" style="color:var(--green-deep);margin-bottom:30px">Explorăm natura în patru feluri.</h2>
+    <div class="grid2">
+      <div class="card hov" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Copii 7–12 · weekend</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Activități pentru copii</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Dezvoltare personală, doar pentru cei mici. Copiii sunt aduși și preluați de părinți la punctul de întâlnire. Aici lucrăm autonomia, curajul și deciziile bune.</div></div>
+      <div class="card hov" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Familie · de la 5 ani</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Drumeții de familie</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Mergem pe traseu împreună cu părinții și ne bucurăm de natură ca o familie mare. La unele drumeții pot veni și copilași începând cu 5 ani.</div></div>
+      <div class="card hov" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Școli · în parteneriat</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Săptămâna Verde · Școala Altfel</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Programe în colaborare cu școlile, adaptate clasei și vârstei — o zi în natură care iese din rutina sălii de clasă.</div></div>
+      <div class="card hov" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">After-school · tematic</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Programe pentru after-school</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Activități tematice livrate prin after-school-uri — de la „Exploratorii Sălbăticiei" la „Tribul Pădurii", cu misiuni, bushcraft și ghidul exploratorului.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGURANTA -->
+<section class="sec" style="background:var(--green-deep)">
+  <div class="wrap">
+    <div class="eb eb-light">Pentru părinți</div>
+    <h2 class="t disp" style="color:#fff">Siguranța vine prima. Apoi tot restul.</h2>
+    <p class="lead" style="color:#aebda3;margin-bottom:26px">Pentru un părinte nou, asta contează cel mai mult. La noi nu e o promisiune — e construită în fiecare detaliu al ieșirii.</p>
+    <div class="grid2" style="gap:12px;max-width:680px">
+      <div style="display:flex;gap:10px;align-items:flex-start"><i class="ti ti-shield-check" style="color:var(--orange-2);font-size:18px;flex-shrink:0" aria-hidden="true"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Cel puțin 2 instructori la fiecare ieșire</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><i class="ti ti-route" style="color:var(--orange-2);font-size:18px;flex-shrink:0" aria-hidden="true"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Trasee verificate, supraveghere permanentă</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><i class="ti ti-first-aid-kit" style="color:var(--orange-2);font-size:18px;flex-shrink:0" aria-hidden="true"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Pregătire tehnică reală, inclusiv spray anti-urs</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><i class="ti ti-star" style="color:var(--orange-2);font-size:18px;flex-shrink:0" aria-hidden="true"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Lau: cadru M.A.I. (SAS), negociator în criză</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><i class="ti ti-friends" style="color:var(--orange-2);font-size:18px;flex-shrink:0" aria-hidden="true"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Exerciții adaptate vârstei și ritmului grupului</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><i class="ti ti-clock" style="color:var(--orange-2);font-size:18px;flex-shrink:0" aria-hidden="true"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Weekend, 11:00–15:00, zone de lângă Brașov</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMNUL -->
+<section class="sec" style="background:var(--cream);padding-top:52px;padding-bottom:52px">
+  <div class="wrap" style="background:#fff;border:1px solid #e6e0d2;border-radius:12px;padding:28px;display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+    <div style="width:74px;height:74px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-player-play" style="color:#fff;font-size:30px" aria-hidden="true"></i></div>
+    <div style="flex:1;min-width:200px"><div class="eb" style="margin-bottom:6px">Imnul nostru</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:22px;margin-bottom:4px">Fii Pregătit</h3><p style="color:#5a624c;font-size:13px;line-height:1.5">Melodia pe care o cântă tribul. Ascult-o înainte de prima ieșire.</p></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href="https://www.youtube.com/watch?v=2oHKmTc8qtg" target="_blank" rel="noopener" style="background:var(--green-deep);color:#fff;font-size:13px;font-weight:500;padding:11px 18px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:7px"><i class="ti ti-brand-youtube" aria-hidden="true"></i> YouTube</a>
+      <a href="https://open.spotify.com/track/3DSblfQm2yU0gX8RGz32Ki" target="_blank" rel="noopener" style="background:var(--green);color:#fff;font-size:13px;font-weight:500;padding:11px 18px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:7px"><i class="ti ti-brand-spotify" aria-hidden="true"></i> Spotify</a>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTE -->
+<section class="sec" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="eb">Documente online</div>
+    <h2 class="t disp" style="color:var(--green-deep)">Completezi online. Primești PDF-ul pe email.</h2>
+    <p class="lead" style="color:#5a624c;margin-bottom:26px">Introduci datele, semnezi pe ecran și primești documentul completat imediat pe email. Fără imprimante, fără drumuri.</p>
+    <div class="grid2" style="gap:10px;margin-bottom:18px">
+      <div onclick="selectDoc('declaratie_minori')" id="card-declaratie_minori" class="card hov" style="background:#fff;border:1px solid #e6e0d2;border-radius:9px;padding:18px;cursor:pointer"><i class="ti ti-mood-kid" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:14px;margin:8px 0 4px">Declarație pentru Minori</div><div style="color:#7a8268;font-size:12px;line-height:1.5;margin-bottom:8px">Acordul părintelui pentru participarea copilului.</div><div style="color:var(--orange);font-size:11px;font-weight:600">Completează →</div></div>
+      <div onclick="selectDoc('declaratie_adulti')" id="card-declaratie_adulti" class="card hov" style="background:#fff;border:1px solid #e6e0d2;border-radius:9px;padding:18px;cursor:pointer"><i class="ti ti-user" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:14px;margin:8px 0 4px">Declarație pentru Adulți</div><div style="color:#7a8268;font-size:12px;line-height:1.5;margin-bottom:8px">Declarație proprie pentru participanții adulți.</div><div style="color:var(--orange);font-size:11px;font-weight:600">Completează →</div></div>
+      <div onclick="selectDoc('gdpr_copii')" id="card-gdpr_copii" class="card hov" style="background:#fff;border:1px solid #e6e0d2;border-radius:9px;padding:18px;cursor:pointer"><i class="ti ti-camera" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:14px;margin:8px 0 4px">Acord GDPR (Copii)</div><div style="color:#7a8268;font-size:12px;line-height:1.5;margin-bottom:8px">Consimțământ pentru imaginea și datele minorului.</div><div style="color:var(--orange);font-size:11px;font-weight:600">Completează →</div></div>
+      <div onclick="selectDoc('gdpr_adulti')" id="card-gdpr_adulti" class="card hov" style="background:#fff;border:1px solid #e6e0d2;border-radius:9px;padding:18px;cursor:pointer"><i class="ti ti-lock" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:14px;margin:8px 0 4px">Acord GDPR (Adulți)</div><div style="color:#7a8268;font-size:12px;line-height:1.5;margin-bottom:8px">Consimțământ pentru imaginea și datele tale.</div><div style="color:var(--orange);font-size:11px;font-weight:600">Completează →</div></div>
+    </div>
+    <div id="form-panel" style="display:none;background:#eee7d8;border-radius:11px;padding:16px;min-height:420px">
+      <div style="background:#fff;border-radius:9px;padding:28px;max-width:500px;margin:0 auto" class="fadeup">
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:10px;color:#9aa088" id="form-step-label">Pas 1 din 3</div>
+        <div style="display:flex;gap:4px;margin-bottom:20px"><div id="bar1" style="height:3px;flex:1;border-radius:2px;background:var(--orange)"></div><div id="bar2" style="height:3px;flex:1;border-radius:2px;background:#e2dccd"></div><div id="bar3" style="height:3px;flex:1;border-radius:2px;background:#e2dccd"></div></div>
+        <div id="form-content"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTINE-NE -->
+<section id="sustine" class="sec" style="background:var(--green)">
+  <div class="wrap">
+    <div class="eb eb-light">Susține-ne</div>
+    <h2 class="t disp" style="color:#fff">Fiecare copil sprijinit începe cu un gest mic.</h2>
+    <p class="lead" style="color:#aebda3;margin-bottom:30px">Suntem o asociație non-profit. Tot ce strângem se întoarce în echipament, trasee și activități pentru copii.</p>
+    <div class="grid2" style="gap:12px;margin-bottom:12px">
+      <div style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px"><i class="ti ti-file-percent" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Formularul 230</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Redirecționezi un procent din impozitul tău pe venit către asociație. Nu te costă nimic — banii oricum merg la stat.</p><a href="#contact" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none">Cere formularul →</a></div>
+      <div style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px"><i class="ti ti-building" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Sponsorizări firme</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Firmele pot redirecționa o parte din impozit către asociație, printr-un contract de sponsorizare.</p><a href="https://wa.me/40745482705" target="_blank" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none">Hai să discutăm →</a></div>
+    </div>
+    <div style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:24px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><i class="ti ti-building-bank" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px">Donații prin transfer bancar</h3></div>
+      <div class="grid2" style="gap:14px">
+        <div style="border-left:2px solid var(--orange);padding-left:14px"><div style="color:var(--orange-2);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Cont RON (Lei)</div><div style="color:#d7e0cd;font-size:12px;line-height:1.9">Titular: Asociația Fii Pregătit<br><span style="font-family:monospace;color:#fff">RO18 RZBR 0000 0600 3067 4282</span><br>Raiffeisen Bank · SWIFT: RZBRROBU</div></div>
+        <div style="border-left:2px solid var(--orange);padding-left:14px"><div style="color:var(--orange-2);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Cont EUR</div><div style="color:#d7e0cd;font-size:12px;line-height:1.9">Titular: Asociația Fii Pregătit<br><span style="font-family:monospace;color:#fff">RO61 RZBR 0000 0600 3067 4284</span><br>Raiffeisen Bank · SWIFT: RZBRROBU</div></div>
+      </div>
+      <div style="margin-top:14px;color:#7e8c70;font-size:11px">CIF: 51220175 · str. Lemnarilor 25A, Brașov</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="eb">Contact</div>
+    <h2 class="t disp" style="color:var(--green-deep)">Scrie-ne. Răspundem repede.</h2>
+    <p class="lead" style="color:#4c5440;margin-bottom:28px">Cel mai rapid răspuns vine pe WhatsApp. Spune-ne numele și vârsta copilului, iar noi îți zicem când e următoarea ieșire.</p>
+    <div class="grid3" style="gap:10px;margin-bottom:24px">
+      <a href="https://wa.me/40745482705" target="_blank" rel="noopener" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block"><i class="ti ti-brand-whatsapp" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">WhatsApp</div><div style="color:#7a8268;font-size:12px">0745.482.705</div></a>
+      <a href="tel:+40745482705" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block"><i class="ti ti-phone" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">Telefon</div><div style="color:#7a8268;font-size:12px">0745.482.705</div></a>
+      <a href="mailto:outdoor.training.bv@gmail.com" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block"><i class="ti ti-mail" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">Email</div><div style="color:#7a8268;font-size:11px;word-break:break-all">outdoor.training.bv@gmail.com</div></a>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="soc" href="https://www.facebook.com/fiipregatit.bv/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
+      <a class="soc" href="https://www.instagram.com/fiipregatit.bv/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+      <a class="soc" href="https://www.tiktok.com/@fiipregatit.bv" target="_blank" rel="noopener" aria-label="TikTok"><i class="ti ti-brand-tiktok" aria-hidden="true"></i></a>
+      <a class="soc" href="https://www.youtube.com/@fiipregatitbv" target="_blank" rel="noopener" aria-label="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--green-deep);padding:42px 40px 26px">
+  <div class="wrap grid2" style="gap:36px;margin-bottom:24px">
+    <div>
+      <svg viewBox="0 0 260 92" style="height:46px;width:auto;margin-bottom:12px" role="img" aria-label="Logo Fii Pregătit">
+        <polyline points="10,84 64,20 108,52 152,30 190,54 214,42 250,80" fill="none" stroke="#ff5502" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="72" y1="82" x2="230" y2="82" stroke="#ff5502" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="66" cy="42" r="20" fill="none" stroke="#ff5502" stroke-width="2"/>
+        <path d="M66,24 L70.95,37.05 L84,42 L70.95,46.95 L66,60 L61.05,46.95 L48,42 L61.05,37.05 Z" fill="#ff5502"/>
+      </svg>
+      <p style="color:#7e8c70;font-size:12px;line-height:1.7;max-width:280px;margin-bottom:6px">Educație · Sănătate · Siguranță. Caracter prin experiență, în natură. Brașov.</p>
+      <p style="color:#4f5d43;font-size:11px">CIF: 51220175 · str. Lemnarilor 25A, Brașov</p>
+    </div>
+    <div>
+      <div style="color:#5f6d51;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;font-weight:600">Contact</div>
+      <p style="color:#9aa88c;font-size:12px;line-height:2">WhatsApp: 0745.482.705<br>outdoor.training.bv@gmail.com<br>asociatiafiipregatit.ro</p>
+    </div>
+  </div>
+  <div class="wrap" style="border-top:1px solid #2b4420;padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span style="color:#4f5d43;font-size:11px">© 2025 Asociația Fii Pregătit BrightKids</span>
+    <span class="disp" style="color:var(--orange-2);font-size:12px;font-style:italic">Fii pregătit. Observă. Gândește. Acționează.</span>
+  </div>
+</footer>
+
+<script>
+const DOCS={
+  declaratie_minori:{title:'Declarație pentru Minori',fields:[
+    {k:'parinte_nume',l:'Nume și prenume tutore / părinte',ph:'ex: Popescu Ioan'},
+    {k:'parinte_cnp',l:'CNP tutore (obligatoriu legal)',ph:'1234567890123',max:13},
+    {k:'parinte_loc',l:'Localitate domiciliu',ph:'ex: Brașov, jud. Brașov'},
+    {k:'parinte_tel',l:'Telefon urgență',ph:'07xx xxx xxx'},
+    {k:'minor_nume',l:'Nume complet copil',ph:'ex: Popescu Maria'},
+    {k:'minor_nastere',l:'Data nașterii copilului',ph:'ZZ.LL.AAAA'}]},
+  declaratie_adulti:{title:'Declarație pentru Adulți',fields:[
+    {k:'nume',l:'Nume și prenume',ph:'ex: Ionescu Andrei'},
+    {k:'cnp',l:'CNP (obligatoriu legal)',ph:'1234567890123',max:13},
+    {k:'loc',l:'Localitate domiciliu',ph:'ex: Brașov, jud. Brașov'},
+    {k:'tel',l:'Telefon urgență',ph:'07xx xxx xxx'}]},
+  gdpr_copii:{title:'Acord GDPR Copii',fields:[
+    {k:'tutore_nume',l:'Nume și prenume tutore / părinte',ph:'ex: Popescu Ioan'},
+    {k:'tutore_email',l:'Email (pentru drepturile GDPR)',ph:'email@exemplu.ro',type:'email'},
+    {k:'minor_nume',l:'Nume complet copil',ph:'ex: Popescu Maria'},
+    {k:'minor_nastere',l:'Data nașterii copilului',ph:'ZZ.LL.AAAA'}]},
+  gdpr_adulti:{title:'Acord GDPR Adulți',fields:[
+    {k:'nume',l:'Nume și prenume',ph:'ex: Ionescu Andrei'},
+    {k:'nastere',l:'Data nașterii',ph:'ZZ.LL.AAAA'},
+    {k:'email',l:'Email (pentru drepturile GDPR)',ph:'email@exemplu.ro',type:'email'}]}
+};
+let currentDoc=null,currentStep=1,formValues={},sigData=null;
+function selectDoc(id){currentDoc=id;currentStep=1;formValues={};sigData=null;
+  ['declaratie_minori','declaratie_adulti','gdpr_copii','gdpr_adulti'].forEach(d=>{document.getElementById('card-'+d).style.border=d===id?'1px solid #ff5502':'1px solid #e6e0d2';});
+  document.getElementById('form-panel').style.display='block';renderStep();
+  document.getElementById('form-panel').scrollIntoView({behavior:'smooth',block:'nearest'});}
+function renderStep(){
+  ['bar1','bar2','bar3'].forEach((b,i)=>{document.getElementById(b).style.background=i<currentStep?'#ff5502':'#e2dccd';});
+  document.getElementById('form-step-label').textContent='Pas '+currentStep+' din 3 · '+DOCS[currentDoc].title;
+  const fc=document.getElementById('form-content');
+  if(currentStep===1){
+    let html='<h3 style="font-weight:600;font-size:18px;color:#1b340c;margin-bottom:18px;font-family:Fraunces,serif">Completează datele</h3>';
+    DOCS[currentDoc].fields.forEach(f=>{html+='<div style="margin-bottom:13px"><label style="display:block;font-size:12px;font-weight:600;color:#42492f;margin-bottom:5px">'+f.l+'</label><input class="fp-input" id="f_'+f.k+'" type="'+(f.type||'text')+'" placeholder="'+f.ph+'" '+(f.max?'maxlength="'+f.max+'"':'')+'></div>';});
+    html+='<div style="margin-bottom:13px"><label style="display:block;font-size:12px;font-weight:600;color:#42492f;margin-bottom:5px">Email pentru primirea PDF-ului</label><input class="fp-input" id="f_email_dest" type="email" placeholder="email@tau.ro" style="border-color:#ff5502;background:#fff7f2"></div>';
+    html+='<button onclick="goStep2()" style="width:100%;background:#1b340c;color:#fff;border:none;border-radius:6px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;margin-top:6px;font-family:Inter">Continuă la semnătură →</button>';
+    fc.innerHTML=html;
+    Object.keys(formValues).forEach(k=>{const el=document.getElementById('f_'+k);if(el)el.value=formValues[k];});}
+  if(currentStep===2){
+    fc.innerHTML='<h3 style="font-weight:600;font-size:18px;color:#1b340c;margin-bottom:6px;font-family:Fraunces,serif">Semnătură olografă</h3><p style="color:#6a725a;font-size:13px;line-height:1.5;margin-bottom:16px">Semnează cu mouse-ul sau degetul. Va apărea în PDF exact cum o scrii.</p><div style="border:1px solid #d8d2c4;border-radius:6px;background:#fbf9f4;position:relative;overflow:hidden"><canvas id="sig-canvas" width="440" height="110" style="width:100%;height:110px"></canvas><div id="sig-hint" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#c3bba8;font-size:13px;pointer-events:none">Semnează aici</div></div><button onclick="clearSig()" style="margin-top:8px;background:none;border:1px solid #d8d2c4;padding:5px 12px;font-size:12px;border-radius:5px;cursor:pointer;color:#6a725a">Șterge</button><button id="btn-send" onclick="submitDoc()" disabled style="width:100%;background:#e2dccd;color:#9aa088;border:none;border-radius:6px;padding:13px;font-size:14px;font-weight:600;cursor:not-allowed;margin-top:14px;font-family:Inter">Semnează mai întâi</button><button onclick="goBack()" style="width:100%;background:none;border:none;color:#9aa088;font-size:12px;cursor:pointer;padding:8px;margin-top:4px">← Înapoi la date</button>';
+    initCanvas();}
+  if(currentStep===3){
+    fc.innerHTML='<div style="text-align:center;padding:20px 0"><div style="width:60px;height:60px;border-radius:50%;background:#eaf3de;display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><i class="ti ti-check" style="color:#3b6d11;font-size:30px"></i></div><h3 style="font-weight:600;font-size:20px;color:#1b340c;margin-bottom:8px;font-family:Fraunces,serif">Document trimis!</h3><p style="color:#5a624c;font-size:13px;line-height:1.6;max-width:340px;margin:0 auto 18px">Am generat PDF-ul cu datele și semnătura ta și ți l-am trimis pe email. Verifică și folderul Spam.</p><div style="background:#eaf3de;border:1px solid #c0dd97;border-radius:6px;padding:10px 14px;font-size:13px;color:#3b6d11;margin-bottom:20px">PDF trimis la: <strong>'+(formValues.email_dest||'—')+'</strong></div><button onclick="closeForm()" style="background:#1b340c;color:#fff;border:none;border-radius:6px;padding:11px 22px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter">Completează alt document</button></div>';}
+}
+function saveFormValues(){DOCS[currentDoc].fields.forEach(f=>{const el=document.getElementById('f_'+f.k);if(el)formValues[f.k]=el.value;});const ed=document.getElementById('f_email_dest');if(ed)formValues.email_dest=ed.value;}
+function goStep2(){saveFormValues();currentStep=2;renderStep();}
+function goBack(){currentStep=1;renderStep();}
+async function submitDoc(){
+  if(!sigData)return;
+  // ===== BACKEND (de activat după ce e gata Cloudflare Worker) =====
+  // const res = await fetch('/api/genereaza-pdf', {
+  //   method:'POST', headers:{'Content-Type':'application/json'},
+  //   body: JSON.stringify({ tip: currentDoc, date: formValues, semnatura: sigData })
+  // });
+  // ===============================================================
+  currentStep=3;renderStep();
+}
+function closeForm(){document.getElementById('form-panel').style.display='none';['declaratie_minori','declaratie_adulti','gdpr_copii','gdpr_adulti'].forEach(d=>{document.getElementById('card-'+d).style.border='1px solid #e6e0d2';});currentDoc=null;}
+function initCanvas(){const canvas=document.getElementById('sig-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');let drawing=false,lastX=0,lastY=0;
+  function getXY(e){const r=canvas.getBoundingClientRect();const sx=canvas.width/r.width,sy=canvas.height/r.height;const src=e.touches?e.touches[0]:e;return[(src.clientX-r.left)*sx,(src.clientY-r.top)*sy];}
+  canvas.onmousedown=canvas.ontouchstart=function(e){e.preventDefault();drawing=true;const xy=getXY(e);lastX=xy[0];lastY=xy[1];};
+  canvas.onmousemove=canvas.ontouchmove=function(e){e.preventDefault();if(!drawing)return;const xy=getXY(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(xy[0],xy[1]);ctx.strokeStyle='#1b340c';ctx.lineWidth=2;ctx.lineCap='round';ctx.stroke();lastX=xy[0];lastY=xy[1];document.getElementById('sig-hint').style.display='none';sigData=canvas.toDataURL();const btn=document.getElementById('btn-send');if(btn){btn.disabled=false;btn.style.background='#ff5502';btn.style.color='#fff';btn.style.cursor='pointer';btn.textContent='Trimite documentul pe email →';}};
+  canvas.onmouseup=canvas.ontouchend=function(e){e.preventDefault();drawing=false;};}
+function clearSig(){const canvas=document.getElementById('sig-canvas');if(!canvas)return;canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);sigData=null;document.getElementById('sig-hint').style.display='flex';const btn=document.getElementById('btn-send');if(btn){btn.disabled=true;btn.style.background='#e2dccd';btn.style.color='#9aa088';btn.style.cursor='not-allowed';btn.textContent='Semnează mai întâi';}}
+</script>
 </body>
 </html>
