@@ -995,7 +995,9 @@ function generatePreview(){
       <div class="doc-box">
         <p><strong>Reprezentant legal / Participant adult:</strong> ${safe(signerName)}</p>
         <p><strong>Semnătura reprezentantului legal / participantului:</strong></p>
-        <p>[semnătura va fi aplicată în pasul următor]</p>
+        <div id="signatureInDocument">
+  <p>[semnătura va fi aplicată în pasul următor]</p>
+</div>
         <p><strong>Data:</strong> ${safe(generatedDate)}</p>
         <p><strong>Ora:</strong> ${safe(generatedTime)}</p>
       </div>
@@ -1103,6 +1105,13 @@ function clearSignature(){
   signatureHasContent = false;
 }
 
+function insertSignatureInPreview(){
+  const signatureBox = document.getElementById("signatureInDocument");
+  if(signatureBox && signatureDataUrl){
+    signatureBox.innerHTML = `<img src="${signatureDataUrl}" alt="Semnătură" style="max-width:260px;height:auto;border:1px solid #e6e0d2;border-radius:6px;background:#fff;padding:8px">`;
+  }
+}
+  
 function finishFlow(){
   if(!signatureHasContent){
     showError("Te rog să semnezi în chenar înainte de finalizare.");
@@ -1115,6 +1124,7 @@ if(!document.getElementById("finalConsent").checked){
 
 const canvas = document.getElementById("signaturePad");
 signatureDataUrl = canvas.toDataURL("image/png");
+insertSignatureInPreview();
 
 goStep(5);
 }
