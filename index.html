@@ -33,7 +33,35 @@ img{max-width:100%;display:block}
 .hero{position:relative;overflow:hidden;min-height:600px}
 .hero svg.bg{position:absolute;inset:0;width:100%;height:100%}
 .hero .frame{position:absolute;inset:18px;border:1px solid rgba(255,255,255,.28);pointer-events:none}
-.hero .inner{position:relative;padding:74px 40px 64px;max-width:580px}
+.hero .inner{
+  position:relative;
+  z-index:2;
+  padding:74px 40px 64px;
+  max-width:620px;
+  width:58%;
+}
+.hero-photo{
+  position:absolute;
+  top:0;
+  right:0;
+  width:42%;
+  height:100%;
+  z-index:1;
+  overflow:hidden;
+}
+.hero-photo:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,#1b340c 0%,rgba(27,52,12,.15) 18%,rgba(27,52,12,0) 42%);
+  z-index:1;
+}
+.hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 52%;
+}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px}
 .eyebrow span.bar{width:26px;height:3px;background:var(--orange);display:inline-block}
 .eyebrow span.tx{color:#ffd9a0;font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:600}
@@ -64,6 +92,29 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .fadeup{animation:fadeUp .4s ease forwards}
 @media(max-width:760px){
+    .hero{
+    min-height:auto;
+  }
+
+  .hero .inner{
+    width:100%;
+    max-width:none;
+    padding:54px 24px 42px;
+  }
+
+  .hero-photo{
+    position:relative;
+    width:100%;
+    height:250px;
+  }
+
+  .hero-photo:before{
+    background:linear-gradient(180deg,rgba(27,52,12,.18),rgba(27,52,12,.02));
+  }
+
+  .hero-photo img{
+    object-position:center 58%;
+  }
   .grid2{grid-template-columns:1fr}
   .sec{padding:48px 22px}
   .nav{padding:11px 18px;gap:12px}
@@ -114,6 +165,9 @@ canvas{cursor:crosshair;touch-action:none;display:block}
       <a class="btn btn-orange" href="#activitati">Vezi activitățile</a>
        <a class="btn btn-ghost" href="/documente/">Înscriere</a>
     </div>
+  </div>
+    <div class="hero-photo">
+    <img src="cerc-ubuntu.jpeg" alt="Copii și instructori ai Asociației Fii Pregătit într-o activitate outdoor">
   </div>
 </header>
 
