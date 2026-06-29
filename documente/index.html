@@ -471,9 +471,16 @@ function validateData(){
   if(val("treatment")==="Da" && !requireField("treatmentDetails","Detalii tratament")) return false;
 
   if(!requireField("emergencyName","Persoană de contact în caz de urgență")) return false;
-  if(!requireField("emergencyPhone","Telefon urgență")) return false;
+if(!requireField("emergencyPhone","Telefon urgență")) return false;
+if(!requireField("emergencyRelation","Relația cu participantul")) return false;
 
-  return true;
+const imageConsent = document.querySelector('input[name="imageConsent"]:checked');
+if(!imageConsent){
+    showError("Te rog să alegi dacă ești sau nu de acord cu utilizarea imaginii.");
+    return false;
+}
+
+return true;
 }
 
 function safe(text){
