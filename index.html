@@ -145,7 +145,16 @@ h2.t{font-size:clamp(26px,4.5vw,38px);font-weight:600;line-height:1.06;margin-bo
     0 20px 42px rgba(57,71,41,.13),
     inset 0 1px 0 rgba(255,255,255,.9);
 }
-.card.hov:hover{border-color:var(--orange)!important;transform:translateY(-2px)}
+.card{
+  transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+  will-change:transform;
+}
+
+.card.hov:hover{
+  border-color:var(--orange)!important;
+  transform:translateY(-3px);
+  box-shadow:0 16px 32px rgba(0,0,0,.16);
+}
 .fp-input{width:100%;padding:10px 12px;border:1px solid #d8d2c4;border-radius:5px;font-size:13px;background:var(--cream-2);outline:none;font-family:inherit;color:var(--ink)}
 .fp-input:focus{border-color:var(--orange);background:#fff}
 .soc{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid #cdd6bd;border-radius:50%;color:var(--green-deep);text-decoration:none;font-size:20px;transition:.2s}
@@ -292,10 +301,10 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     <h2 class="t disp" style="color:#fff">S.T.O.P. — patru pași între impuls și decizie.</h2>
     <p class="lead" style="color:#aebda3;margin-bottom:30px">Copiii descoperă cum reacționează creierul când apar frica sau panica și exersează un model simplu de decizie — pe care îl duc apoi acasă: la temă, la ceartă, la ecran.</p>
     <div class="grid4-auto" style="gap:10px">
-      <div style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">S</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Stop</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Oprește-te. Câteva secunde de pauză înainte de orice.</div></div>
-      <div style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">T</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Think</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Gândește. Ce e important acum? Ce risc există?</div></div>
-      <div style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">O</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Observe</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Observă. Ce e în jur, ce repere, cine mai e implicat.</div></div>
-      <div style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">P</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Planifică</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Acționează cu un plan clar, nu din impuls.</div></div>
+      <div class="card hov" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">S</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Stop</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Oprește-te. Câteva secunde de pauză înainte de orice.</div></div>
+      <div class="card hov" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">T</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Think</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Gândește. Ce e important acum? Ce risc există?</div></div>
+      <div class="card hov" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">O</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Observe</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Observă. Ce e în jur, ce repere, cine mai e implicat.</div></div>
+      <div class="card hov" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">P</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Planifică</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Acționează cu un plan clar, nu din impuls.</div></div>
     </div>
   </div>
 </section>
@@ -398,10 +407,10 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     <h2 class="t disp" style="color:#fff">Crește un copil mai curajos. <br> Începe cu tine.</h2>
     <p class="lead" style="color:#aebda3;margin-bottom:30px">În spatele fiecărei ieșiri în natură sunt ore de pregătire, echipament verificat și oameni care veghează la siguranța copiilor. Sprijinul tău ne ajută să facem toate acestea posibile — și să ducem mai departe o asociație care formează copii încrezători, calmi și pregătiți pentru viață.</p>
     <div class="grid2" style="gap:12px;margin-bottom:12px">
-      <div style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px"><i class="ti ti-file-percent" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Formularul 230</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Redirecționezi un procent din impozitul tău pe venit către asociație.<br><strong>Nu te costă nimic — banii oricum merg la stat.</strong></p><a href="https://formular230.ro/asociatiafiipregatit" target="_blank" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none">Completează formularul →</a></div>
-      <div style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px"><i class="ti ti-building" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Sponsorizări firme</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Firmele pot redirecționa o parte din impozit către asociație, printr-un contract de sponsorizare.</p><a href="https://wa.me/40745482705" target="_blank" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none">Hai să discutăm →</a></div>
+      <div class="card hov" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px"><i class="ti ti-file-percent" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Formularul 230</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Redirecționezi un procent din impozitul tău pe venit către asociație.<br><strong>Nu te costă nimic — banii oricum merg la stat.</strong></p><a href="https://formular230.ro/asociatiafiipregatit" target="_blank" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none">Completează formularul →</a></div>
+      <div class="card hov" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px"><i class="ti ti-building" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Sponsorizări firme</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Firmele pot redirecționa o parte din impozit către asociație, printr-un contract de sponsorizare.</p><a href="https://wa.me/40745482705" target="_blank" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none">Hai să discutăm →</a></div>
     </div>
-    <div style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:24px">
+    <div class="card hov" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:24px">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><i class="ti ti-building-bank" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px">Donații prin transfer bancar</h3></div>
       <div class="grid2" style="gap:14px">
         <div style="border-left:2px solid var(--orange);padding-left:14px"><div style="color:var(--orange-2);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Cont RON (Lei)</div><div style="color:#d7e0cd;font-size:12px;line-height:1.9">Titular: Asociația Fii Pregătit<br><span style="font-family:monospace;color:#fff">RO18 RZBR 0000 0600 3067 4282</span><br>Raiffeisen Bank · SWIFT: RZBRROBU</div></div>
