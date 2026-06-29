@@ -1198,53 +1198,21 @@ async function finishFlow(){
   signatureDataUrl = canvas.toDataURL("image/png");
   insertSignatureInPreview();
 
-  const element = document.getElementById("finalDocument");
-
-  const opt = {
-    margin: 10,
-    filename: `Document_Inscriere_${currentDocumentId}.pdf`,
-    image: {
-      type: "jpeg",
-      quality: 1
-    },
-    html2canvas: {
-      scale: 2,
-      useCORS: true,
-      scrollY: 0
-    },
-    jsPDF: {
-      unit: "mm",
-      format: "a4",
-      orientation: "portrait"
-    },
-    pagebreak: {
-      mode: ["css", "legacy"]
-    }
-  };
-
   try{
-    const pdfBlob = await html2pdf()
-      .set(opt)
-      .from(element)
-      .outputPdf("blob");
-
-    const result = await sendPdfToServer(pdfBlob);
+    const result = await sendDocumentToServer();
 
     if(!result || result.success !== true){
       throw new Error(result && result.error ? result.error : "Trimiterea documentului a eșuat.");
     }
 
-    await html2pdf()
-      .set(opt)
-      .from(element)
-      .save();
-
     goStep(5);
 
   }catch(err){
-    showError("Documentul a fost generat, dar trimiterea automată a eșuat: " + err.message);
+    showError("Trimiterea automată a documentului a eșuat: " + err.message);
   }
 }
+
+  
 </script>
 
 </body>
