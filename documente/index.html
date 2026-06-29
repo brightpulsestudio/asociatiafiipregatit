@@ -1146,8 +1146,13 @@ async function sendDocumentToServer(){
     })
   });
 
-  const result = await response.json();
-  return result;
+  const text = await response.text();
+
+try{
+  return JSON.parse(text);
+}catch(e){
+  throw new Error(text);
+}
 }
   
 function downloadPdfAgain(){
