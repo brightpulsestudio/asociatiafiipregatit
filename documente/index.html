@@ -1015,10 +1015,16 @@ function generatePreview(){
       </p>
     </div>
 
-    <div class="doc-footer">
-      <div>Asociația Fii Pregătit<br>Document de înscriere și participare</div>
-      <div>ID: ${safe(documentId)}</div>
+<div class="doc-footer">
+    <div>
+        <strong>Asociația Fii Pregătit</strong><br>
+        Document de înscriere și participare
     </div>
+
+    <div>
+        ID document: ${safe(documentId)}
+    </div>
+</div>
   `;
 
   document.getElementById("preview").innerHTML = preview;
