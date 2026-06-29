@@ -411,6 +411,7 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
 <script>
 let currentType = "";
 let signatureHasContent = false;
+let signatureDataUrl = "";
 
 function showError(msg){
   const box = document.getElementById("errorBox");
@@ -1107,11 +1108,15 @@ function finishFlow(){
     showError("Te rog să semnezi în chenar înainte de finalizare.");
     return;
   }
-  if(!document.getElementById("finalConsent").checked){
-    showError("Te rog să confirmi acordul final înainte de trimitere.");
-    return;
-  }
-  goStep(5);
+if(!document.getElementById("finalConsent").checked){
+  showError("Te rog să confirmi acordul final înainte de trimitere.");
+  return;
+}
+
+const canvas = document.getElementById("signaturePad");
+signatureDataUrl = canvas.toDataURL("image/png");
+
+goStep(5);
 }
 </script>
 
