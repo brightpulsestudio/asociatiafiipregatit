@@ -84,7 +84,25 @@ h2.t{font-size:clamp(26px,4.5vw,38px);font-weight:600;line-height:1.06;margin-bo
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
 .grid4-auto{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
-.card{border-radius:10px;transition:border-color .2s,transform .2s}
+.glass-card{
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.74),
+    rgba(255,255,255,.46)
+  ) !important;
+  border:1px solid rgba(255,255,255,.72) !important;
+  box-shadow:
+    0 16px 36px rgba(57,71,41,.08),
+    inset 0 1px 0 rgba(255,255,255,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+
+.glass-card:hover{
+  box-shadow:
+    0 20px 42px rgba(57,71,41,.13),
+    inset 0 1px 0 rgba(255,255,255,.9);
+}
 .card.hov:hover{border-color:var(--orange)!important;transform:translateY(-2px)}
 .fp-input{width:100%;padding:10px 12px;border:1px solid #d8d2c4;border-radius:5px;font-size:13px;background:var(--cream-2);outline:none;font-family:inherit;color:var(--ink)}
 .fp-input:focus{border-color:var(--orange);background:#fff}
@@ -125,16 +143,6 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     margin-top:4px;
   }
 
-  .contact-wrap{
-    padding-top:76px;
-  }
-
-  .contact-patch{
-    top:0;
-    left:0;
-    right:auto;
-    width:108px;
-  }
   .contact-wrap{
     padding-top:76px;
   }
@@ -368,11 +376,6 @@ canvas{cursor:crosshair;touch-action:none;display:block}
       class="contact-patch"
       src="LOGO-PATCH.png"
       alt="Asociatia Fii Pregatit"
-    >
-    <img
-      class="contact-patch"
-      src="LOGO-PATCH.png"
-      alt="Asociația Fii Pregătit"
     >
     <div class="eb">Contact</div>
     <h2 class="t disp" style="color:var(--green-deep)">Scrie-ne!</h2>
