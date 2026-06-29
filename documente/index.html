@@ -17,7 +17,10 @@
 html{scroll-behavior:smooth}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);background:var(--cream-2);line-height:1.65;-webkit-font-smoothing:antialiased}
 .disp{font-family:'Fraunces',Georgia,serif}
-.wrap{max-width:1040px;margin:0 auto}
+.wrap{
+max-width:1200px;
+margin:0 auto;
+}
 a{color:inherit}
 img{max-width:100%;display:block}
 .nav{position:sticky;top:0;z-index:50;background:var(--green-deep);display:flex;align-items:center;gap:18px;padding:13px 30px;flex-wrap:wrap}
@@ -58,7 +61,15 @@ input:focus,select:focus,textarea:focus{border-color:var(--orange);background:#f
 .help{font-size:12px;color:#6d755f;margin-top:6px}
 .check{display:flex;gap:10px;align-items:flex-start;margin:12px 0;color:#4c5440;font-size:14px}
 .check input{width:auto;margin-top:4px}
-.preview{background:#fff;border:1px solid #e6e0d2;border-radius:14px;padding:30px;max-height:560px;overflow:auto}
+.preview{
+background:#fff;
+border:1px solid #e6e0d2;
+border-radius:14px;
+padding:48px;
+max-height:78vh;
+overflow:auto;
+box-shadow:0 20px 60px rgba(0,0,0,.08);
+}
 .preview h2{font-family:'Fraunces',Georgia,serif;color:var(--green-deep);font-size:28px;margin-bottom:12px}
 .preview h3{font-family:'Fraunces',Georgia,serif;color:var(--green-deep);font-size:20px;margin:22px 0 8px}
 .preview p,.preview li{font-size:13.5px;color:#3f4935}
