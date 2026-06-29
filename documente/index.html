@@ -1204,51 +1204,67 @@ function downloadPdfAgain(){
   html2pdf().set(opt).from(element).save();
 }
 
-function finishFlow(){
+async function finishFlow(){
   if(!signatureHasContent){
     showError("Te rog să semnezi în chenar înainte de finalizare.");
     return;
   }
-if(!document.getElementById("finalConsent").checked){
-  showError("Te rog să confirmi acordul final înainte de trimitere.");
-  return;
-}
 
-const canvas = document.getElementById("signaturePad");
-signatureDataUrl = canvas.toDataURL("image/png");
-insertSignatureInPreview();
-
-const element = document.getElementById("finalDocument");
-
-const opt = {
-  margin: 10,
-  filename: `Document_Inscriere_${currentDocumentId}.pdf`,
-  image: {
-    type: "jpeg",
-    quality: 1
-  },
-  html2canvas: {
-    scale: 2,
-    useCORS: true,
-    scrollY: 0
-  },
-  jsPDF: {
-    unit: "mm",
-    format: "a4",
-    orientation: "portrait"
-  },
-  pagebreak: {
-    mode: ["css", "legacy"]
+  if(!document.getElementById("finalConsent").checked){
+    showError("Te rog să confirmi acordul final înainte de trimitere.");
+    return;
   }
-};
 
-html2pdf()
-  .set(opt)
-  .from(element)
-  .save()
-  .then(() => {
+  const canvas = document.getElementById("signaturePad");
+  signatureDataUrl = canvas.toDataURL("image/png");
+  insertSignatureInPreview();
+
+  const element = document.getElementById("finalDocument");
+
+  const opt = {
+    margin: 10,
+    filename: `Document_Inscriere_${currentDocumentId}.pdf`,
+    image: {
+      type: "jpeg",
+      quality: 1
+    },
+    html2canvas: {
+      scale: 2,
+      useCORS: true,
+      scrollY: 0
+    },
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait"
+    },
+    pagebreak: {
+      mode: ["css", "legacy"]
+    }
+  };
+
+  try{
+    const pdfBlob = await html2pdf()
+      .set(opt)
+      .from(element)
+      .outputPdf("blob");
+
+    const result = await sendPdfToServer(pdfBlob);
+
+    if(!result || result.success !== true){
+      throw new Error(result && result.error ? result.error : "Trimiterea documentului a eșuat.");
+    }
+
+    await html2pdf()
+      .set(opt)
+      .from(element)
+      .save();
+
     goStep(5);
-  });
+
+  }catch(err){
+    showError("Documentul a fost generat, dar trimiterea automată a eșuat: " + err.message);
+  }
 }
 </script>
 
