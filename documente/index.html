@@ -1121,55 +1121,34 @@ function insertSignatureInPreview(){
   }
 }
 
-async function sendPdfToServer(pdfBlob){
+async function sendDocumentToServer(){
+  const finalDocument = document.getElementById("finalDocument");
 
-    const reader = new FileReader();
+  if(!finalDocument){
+    throw new Error("Documentul final nu exista.");
+  }
 
-    return new Promise((resolve,reject)=>{
+  const parentEmail = currentType === "child" ? val("parentEmail") : val("adultEmail");
+  const parentName = currentType === "child" ? val("parentName") : val("adultName");
+  const participantName = currentType === "child" ? val("childName") : val("adultName");
 
-        reader.onloadend = async ()=>{
+  const response = await fetch(APPS_SCRIPT_URL,{
+    method:"POST",
+    headers:{
+      "Content-Type":"text/plain;charset=utf-8"
+    },
+    body:JSON.stringify({
+      documentId:currentDocumentId,
+      parentEmail:parentEmail,
+      parentName:parentName,
+      participantName:participantName,
+      documentHtml:finalDocument.innerHTML
+    })
+  });
 
-            try{
-
-                const base64 = reader.result.split(",")[1];
-
-                const response = await fetch(APPS_SCRIPT_URL,{
-                    method:"POST",
-                    headers:{
-                        "Content-Type":"application/json"
-                    },
-                    body:JSON.stringify({
-
-                        pdfBase64:base64,
-
-                        documentId:currentDocumentId,
-
-                        parentEmail:document.getElementById("parentEmail").value,
-
-                        parentName:document.getElementById("parentName").value,
-
-                        participantName:document.getElementById("childName").value
-
-                    })
-                });
-
-                const result = await response.json();
-
-                resolve(result);
-
-            }catch(err){
-
-                reject(err);
-
-            }
-
-        };
-
-        reader.readAsDataURL(pdfBlob);
-
-    });
-
-}  
+  const result = await response.json();
+  return result;
+}
   
 function downloadPdfAgain(){
   const element = document.getElementById("finalDocument");
