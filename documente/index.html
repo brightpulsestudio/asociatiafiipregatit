@@ -384,8 +384,11 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
         <i class="ti ti-circle-check"></i>
         <h2 class="disp" style="font-size:34px;margin:16px 0 10px">Înscriere pregătită</h2>
         <p style="color:#d7e0cd;max-width:620px;margin:0 auto 22px">
-          Documentul a fost completat, semnat și descărcat automat în format PDF. Te rugăm să trimiți PDF-ul pe email către Asociația Fii Pregătit, dacă transmiterea automată nu este încă activă.
+          Documentul a fost completat, semnat și transmis automat pe email către părinte și către Asociatța Fii Pregătit.
         </p>
+<div class="row" style="justify-content:center">
+  <button class="btn btn-orange" onclick="downloadPdfAgain()">Descarcă PDF-ul din nou</button>
+</div>
         
       </div>
     </section>
@@ -1115,7 +1118,40 @@ function insertSignatureInPreview(){
     signatureBox.innerHTML = `<img src="${signatureDataUrl}" alt="Semnătură" style="max-width:260px;height:auto;border:1px solid #e6e0d2;border-radius:6px;background:#fff;padding:8px">`;
   }
 }
-  
+
+function downloadPdfAgain(){
+  const element = document.getElementById("finalDocument");
+
+  if(!element){
+    showError("Documentul nu este disponibil pentru descărcare. Te rog să reiei completarea formularului.");
+    return;
+  }
+
+  const opt = {
+    margin: 10,
+    filename: `Document_Inscriere_${currentDocumentId}.pdf`,
+    image: {
+      type: "jpeg",
+      quality: 1
+    },
+    html2canvas: {
+      scale: 2,
+      useCORS: true,
+      scrollY: 0
+    },
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait"
+    },
+    pagebreak: {
+      mode: ["css", "legacy"]
+    }
+  };
+
+  html2pdf().set(opt).from(element).save();
+}
+
 function finishFlow(){
   if(!signatureHasContent){
     showError("Te rog să semnezi în chenar înainte de finalizare.");
