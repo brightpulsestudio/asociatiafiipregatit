@@ -84,6 +84,7 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     <a class="navlink" href="#metoda">Metoda</a>
     <a class="navlink" href="#sustine">Susține-ne</a>
     <a class="navlink" href="#contact">Contact</a>
+    <a class="navlink" href="documente.html">Documente</a>
     <a class="nav-cta" href="https://wa.me/40745482705" target="_blank" rel="noopener">WhatsApp</a>
   </div>
 </nav>
@@ -225,24 +226,33 @@ canvas{cursor:crosshair;touch-action:none;display:block}
   </div>
 </section>
 
-<!-- DOCUMENTE -->
+<!-- DOCUMENTE SI REGULAMENT -->
 <section class="sec" style="background:var(--cream-2)">
   <div class="wrap">
-    <div class="eb">Documente online</div>
-    <h2 class="t disp" style="color:var(--green-deep)">Completezi online. Primești PDF-ul pe email.</h2>
-    <p class="lead" style="color:#5a624c;margin-bottom:26px">Introduci datele, semnezi pe ecran și primești documentul completat imediat pe email. Fără imprimante, fără drumuri.</p>
-    <div class="grid2" style="gap:10px;margin-bottom:18px">
-      <div onclick="selectDoc('declaratie_minori')" id="card-declaratie_minori" class="card hov" style="background:#fff;border:1px solid #e6e0d2;border-radius:9px;padding:18px;cursor:pointer"><i class="ti ti-mood-kid" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:14px;margin:8px 0 4px">Declarație pentru Minori</div><div style="color:#7a8268;font-size:12px;line-height:1.5;margin-bottom:8px">Acordul părintelui pentru participarea copilului.</div><div style="color:var(--orange);font-size:11px;font-weight:600">Completează →</div></div>
-      <div onclick="selectDoc('declaratie_adulti')" id="card-declaratie_adulti" class="card hov" style="background:#fff;border:1px solid #e6e0d2;border-radius:9px;padding:18px;cursor:pointer"><i class="ti ti-user" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:14px;margin:8px 0 4px">Declarație pentru Adulți</div><div style="color:#7a8268;font-size:12px;line-height:1.5;margin-bottom:8px">Declarație proprie pentru participanții adulți.</div><div style="color:var(--orange);font-size:11px;font-weight:600">Completează →</div></div>
-      <div onclick="selectDoc('gdpr_copii')" id="card-gdpr_copii" class="card hov" style="background:#fff;border:1px solid #e6e0d2;border-radius:9px;padding:18px;cursor:pointer"><i class="ti ti-camera" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:14px;margin:8px 0 4px">Acord GDPR (Copii)</div><div style="color:#7a8268;font-size:12px;line-height:1.5;margin-bottom:8px">Consimțământ pentru imaginea și datele minorului.</div><div style="color:var(--orange);font-size:11px;font-weight:600">Completează →</div></div>
-      <div onclick="selectDoc('gdpr_adulti')" id="card-gdpr_adulti" class="card hov" style="background:#fff;border:1px solid #e6e0d2;border-radius:9px;padding:18px;cursor:pointer"><i class="ti ti-lock" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:14px;margin:8px 0 4px">Acord GDPR (Adulți)</div><div style="color:#7a8268;font-size:12px;line-height:1.5;margin-bottom:8px">Consimțământ pentru imaginea și datele tale.</div><div style="color:var(--orange);font-size:11px;font-weight:600">Completează →</div></div>
-    </div>
-    <div id="form-panel" style="display:none;background:#eee7d8;border-radius:11px;padding:16px;min-height:420px">
-      <div style="background:#fff;border-radius:9px;padding:28px;max-width:500px;margin:0 auto" class="fadeup">
-        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:10px;color:#9aa088" id="form-step-label">Pas 1 din 3</div>
-        <div style="display:flex;gap:4px;margin-bottom:20px"><div id="bar1" style="height:3px;flex:1;border-radius:2px;background:var(--orange)"></div><div id="bar2" style="height:3px;flex:1;border-radius:2px;background:#e2dccd"></div><div id="bar3" style="height:3px;flex:1;border-radius:2px;background:#e2dccd"></div></div>
-        <div id="form-content"></div>
-      </div>
+    <div class="eb">Participare</div>
+    <h2 class="t disp" style="color:var(--green-deep)">Documente necesare pentru participare</h2>
+    <p class="lead" style="color:#5a624c;margin-bottom:26px">
+      Pentru siguranța copiilor și buna desfășurare a activităților, părinții și participanții completează documentele necesare înainte de participare și confirmă că au luat la cunoștință regulamentul.
+    </p>
+
+    <div class="grid2" style="gap:12px">
+      <a href="regulament.html" class="card hov" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:24px;text-decoration:none;display:block">
+        <i class="ti ti-file-text" style="color:var(--orange);font-size:26px" aria-hidden="true"></i>
+        <h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:20px;margin:10px 0 8px">Regulament participanți</h3>
+        <p style="color:#5a624c;font-size:13px;line-height:1.65;margin-bottom:10px">
+          Citește regulile de conduită, siguranță și responsabilitate aplicabile activităților Fii Pregătit.
+        </p>
+        <span style="color:var(--orange);font-size:12.5px;font-weight:600">Vezi regulamentul →</span>
+      </a>
+
+      <a href="documente.html" class="card hov" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:24px;text-decoration:none;display:block">
+        <i class="ti ti-clipboard-check" style="color:var(--orange);font-size:26px" aria-hidden="true"></i>
+        <h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:20px;margin:10px 0 8px">Formulare de participare</h3>
+        <p style="color:#5a624c;font-size:13px;line-height:1.65;margin-bottom:10px">
+          Completează declarațiile și acordurile necesare participării la activitățile organizate de asociație.
+        </p>
+        <span style="color:var(--orange);font-size:12.5px;font-weight:600">Completează documentele →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -306,73 +316,5 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     <span class="disp" style="color:var(--orange-2);font-size:12px;font-style:italic">Fii Pregătit. Educație Sănătate. Siguranță.</span>
   </div>
 </footer>
-
-<script>
-const DOCS={
-  declaratie_minori:{title:'Declarație pentru Minori',fields:[
-    {k:'parinte_nume',l:'Nume și prenume tutore / părinte',ph:'ex: Popescu Ioan'},
-    {k:'parinte_cnp',l:'CNP tutore (obligatoriu legal)',ph:'1234567890123',max:13},
-    {k:'parinte_loc',l:'Localitate domiciliu',ph:'ex: Brașov, jud. Brașov'},
-    {k:'parinte_tel',l:'Telefon urgență',ph:'07xx xxx xxx'},
-    {k:'minor_nume',l:'Nume complet copil',ph:'ex: Popescu Maria'},
-    {k:'minor_nastere',l:'Data nașterii copilului',ph:'ZZ.LL.AAAA'}]},
-  declaratie_adulti:{title:'Declarație pentru Adulți',fields:[
-    {k:'nume',l:'Nume și prenume',ph:'ex: Ionescu Andrei'},
-    {k:'cnp',l:'CNP (obligatoriu legal)',ph:'1234567890123',max:13},
-    {k:'loc',l:'Localitate domiciliu',ph:'ex: Brașov, jud. Brașov'},
-    {k:'tel',l:'Telefon urgență',ph:'07xx xxx xxx'}]},
-  gdpr_copii:{title:'Acord GDPR Copii',fields:[
-    {k:'tutore_nume',l:'Nume și prenume tutore / părinte',ph:'ex: Popescu Ioan'},
-    {k:'tutore_email',l:'Email (pentru drepturile GDPR)',ph:'email@exemplu.ro',type:'email'},
-    {k:'minor_nume',l:'Nume complet copil',ph:'ex: Popescu Maria'},
-    {k:'minor_nastere',l:'Data nașterii copilului',ph:'ZZ.LL.AAAA'}]},
-  gdpr_adulti:{title:'Acord GDPR Adulți',fields:[
-    {k:'nume',l:'Nume și prenume',ph:'ex: Ionescu Andrei'},
-    {k:'nastere',l:'Data nașterii',ph:'ZZ.LL.AAAA'},
-    {k:'email',l:'Email (pentru drepturile GDPR)',ph:'email@exemplu.ro',type:'email'}]}
-};
-let currentDoc=null,currentStep=1,formValues={},sigData=null;
-function selectDoc(id){currentDoc=id;currentStep=1;formValues={};sigData=null;
-  ['declaratie_minori','declaratie_adulti','gdpr_copii','gdpr_adulti'].forEach(d=>{document.getElementById('card-'+d).style.border=d===id?'1px solid #ff5502':'1px solid #e6e0d2';});
-  document.getElementById('form-panel').style.display='block';renderStep();
-  document.getElementById('form-panel').scrollIntoView({behavior:'smooth',block:'nearest'});}
-function renderStep(){
-  ['bar1','bar2','bar3'].forEach((b,i)=>{document.getElementById(b).style.background=i<currentStep?'#ff5502':'#e2dccd';});
-  document.getElementById('form-step-label').textContent='Pas '+currentStep+' din 3 · '+DOCS[currentDoc].title;
-  const fc=document.getElementById('form-content');
-  if(currentStep===1){
-    let html='<h3 style="font-weight:600;font-size:18px;color:#1b340c;margin-bottom:18px;font-family:Fraunces,serif">Completează datele</h3>';
-    DOCS[currentDoc].fields.forEach(f=>{html+='<div style="margin-bottom:13px"><label style="display:block;font-size:12px;font-weight:600;color:#42492f;margin-bottom:5px">'+f.l+'</label><input class="fp-input" id="f_'+f.k+'" type="'+(f.type||'text')+'" placeholder="'+f.ph+'" '+(f.max?'maxlength="'+f.max+'"':'')+'></div>';});
-    html+='<div style="margin-bottom:13px"><label style="display:block;font-size:12px;font-weight:600;color:#42492f;margin-bottom:5px">Email pentru primirea PDF-ului</label><input class="fp-input" id="f_email_dest" type="email" placeholder="email@tau.ro" style="border-color:#ff5502;background:#fff7f2"></div>';
-    html+='<button onclick="goStep2()" style="width:100%;background:#1b340c;color:#fff;border:none;border-radius:6px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;margin-top:6px;font-family:Inter">Continuă la semnătură →</button>';
-    fc.innerHTML=html;
-    Object.keys(formValues).forEach(k=>{const el=document.getElementById('f_'+k);if(el)el.value=formValues[k];});}
-  if(currentStep===2){
-    fc.innerHTML='<h3 style="font-weight:600;font-size:18px;color:#1b340c;margin-bottom:6px;font-family:Fraunces,serif">Semnătură olografă</h3><p style="color:#6a725a;font-size:13px;line-height:1.5;margin-bottom:16px">Semnează cu mouse-ul sau degetul. Va apărea în PDF exact cum o scrii.</p><div style="border:1px solid #d8d2c4;border-radius:6px;background:#fbf9f4;position:relative;overflow:hidden"><canvas id="sig-canvas" width="440" height="110" style="width:100%;height:110px"></canvas><div id="sig-hint" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#c3bba8;font-size:13px;pointer-events:none">Semnează aici</div></div><button onclick="clearSig()" style="margin-top:8px;background:none;border:1px solid #d8d2c4;padding:5px 12px;font-size:12px;border-radius:5px;cursor:pointer;color:#6a725a">Șterge</button><button id="btn-send" onclick="submitDoc()" disabled style="width:100%;background:#e2dccd;color:#9aa088;border:none;border-radius:6px;padding:13px;font-size:14px;font-weight:600;cursor:not-allowed;margin-top:14px;font-family:Inter">Semnează mai întâi</button><button onclick="goBack()" style="width:100%;background:none;border:none;color:#9aa088;font-size:12px;cursor:pointer;padding:8px;margin-top:4px">← Înapoi la date</button>';
-    initCanvas();}
-  if(currentStep===3){
-    fc.innerHTML='<div style="text-align:center;padding:20px 0"><div style="width:60px;height:60px;border-radius:50%;background:#eaf3de;display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><i class="ti ti-check" style="color:#3b6d11;font-size:30px"></i></div><h3 style="font-weight:600;font-size:20px;color:#1b340c;margin-bottom:8px;font-family:Fraunces,serif">Document trimis!</h3><p style="color:#5a624c;font-size:13px;line-height:1.6;max-width:340px;margin:0 auto 18px">Am generat PDF-ul cu datele și semnătura ta și ți l-am trimis pe email. Verifică și folderul Spam.</p><div style="background:#eaf3de;border:1px solid #c0dd97;border-radius:6px;padding:10px 14px;font-size:13px;color:#3b6d11;margin-bottom:20px">PDF trimis la: <strong>'+(formValues.email_dest||'—')+'</strong></div><button onclick="closeForm()" style="background:#1b340c;color:#fff;border:none;border-radius:6px;padding:11px 22px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter">Completează alt document</button></div>';}
-}
-function saveFormValues(){DOCS[currentDoc].fields.forEach(f=>{const el=document.getElementById('f_'+f.k);if(el)formValues[f.k]=el.value;});const ed=document.getElementById('f_email_dest');if(ed)formValues.email_dest=ed.value;}
-function goStep2(){saveFormValues();currentStep=2;renderStep();}
-function goBack(){currentStep=1;renderStep();}
-async function submitDoc(){
-  if(!sigData)return;
-  // ===== BACKEND (de activat după ce e gata Cloudflare Worker) =====
-  // const res = await fetch('/api/genereaza-pdf', {
-  //   method:'POST', headers:{'Content-Type':'application/json'},
-  //   body: JSON.stringify({ tip: currentDoc, date: formValues, semnatura: sigData })
-  // });
-  // ===============================================================
-  currentStep=3;renderStep();
-}
-function closeForm(){document.getElementById('form-panel').style.display='none';['declaratie_minori','declaratie_adulti','gdpr_copii','gdpr_adulti'].forEach(d=>{document.getElementById('card-'+d).style.border='1px solid #e6e0d2';});currentDoc=null;}
-function initCanvas(){const canvas=document.getElementById('sig-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');let drawing=false,lastX=0,lastY=0;
-  function getXY(e){const r=canvas.getBoundingClientRect();const sx=canvas.width/r.width,sy=canvas.height/r.height;const src=e.touches?e.touches[0]:e;return[(src.clientX-r.left)*sx,(src.clientY-r.top)*sy];}
-  canvas.onmousedown=canvas.ontouchstart=function(e){e.preventDefault();drawing=true;const xy=getXY(e);lastX=xy[0];lastY=xy[1];};
-  canvas.onmousemove=canvas.ontouchmove=function(e){e.preventDefault();if(!drawing)return;const xy=getXY(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(xy[0],xy[1]);ctx.strokeStyle='#1b340c';ctx.lineWidth=2;ctx.lineCap='round';ctx.stroke();lastX=xy[0];lastY=xy[1];document.getElementById('sig-hint').style.display='none';sigData=canvas.toDataURL();const btn=document.getElementById('btn-send');if(btn){btn.disabled=false;btn.style.background='#ff5502';btn.style.color='#fff';btn.style.cursor='pointer';btn.textContent='Trimite documentul pe email →';}};
-  canvas.onmouseup=canvas.ontouchend=function(e){e.preventDefault();drawing=false;};}
-function clearSig(){const canvas=document.getElementById('sig-canvas');if(!canvas)return;canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);sigData=null;document.getElementById('sig-hint').style.display='flex';const btn=document.getElementById('btn-send');if(btn){btn.disabled=true;btn.style.background='#e2dccd';btn.style.color='#9aa088';btn.style.cursor='not-allowed';btn.textContent='Semnează mai întâi';}}
-</script>
 </body>
 </html>
