@@ -280,7 +280,23 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
             <input id="emergencyRelation" type="text" placeholder="Ex: părinte, bunic, mătușă">
           </div>
         </div>
+        <h3 class="disp" style="color:var(--green-deep);margin:18px 0 12px">
+            Utilizarea imaginii
+        </h3>
 
+<p class="help" style="margin-bottom:12px">
+  În cadrul activităților pot fi realizate fotografii și materiale video în scopul documentării și promovării activităților Asociației Fii Pregătit.
+</p>
+
+<label class="check">
+  <input type="radio" name="imageConsent" value="Da">
+  <span>Sunt de acord cu utilizarea fotografiilor și materialelor video.</span>
+</label>
+
+<label class="check">
+  <input type="radio" name="imageConsent" value="Nu">
+  <span>Nu sunt de acord cu utilizarea fotografiilor și materialelor video.</span>
+</label>
         <div class="row">
           <button class="btn btn-light" onclick="goStep(1)">Înapoi</button>
           <button class="btn btn-orange" onclick="nextToPreview()">Generează documentul</button>
