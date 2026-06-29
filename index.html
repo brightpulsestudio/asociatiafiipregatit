@@ -49,6 +49,19 @@ img{max-width:100%;display:block}
 .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.35)}
 .btn-ghost:hover{background:rgba(255,255,255,.18)}
 .row-btns{display:flex;gap:12px;flex-wrap:wrap}
+  .contact-wrap{
+  position:relative;
+}
+
+.contact-patch{
+  position:absolute;
+  top:-14px;
+  right:0;
+  width:190px;
+  height:auto;
+  opacity:.98;
+  filter:drop-shadow(0 10px 16px rgba(27,52,12,.10));
+}
 /* SECTIONS */
 .sec{padding:62px 40px}
 .eb{color:var(--orange);font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:14px}
@@ -68,7 +81,7 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .fadeup{animation:fadeUp .4s ease forwards}
 @media(max-width:760px){
-    .hero{
+  .hero{
     min-height:auto;
   }
 
@@ -77,10 +90,38 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     max-width:none;
     padding:54px 24px 42px;
   }
-  .grid2{grid-template-columns:1fr}
-  .sec{padding:48px 22px}
-  .nav{padding:11px 18px;gap:12px}
-  .nav-links-wrap{display:flex;gap:14px;flex-wrap:wrap;width:100%;margin-top:4px}
+
+  .grid2{
+    grid-template-columns:1fr;
+  }
+
+  .sec{
+    padding:48px 22px;
+  }
+
+  .nav{
+    padding:11px 18px;
+    gap:12px;
+  }
+
+  .nav-links-wrap{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    width:100%;
+    margin-top:4px;
+  }
+
+  .contact-wrap{
+    padding-top:76px;
+  }
+
+  .contact-patch{
+    top:0;
+    left:0;
+    right:auto;
+    width:108px;
+  }
 }
 </style>
 </head>
@@ -157,7 +198,8 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 <p style="color:#4c5440;font-size:14px;line-height:1.8">
   Suntem părinți a doi băieți, o familie din Brașov și lucrăm direct cu copiii în natură, cu grijă, structură și multă atenție la siguranță. Activitățile sunt ghidate de noi, Corina și Laurențiu, iar experiența lui Lau în intervenții speciale și negociere în situații de criză ne ajută să construim ieșiri clare, sigure și adaptate copiilor.
 </p>
- <div style="display:flex;justify-content:center;align-items:center">
+        </div>
+<div style="display:flex;justify-content:center;align-items:center">
   <div style="width:100%;max-width:460px;aspect-ratio:3/4;overflow:hidden;border-radius:14px;background:#173a10;padding:7px;box-shadow:0 18px 42px rgba(27,52,12,.22)">
     <img
       src="adapost-noi.jpg"
@@ -166,6 +208,7 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     >
   </div>
 </div>
+     </div>
 </section>
 
 <!-- METODA -->
@@ -297,7 +340,12 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 
 <!-- CONTACT -->
 <section id="contact" class="sec" style="background:var(--cream)">
-  <div class="wrap">
+  <div class="wrap contact-wrap">
+    <img
+      class="contact-patch"
+      src="LOGO-PATCH.png"
+      alt="Asociația Fii Pregătit"
+    >
     <div class="eb">Contact</div>
     <h2 class="t disp" style="color:var(--green-deep)">Scrie-ne!</h2>
     <p class="lead" style="color:#4c5440;margin-bottom:28px">Cel mai rapid răspuns vine pe WhatsApp. Spune-ne numele și vârsta copilului, iar noi îți zicem când e următoarea ieșire.</p>
