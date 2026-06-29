@@ -518,81 +518,405 @@ function generateDocumentId(){
 }  
   
 function generatePreview(){
-  const today = new Date().toLocaleDateString("ro-RO");
+  const now = new Date();
+  const documentId = generateDocumentId();
+  const generatedDate = now.toLocaleDateString("ro-RO");
+  const generatedTime = now.toLocaleTimeString("ro-RO", {hour:"2-digit", minute:"2-digit"});
+  const imageConsent = getImageConsent();
 
-  let identity = "";
+  const signerName = currentType === "child" ? val("parentName") : val("adultName");
+  const signerPhone = currentType === "child" ? val("parentPhone") : val("adultPhone");
+  const signerEmail = currentType === "child" ? val("parentEmail") : val("adultEmail");
+  const participantName = currentType === "child" ? val("childName") : val("adultName");
+  const participantBirth = currentType === "child" ? val("childBirth") : val("adultBirth");
 
-  if(currentType==="child"){
-    identity = `
-      <h3>1. Date participant minor</h3>
-      <p><strong>Părinte/tutore legal:</strong> ${safe(val("parentName"))}</p>
-      <p><strong>Telefon:</strong> ${safe(val("parentPhone"))}</p>
-      <p><strong>Email:</strong> ${safe(val("parentEmail"))}</p>
-      <p><strong>Minor:</strong> ${safe(val("childName"))}</p>
-      <p><strong>Data nașterii minorului:</strong> ${safe(val("childBirth"))}</p>
-    `;
-  } else {
-    identity = `
-      <h3>1. Date participant adult</h3>
-      <p><strong>Participant:</strong> ${safe(val("adultName"))}</p>
-      <p><strong>Telefon:</strong> ${safe(val("adultPhone"))}</p>
-      <p><strong>Email:</strong> ${safe(val("adultEmail"))}</p>
-      <p><strong>Data nașterii:</strong> ${safe(val("adultBirth"))}</p>
-    `;
-  }
+  const imageYes = imageConsent === "Da" ? "☑" : "☐";
+  const imageNo = imageConsent === "Nu" ? "☑" : "☐";
 
   const preview = `
-    <h2>Document de participare</h2>
-    <p><strong>Asociația Fii Pregătit</strong> • Educație • Sănătate • Siguranță</p>
-    <p><strong>Data generării:</strong> ${today}</p>
+    <div class="doc-head">
+      <div class="doc-kicker">Asociația Fii Pregătit</div>
+      <div class="doc-title">Document de înscriere și participare</div>
+      <div class="doc-subtitle">Activități educative outdoor pentru copii și adulți</div>
 
-    ${identity}
+      <p><strong>ASOCIAȚIA FII PREGĂTIT</strong></p>
+      <p>CIF: 51220175</p>
+      <p>Sediul: str. Lemnarilor, nr. 25 A, Brașov, Brașov</p>
+      <p>Website: https://asociatiafiipregatit.ro/</p>
+      <p>Email: contact@asociatiafiipregatit.ro</p>
 
-    <h3>2. Informații privind sănătatea și siguranța</h3>
-    <p><strong>Alergii:</strong> ${safe(val("allergies"))}</p>
-    <p><strong>Detalii alergii:</strong> ${safe(val("allergiesDetails"))}</p>
-    <p><strong>Afecțiuni medicale:</strong> ${safe(val("conditions"))}</p>
-    <p><strong>Detalii afecțiuni:</strong> ${safe(val("conditionsDetails"))}</p>
-    <p><strong>Tratament medical:</strong> ${safe(val("treatment"))}</p>
-    <p><strong>Detalii tratament:</strong> ${safe(val("treatmentDetails"))}</p>
-    <p><strong>Alte informații:</strong> ${safe(val("notes"))}</p>
-    <p><strong>Contact urgență:</strong> ${safe(val("emergencyName"))} • ${safe(val("emergencyPhone"))}</p>
+      <div class="doc-meta">
+        <div><strong>ID document:</strong><br>${safe(documentId)}</div>
+        <div><strong>Data generării:</strong><br>${safe(generatedDate)}</div>
+        <div><strong>Ora generării:</strong><br>${safe(generatedTime)}</div>
+      </div>
 
-    <h3>3. Declarație de participare</h3>
-    <p>
-      Declar că participantul este apt pentru activitățile organizate de Asociația Fii Pregătit, în măsura informațiilor cunoscute de mine, și că am comunicat organizatorilor informațiile medicale relevante pentru siguranța participantului.
-    </p>
-    <p>
-      Înțeleg că activitățile outdoor pot implica efort fizic și riscuri inerente, iar organizatorii iau măsuri de siguranță rezonabile pentru desfășurarea activităților.
-    </p>
+      <p>
+        Acest document a fost generat automat în urma completării formularului de înscriere disponibil pe site-ul Asociației Fii Pregătit și conține toate declarațiile, acordurile și consimțămintele necesare participării la activitățile organizate de asociație.
+      </p>
 
-    <h3>4. Prim ajutor și situații de urgență</h3>
-    <p>
-      Sunt de acord ca organizatorii să acorde primul ajutor participantului și să solicite intervenția serviciilor medicale de urgență, dacă situația o impune.
-    </p>
+      <p>
+        Prin aplicarea semnăturii în prezentul document confirm că am citit integral documentul, am înțeles conținutul acestuia și îmi exprim acordul cu toate declarațiile, consimțămintele și obligațiile cuprinse în acesta.
+      </p>
 
-    <h3>5. Informare privind datele personale</h3>
-    <p>
-      Datele completate sunt utilizate pentru organizarea activităților, comunicarea cu participantul sau reprezentantul legal, gestionarea situațiilor de urgență și păstrarea evidenței documentelor de participare.
-    </p>
-    <p>
-      Datele sunt prelucrate de Asociația Fii Pregătit, CIF 51220175, email contact@asociatiafiipregatit.ro, în conformitate cu Regulamentul (UE) 2016/679.
-    </p>
+      <p>
+        Prin semnarea prezentului document, reprezentantul legal sau participantul adult confirmă că prezentul document reprezintă acordul complet dintre părți privind participarea la activitățile organizate de Asociația Fii Pregătit.
+      </p>
+    </div>
 
-    <h3>6. Utilizarea imaginii</h3>
-    <p>
-      În cadrul activităților pot fi realizate fotografii și materiale video. Utilizarea imaginii participantului se face numai în condițiile acordului exprimat în cadrul documentului de consimțământ.
-    </p>
+    <div class="doc-section">
+      <h3>Cuprins</h3>
+      <ol class="doc-list">
+        <li>Date participant</li>
+        <li>Informații medicale</li>
+        <li>Declarație de participare</li>
+        <li>Riscurile activităților outdoor</li>
+        <li>Prim ajutor și situații de urgență</li>
+        <li>Regulamentul participanților</li>
+        <li>Protecția datelor cu caracter personal (GDPR)</li>
+        <li>Consimțământ privind utilizarea imaginii</li>
+        <li>Declarații finale</li>
+        <li>Semnătură</li>
+      </ol>
+    </div>
 
-    <h3>7. Confirmare regulament</h3>
-    <p>
-      Confirm că am citit, am înțeles și sunt de acord cu Regulamentul participanților publicat pe site-ul Asociației Fii Pregătit.
-    </p>
+    <div class="doc-section">
+      <h3>1. Date participant</h3>
 
-    <h3>8. Confirmare finală</h3>
-    <p>
-      Confirm că informațiile completate sunt reale și corecte. Documentul urmează să fie semnat în chenarul dedicat și transmis către Asociația Fii Pregătit.
-    </p>
+      <div class="doc-box">
+        <p><strong>Reprezentant legal / Participant adult</strong></p>
+        <p><strong>Nume și prenume:</strong> ${safe(signerName)}</p>
+        <p><strong>Telefon:</strong> ${safe(signerPhone)}</p>
+        <p><strong>Email:</strong> ${safe(signerEmail)}</p>
+      </div>
+
+      <div class="doc-box">
+        <p><strong>Participant</strong></p>
+        <p><strong>Nume și prenume:</strong> ${safe(participantName)}</p>
+        <p><strong>Data nașterii:</strong> ${safe(participantBirth)}</p>
+      </div>
+
+      <div class="doc-box">
+        <p><strong>Persoană de contact în caz de urgență</strong></p>
+        <p><strong>Nume și prenume:</strong> ${safe(val("emergencyName"))}</p>
+        <p><strong>Telefon:</strong> ${safe(val("emergencyPhone"))}</p>
+        <p><strong>Relația cu participantul:</strong> ${safe(val("emergencyRelation"))}</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <h3>2. Informații medicale</h3>
+
+      <p>
+        În scopul desfășurării activităților în condiții de siguranță, reprezentantul legal sau participantul adult are obligația de a furniza informații complete și reale privind starea de sănătate a participantului.
+      </p>
+
+      <p>
+        Aceste informații sunt utilizate exclusiv pentru protejarea sănătății și siguranței participantului pe durata activităților organizate de Asociația Fii Pregătit.
+      </p>
+
+      <div class="doc-box">
+        <p><strong>Alergii cunoscute:</strong> ${safe(val("allergies"))}</p>
+        <p><strong>Detalii alergii:</strong> ${safe(val("allergiesDetails"))}</p>
+        <p><strong>Afecțiuni medicale cunoscute:</strong> ${safe(val("conditions"))}</p>
+        <p><strong>Detalii afecțiuni:</strong> ${safe(val("conditionsDetails"))}</p>
+        <p><strong>Tratament medicamentos:</strong> ${safe(val("treatment"))}</p>
+        <p><strong>Detalii tratament:</strong> ${safe(val("treatmentDetails"))}</p>
+        <p><strong>Alte informații importante:</strong> ${safe(val("notes"))}</p>
+      </div>
+
+      <p>
+        Reprezentantul legal / participantul declară că informațiile medicale furnizate sunt complete și conforme cu realitatea la data semnării prezentului document și se obligă să informeze imediat organizatorii cu privire la orice modificare intervenită până la desfășurarea activității.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h3>3. Declarație de participare</h3>
+
+      <p>Prin semnarea prezentului document declar pe propria răspundere că:</p>
+
+      <ol class="doc-list">
+        <li>am completat cu bună-credință toate informațiile solicitate;</li>
+        <li>informațiile furnizate sunt complete, reale și actuale;</li>
+        <li>nu am omis în mod intenționat informații medicale sau alte informații relevante pentru siguranța participantului;</li>
+        <li>participantul poate lua parte la activitățile organizate de Asociația Fii Pregătit, în limitele informațiilor medicale comunicate prin prezentul document;</li>
+        <li>înțeleg că activitățile organizate de Asociația Fii Pregătit au caracter educativ, recreativ și experiențial și presupun desfășurarea acestora în mediul natural;</li>
+        <li>înțeleg că activitățile outdoor implică efort fizic adaptat vârstei și nivelului participanților;</li>
+        <li>declar că participantul va respecta instrucțiunile organizatorilor și ale instructorilor pe întreaga durată a activităților;</li>
+        <li>mă oblig să comunic organizatorilor orice modificare privind starea de sănătate a participantului apărută după completarea prezentului document și înainte de începerea activității;</li>
+        <li>înțeleg că nedeclararea unor informații medicale importante poate pune în pericol siguranța participantului și a celorlalți membri ai grupului;</li>
+        <li>declar că am avut posibilitatea de a adresa întrebări organizatorilor înainte de semnarea prezentului document;</li>
+        <li>confirm că toate informațiile furnizate sunt oferite în mod voluntar și cunosc consecințele furnizării unor informații false, incomplete sau inexacte;</li>
+        <li>declar că prezentul document a fost pus la dispoziția mea înainte de exprimarea consimțământului și că am avut posibilitatea de a-l citi integral;</li>
+        <li>declar că am înțeles că Asociația Fii Pregătit nu poate garanta eliminarea completă a tuturor riscurilor inerente activităților outdoor, în pofida măsurilor rezonabile de prevenire și siguranță adoptate.</li>
+      </ol>
+
+      <p>
+        Prin prezenta declarație confirm că participarea se realizează cu respectarea regulamentului Asociației Fii Pregătit și că înțeleg responsabilitățile care îmi revin în calitate de participant sau reprezentant legal al participantului minor.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h3>4. Riscurile activităților outdoor</h3>
+
+      <p>
+        Activitățile organizate de Asociația Fii Pregătit se desfășoară în principal în mediul natural și urmăresc dezvoltarea autonomiei, responsabilității, spiritului de echipă și a capacității de adaptare a participanților.
+      </p>
+
+      <p>
+        Deși activitățile sunt planificate, supravegheate și desfășurate cu respectarea măsurilor de siguranță stabilite de organizatori, acestea implică anumite riscuri inerente specifice mediului outdoor, care nu pot fi eliminate în totalitate.
+      </p>
+
+      <p>Prin semnarea prezentului document declar că înțeleg și accept faptul că, pe parcursul activităților, pot apărea situații precum:</p>
+
+      <ul class="doc-list">
+        <li>deplasarea pe teren accidentat, denivelat sau alunecos;</li>
+        <li>urcarea și coborârea pantelor;</li>
+        <li>traversarea zonelor împădurite;</li>
+        <li>deplasarea pe poteci montane sau forestiere;</li>
+        <li>existența rădăcinilor, pietrelor, crengilor sau a altor obstacole naturale;</li>
+        <li>alunecări, împiedicări sau căzături accidentale;</li>
+        <li>zgârieturi, lovituri sau echimoze minore;</li>
+        <li>înțepături sau mușcături de insecte;</li>
+        <li>contactul cu plante specifice mediului natural;</li>
+        <li>modificări bruște ale condițiilor meteorologice;</li>
+        <li>temperaturi ridicate sau scăzute;</li>
+        <li>expunerea la ploaie, vânt, noroi, praf sau umezeală;</li>
+        <li>efort fizic adaptat vârstei și nivelului participantului;</li>
+        <li>activități de orientare în teren;</li>
+        <li>utilizarea, exclusiv sub supravegherea instructorilor, a unor echipamente sau unelte specifice activităților educative;</li>
+        <li>desfășurarea activităților în apropierea focului de tabără organizat și supravegheat de instructori;</li>
+        <li>alte situații specifice desfășurării activităților educative în natură.</li>
+      </ul>
+
+      <p>
+        Lista de mai sus are caracter exemplificativ și nu limitativ, existând și alte situații inerente desfășurării activităților educative în mediul natural.
+      </p>
+
+      <p>
+        Declar că înțeleg faptul că aceste situații reprezintă riscuri inerente activităților outdoor și că organizatorii depun toate diligențele rezonabile pentru prevenirea accidentelor, fără a putea garanta eliminarea completă a tuturor riscurilor.
+      </p>
+
+      <p>
+        Confirm că am fost informat cu privire la natura activităților și că accept participarea în aceste condiții.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h3>5. Prim ajutor și situații de urgență</h3>
+
+      <p>
+        În situația apariției unui incident, accident sau a unei urgențe medicale pe durata activităților, Asociația Fii Pregătit va acționa cu prioritate pentru protejarea vieții și sănătății participantului.
+      </p>
+
+      <p>Prin prezentul document declar că sunt de acord ca organizatorii:</p>
+
+      <ul class="doc-list">
+        <li>să evalueze situația participantului;</li>
+        <li>să acorde primul ajutor în limita competențelor și calificărilor deținute;</li>
+        <li>să utilizeze materialele și echipamentele medicale disponibile în trusa de prim ajutor;</li>
+        <li>să contacteze serviciul de urgență 112 atunci când apreciază că situația impune intervenția acestuia;</li>
+        <li>să solicite sprijinul altor autorități competente, atunci când este necesar;</li>
+        <li>să comunice informațiile medicale relevante personalului medical implicat în intervenție;</li>
+        <li>să contacteze reprezentantul legal sau persoana desemnată pentru situații de urgență în cel mai scurt timp posibil.</li>
+      </ul>
+
+      <p>
+        Organizatorii vor acționa cu bună-credință și în interesul participantului, în funcție de circumstanțele concrete existente la momentul producerii incidentului.
+      </p>
+
+      <p>
+        Înțeleg că organizatorii vor lua deciziile necesare exclusiv în interesul protejării vieții și sănătății participantului.
+      </p>
+
+      <p>
+        Declar că informațiile medicale furnizate în prezentul document pot fi utilizate exclusiv în scopul gestionării unei eventuale situații de urgență.
+      </p>
+
+      <p>
+        Înțeleg că organizatorii nu pot înlocui serviciile medicale de specialitate și că acordarea primului ajutor reprezintă măsurile imediate necesare până la preluarea participantului de către personalul medical competent, dacă situația o impune.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h3>6. Regulamentul participanților</h3>
+
+      <p>
+        Declar că am avut posibilitatea să citesc integral Regulamentul participanților publicat de Asociația Fii Pregătit înainte de completarea și semnarea prezentului document.
+      </p>
+
+      <p>
+        Confirm că am înțeles prevederile acestuia și că sunt de acord cu respectarea tuturor regulilor de conduită, siguranță și participare stabilite de organizator.
+      </p>
+
+      <p>
+        Înțeleg că regulamentul este disponibil permanent la adresa:
+        <br><strong>https://asociatiafiipregatit.ro/regulament/</strong>
+      </p>
+
+      <p>
+        Declar că am înțeles că regulamentul face parte integrantă din prezentul document și reprezintă condiție esențială pentru participarea la activitățile organizate de Asociația Fii Pregătit.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h3>7. Protecția datelor cu caracter personal (GDPR)</h3>
+
+      <p>
+        Asociația Fii Pregătit prelucrează datele cu caracter personal furnizate prin prezentul document în conformitate cu Regulamentul (UE) 2016/679 privind protecția persoanelor fizice în ceea ce privește prelucrarea datelor cu caracter personal (GDPR), precum și cu legislația națională aplicabilă.
+      </p>
+
+      <div class="doc-box">
+        <p><strong>Operatorul datelor cu caracter personal:</strong> ASOCIAȚIA FII PREGĂTIT</p>
+        <p><strong>Email:</strong> contact@asociatiafiipregatit.ro</p>
+        <p><strong>Website:</strong> https://asociatiafiipregatit.ro</p>
+      </div>
+
+      <p><strong>Scopurile prelucrării:</strong></p>
+      <ul class="doc-list">
+        <li>organizarea și desfășurarea activităților educative;</li>
+        <li>identificarea participanților;</li>
+        <li>comunicarea cu părinții sau participanții;</li>
+        <li>gestionarea situațiilor de urgență;</li>
+        <li>acordarea primului ajutor și transmiterea informațiilor relevante personalului medical, dacă situația o impune;</li>
+        <li>respectarea obligațiilor legale ale Asociației;</li>
+        <li>arhivarea documentelor de participare.</li>
+      </ul>
+
+      <p><strong>Date prelucrate:</strong></p>
+      <ul class="doc-list">
+        <li>nume și prenume;</li>
+        <li>date de contact;</li>
+        <li>data nașterii;</li>
+        <li>informații medicale comunicate voluntar prin prezentul document;</li>
+        <li>semnătura aplicată prin intermediul platformei de înscriere;</li>
+        <li>data și ora semnării documentului.</li>
+      </ul>
+
+      <p>
+        Datele pot fi accesate exclusiv de persoanele autorizate din cadrul Asociației Fii Pregătit sau de autoritățile competente, atunci când legea impune acest lucru.
+      </p>
+
+      <p>
+        Asociația nu comercializează și nu transmite datele personale către terți în scopuri de marketing.
+      </p>
+
+      <p><strong>Perioada de stocare:</strong></p>
+      <p>
+        Documentul de înscriere și participare rămâne valabil pentru participarea la activitățile organizate de Asociația Fii Pregătit atât timp cât informațiile furnizate rămân corecte, complete și actuale.
+      </p>
+
+      <p>
+        Reprezentantul legal sau participantul adult are obligația de a informa Asociația imediat, dar nu mai târziu de începerea următoarei activități, și de a completa un nou document în cazul în care intervin modificări privind datele de contact, informațiile medicale relevante, persoana de contact în caz de urgență, consimțământul privind utilizarea imaginii sau orice alte informații care pot influența desfășurarea activităților în condiții de siguranță.
+      </p>
+
+      <p>
+        Datele vor fi păstrate pe perioada necesară îndeplinirii scopurilor pentru care au fost colectate, respectării obligațiilor legale și apărării drepturilor și intereselor legitime ale Asociației, cu respectarea legislației aplicabile.
+      </p>
+
+      <p><strong>Drepturile persoanei vizate:</strong></p>
+      <ul class="doc-list">
+        <li>dreptul de informare;</li>
+        <li>dreptul de acces la date;</li>
+        <li>dreptul la rectificare;</li>
+        <li>dreptul la ștergerea datelor, în condițiile legii;</li>
+        <li>dreptul la restricționarea prelucrării;</li>
+        <li>dreptul la opoziție;</li>
+        <li>dreptul la portabilitatea datelor, atunci când este aplicabil;</li>
+        <li>dreptul de a depune o plângere la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP).</li>
+      </ul>
+
+      <p>
+        Solicitările privind exercitarea acestor drepturi pot fi transmise la adresa de e-mail:
+        <br><strong>contact@asociatiafiipregatit.ro</strong>
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h3>8. Consimțământ privind utilizarea imaginii</h3>
+
+      <p>
+        În cadrul activităților organizate de Asociația Fii Pregătit pot fi realizate fotografii și materiale video în scopul documentării și promovării activităților educative desfășurate.
+      </p>
+
+      <p>Aceste materiale pot fi utilizate pe:</p>
+
+      <ul class="doc-list">
+        <li>website-ul Asociației;</li>
+        <li>paginile oficiale de Facebook;</li>
+        <li>Instagram;</li>
+        <li>TikTok;</li>
+        <li>YouTube;</li>
+        <li>materiale informative sau promoționale ale Asociației.</li>
+      </ul>
+
+      <div class="doc-box">
+        <p><strong>Opțiunea exprimată privind utilizarea imaginii participantului:</strong></p>
+        <p>${imageYes} SUNT DE ACORD cu utilizarea fotografiilor și materialelor video în condițiile descrise mai sus.</p>
+        <p>${imageNo} NU SUNT DE ACORD cu utilizarea fotografiilor și materialelor video.</p>
+      </div>
+
+      <p>
+        Înțeleg că refuzul utilizării imaginii nu afectează dreptul participantului de a lua parte la activitățile organizate de Asociația Fii Pregătit.
+      </p>
+
+      <p>
+        Înțeleg că îmi pot retrage consimțământul privind utilizarea imaginii pentru viitor, printr-o solicitare scrisă adresată Asociației.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h3>9. Declarații finale</h3>
+
+      <p>Prin semnarea prezentului document declar că:</p>
+
+      <p class="doc-check">☑ confirm că am citit integral prezentul document înainte de aplicarea semnăturii;</p>
+      <p class="doc-check">☑ confirm că am avut suficient timp pentru a analiza conținutul acestuia;</p>
+      <p class="doc-check">☑ confirm că am avut posibilitatea de a solicita explicații organizatorilor înainte de semnare;</p>
+      <p class="doc-check">☑ confirm că toate informațiile furnizate sunt reale, complete și conforme cu situația existentă la data semnării;</p>
+      <p class="doc-check">☑ confirm că înțeleg faptul că furnizarea unor informații incomplete sau false poate afecta siguranța participantului și buna desfășurare a activităților;</p>
+      <p class="doc-check">☑ confirm că am citit și înțeles Regulamentul participanților;</p>
+      <p class="doc-check">☑ confirm că înțeleg natura activităților organizate de Asociația Fii Pregătit și riscurile inerente desfășurării acestora;</p>
+      <p class="doc-check">☑ sunt de acord cu acordarea primului ajutor și apelarea serviciilor de urgență, dacă situația o impune;</p>
+      <p class="doc-check">☑ sunt de acord cu prelucrarea datelor cu caracter personal în condițiile prezentului document;</p>
+      <p class="doc-check">☑ declar că semnez prezentul document în mod liber, neviciat și în deplină cunoștință de cauză.</p>
+    </div>
+
+    <div class="doc-section">
+      <h3>10. Confirmarea și semnătura</h3>
+
+      <p>
+        Prin aplicarea semnăturii în prezentul document confirm că am citit integral documentul, am înțeles conținutul acestuia și sunt de acord cu toate declarațiile, acordurile și consimțămintele cuprinse în acesta.
+      </p>
+
+      <div class="doc-box">
+        <p><strong>Reprezentant legal / Participant adult:</strong> ${safe(signerName)}</p>
+        <p><strong>Semnătura reprezentantului legal / participantului:</strong></p>
+        <p>[semnătura va fi aplicată în pasul următor]</p>
+        <p><strong>Data:</strong> ${safe(generatedDate)}</p>
+        <p><strong>Ora:</strong> ${safe(generatedTime)}</p>
+      </div>
+
+      <p><strong>Confirmarea Asociației</strong></p>
+      <p>Document recepționat electronic de: <strong>ASOCIAȚIA FII PREGĂTIT</strong></p>
+      <p>Website: https://asociatiafiipregatit.ro</p>
+      <p>Email: contact@asociatiafiipregatit.ro</p>
+      <p>Versiunea documentului: 2026.1</p>
+      <p>Data ultimei actualizări: 29.06.2026</p>
+
+      <p>
+        Prezentul document a fost generat automat în urma completării formularului de înscriere disponibil pe website-ul Asociației Fii Pregătit și reprezintă documentul oficial de participare la activitățile organizate de asociație.
+      </p>
+
+      <p>
+        O copie a prezentului document este transmisă automat la adresa de e-mail furnizată de semnatar și este păstrată de Asociația Fii Pregătit în condițiile prezentului document și ale legislației aplicabile.
+      </p>
+    </div>
+
+    <div class="doc-footer">
+      <div>Asociația Fii Pregătit<br>Document de înscriere și participare</div>
+      <div>ID: ${safe(documentId)}</div>
+    </div>
   `;
 
   document.getElementById("preview").innerHTML = preview;
