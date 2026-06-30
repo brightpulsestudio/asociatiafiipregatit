@@ -1,1 +1,657 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Politica de confidențialitate · Asociația Fii Pregătit</title>
+
+<meta
+  name="description"
+  content="Politica de confidențialitate privind prelucrarea datelor cu caracter personal de către Asociația Fii Pregătit."
+>
+
+<link rel="icon" type="image/png" href="/LOGO-PATCH.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css"
+>
+
+<style>
+:root{
+  --green-deep:#1b340c;
+  --green:#10380e;
+  --green-2:#173a10;
+  --orange:#ff5502;
+  --orange-2:#ff7a1f;
+  --cream:#f4efe4;
+  --cream-2:#fbf9f4;
+  --ink:#22301a;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);
+  background:var(--cream-2);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+.disp{
+  font-family:'Fraunces',Georgia,serif;
+}
+
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+}
+
+a{
+  color:inherit;
+}
+
+.nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--green-deep);
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:13px 30px;
+  flex-wrap:wrap;
+}
+
+.navlink{
+  color:#cfe0c5;
+  font-size:13px;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.navlink:hover{
+  color:var(--orange);
+}
+
+.nav-cta{
+  background:var(--orange);
+  color:#fff;
+  font-size:12.5px;
+  font-weight:600;
+  padding:8px 16px;
+  border-radius:5px;
+  text-decoration:none;
+}
+
+.hero{
+  background:linear-gradient(135deg,var(--green-deep),var(--green));
+  padding:72px 32px 78px;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  right:-90px;
+  bottom:-120px;
+  width:360px;
+  height:360px;
+  border-radius:50%;
+  background:rgba(255,85,2,.22);
+}
+
+.eb{
+  color:var(--orange-2);
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:14px;
+}
+
+h1{
+  font-size:clamp(38px,6vw,64px);
+  line-height:1.02;
+  font-weight:900;
+  margin-bottom:18px;
+  position:relative;
+  z-index:2;
+}
+
+.lead{
+  font-size:16px;
+  color:#d7e0cd;
+  max-width:700px;
+  position:relative;
+  z-index:2;
+}
+
+.sec{
+  padding:58px 32px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #e6e0d2;
+  border-radius:14px;
+  padding:28px;
+  margin-bottom:18px;
+}
+
+.card h2{
+  font-size:clamp(23px,3vw,32px);
+  line-height:1.1;
+  color:var(--green-deep);
+  margin-bottom:14px;
+}
+
+.card h3{
+  font-size:18px;
+  color:var(--green-deep);
+  margin:22px 0 8px;
+}
+
+.card p,
+.card li{
+  font-size:14px;
+  color:#4c5440;
+}
+
+.card p{
+  margin-bottom:12px;
+}
+
+ul{
+  padding-left:20px;
+}
+
+li{
+  margin-bottom:8px;
+}
+
+.info-box{
+  background:#fbf9f4;
+  border:1px solid #e6e0d2;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  padding:18px;
+  margin:18px 0;
+}
+
+.info-box p{
+  margin-bottom:5px;
+}
+
+.notice{
+  background:var(--green);
+  color:#fff;
+  border-radius:14px;
+  padding:28px;
+  margin-top:28px;
+}
+
+.notice p{
+  color:#d7e0cd;
+  font-size:14px;
+}
+
+.notice strong{
+  color:#fff;
+}
+
+.footer-links{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.footer-links a{
+  color:#cfe0c5;
+  font-size:12px;
+  text-decoration:none;
+}
+
+.footer-links a:hover{
+  color:var(--orange-2);
+}
+
+footer{
+  background:var(--green-deep);
+  padding:36px 32px;
+  color:#9aa88c;
+  font-size:12px;
+}
+
+.footer-inner{
+  max-width:980px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+
+@media(max-width:760px){
+  .nav{
+    padding:11px 18px;
+  }
+
+  .hero{
+    padding:54px 22px 62px;
+  }
+
+  .sec{
+    padding:42px 22px;
+  }
+
+  .card{
+    padding:22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <a href="/" style="display:flex;align-items:center;text-decoration:none">
+    <img
+      src="/LOGO-OFFICIAL.png"
+      alt="Asociația Fii Pregătit"
+      style="height:clamp(52px,8vw,84px);width:auto"
+    >
+  </a>
+
+  <div style="margin-left:auto;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+    <a class="navlink" href="/">Acasă</a>
+    <a class="navlink" href="/#activitati">Activități</a>
+    <a class="navlink" href="/regulament/">Regulament</a>
+    <a class="navlink" href="/documente/">Înscriere</a>
+    <a class="navlink" href="/#contact">Contact</a>
+
+    <a
+      class="nav-cta"
+      href="https://wa.me/40745482705"
+      target="_blank"
+      rel="noopener"
+    >
+      WhatsApp
+    </a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eb">Date personale și confidențialitate</div>
+
+    <h1 class="disp">
+      Politica de confidențialitate
+    </h1>
+
+    <p class="lead">
+      Respectăm confidențialitatea copiilor, părinților și participanților adulți.
+      Aici explicăm ce date colectăm, de ce le folosim, unde sunt păstrate și ce drepturi aveți asupra lor.
+    </p>
+  </div>
+</header>
+
+<main class="sec">
+  <div class="wrap">
+
+    <div class="card">
+      <h2 class="disp">1. Cine prelucrează datele personale</h2>
+
+      <p>
+        Operatorul datelor cu caracter personal este:
+      </p>
+
+      <div class="info-box">
+        <p><strong>ASOCIAȚIA FII PREGĂTIT</strong></p>
+        <p><strong>CIF:</strong> 51220175</p>
+        <p><strong>Sediu:</strong> Str. Lemnarilor nr. 25A, Brașov, România</p>
+        <p><strong>E-mail:</strong> contact@asociatiafiipregatit.ro</p>
+        <p><strong>Telefon / WhatsApp:</strong> 0745 482 705</p>
+        <p><strong>Website:</strong> www.asociatiafiipregatit.ro</p>
+      </div>
+
+      <p>
+        Pentru orice întrebare privind datele personale, ne puteți contacta la:
+        <strong>contact@asociatiafiipregatit.ro</strong>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">2. Cui se aplică această politică</h2>
+
+      <p>
+        Prezenta politică se aplică persoanelor care vizitează website-ul Asociației Fii Pregătit,
+        părinților sau tutorilor legali ai participanților minori, participanților adulți,
+        persoanelor care ne contactează și persoanelor care completează formularul online de înscriere.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">3. Ce date putem colecta</h2>
+
+      <h3>Date de identificare și contact</h3>
+
+      <ul>
+        <li>nume și prenume;</li>
+        <li>număr de telefon;</li>
+        <li>adresă de e-mail;</li>
+        <li>relația cu participantul, în cazul persoanei de contact pentru urgențe.</li>
+      </ul>
+
+      <h3>Date despre participant</h3>
+
+      <ul>
+        <li>nume și prenume;</li>
+        <li>data nașterii;</li>
+        <li>date privind participarea la activitățile Asociației.</li>
+      </ul>
+
+      <h3>Date privind sănătatea și siguranța</h3>
+
+      <ul>
+        <li>alergii;</li>
+        <li>afecțiuni medicale comunicate de părinte sau participant;</li>
+        <li>tratament medicamentos;</li>
+        <li>alte informații relevante pentru siguranța participantului;</li>
+        <li>datele persoanei de contact în caz de urgență.</li>
+      </ul>
+
+      <h3>Date privind documentul de înscriere</h3>
+
+      <ul>
+        <li>semnătura aplicată electronic în formular;</li>
+        <li>data și ora completării documentului;</li>
+        <li>identificatorul intern al documentului generat;</li>
+        <li>opțiunea privind utilizarea imaginii participantului.</li>
+      </ul>
+
+      <h3>Date tehnice de navigare</h3>
+
+      <p>
+        Atunci când vizitați site-ul, pot fi prelucrate date tehnice necesare funcționării website-ului.
+        Dacă acceptați cookie-urile analitice, putem colecta date statistice agregate despre utilizarea site-ului,
+        precum paginile vizitate, sursa vizitei, tipul dispozitivului sau interacțiunile generale cu paginile.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">4. De ce folosim datele</h2>
+
+      <p>Folosim datele personale numai pentru scopuri legate de activitatea Asociației Fii Pregătit, precum:</p>
+
+      <ul>
+        <li>gestionarea înscrierilor și a participării la activități;</li>
+        <li>comunicarea cu părinții, tutorii legali sau participanții adulți;</li>
+        <li>organizarea activităților educative, outdoor, de familie sau de grup;</li>
+        <li>verificarea condițiilor de participare și a informațiilor relevante pentru siguranță;</li>
+        <li>gestionarea unei situații de urgență și comunicarea cu persoana desemnată;</li>
+        <li>transmiterea documentului completat către semnatar;</li>
+        <li>arhivarea documentelor de înscriere;</li>
+        <li>respectarea obligațiilor legale aplicabile Asociației;</li>
+        <li>protejarea drepturilor, siguranței și intereselor legitime ale participanților și ale Asociației;</li>
+        <li>realizarea de statistici privind vizitarea site-ului, numai dacă este exprimat acordul pentru cookie-uri analitice.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">5. Temeiul prelucrării datelor</h2>
+
+      <p>
+        Prelucrăm datele personale numai atunci când avem un temei legal aplicabil.
+      </p>
+
+      <ul>
+        <li>
+          pentru gestionarea înscrierii și participării la activități, prelucrarea este necesară pentru pregătirea,
+          organizarea și desfășurarea participării solicitate de părinte, tutore legal sau participant adult;
+        </li>
+
+        <li>
+          pentru comunicările necesare, gestionarea documentelor și organizarea activităților,
+          prelucrarea poate fi necesară pentru interesele legitime ale Asociației,
+          inclusiv siguranța participanților și buna organizare a activităților;
+        </li>
+
+        <li>
+          pentru obligațiile de arhivare, evidență sau alte obligații legale,
+          prelucrarea poate fi necesară pentru respectarea obligațiilor aplicabile Asociației;
+        </li>
+
+        <li>
+          pentru informațiile privind sănătatea, alergiile, tratamentele sau alte date medicale,
+          prelucrarea se realizează exclusiv pentru siguranța participantului,
+          pe baza acordului exprimat prin documentul de înscriere și participare;
+        </li>
+
+        <li>
+          pentru fotografii și materiale video în care participantul poate fi identificat,
+          prelucrarea se realizează numai în baza opțiunii exprese selectate în formular;
+        </li>
+
+        <li>
+          pentru Google Analytics și cookie-uri analitice, prelucrarea se realizează numai după exprimarea acordului
+          prin bannerul de cookies al site-ului.
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">6. Fotografii și materiale video</h2>
+
+      <p>
+        În cadrul activităților pot fi realizate fotografii și materiale video.
+        Utilizarea imaginii participantului pentru promovarea activităților Asociației
+        se face numai dacă părintele, tutorele legal sau participantul adult a selectat explicit opțiunea de acord.
+      </p>
+
+      <p>
+        Refuzul acordului privind utilizarea imaginii nu afectează participarea la activități.
+      </p>
+
+      <p>
+        Consimțământul privind imaginea poate fi retras pentru viitor,
+        printr-un mesaj transmis la:
+        <strong>contact@asociatiafiipregatit.ro</strong>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">7. Cine poate avea acces la date</h2>
+
+      <p>
+        Datele pot fi accesate numai de persoanele autorizate din cadrul Asociației Fii Pregătit,
+        strict în măsura în care au nevoie de ele pentru organizarea, siguranța și desfășurarea activităților.
+      </p>
+
+      <p>
+        În funcție de serviciile utilizate pentru funcționarea site-ului și a formularului,
+        datele pot fi prelucrate prin furnizori tehnici care ne ajută să oferim aceste servicii.
+      </p>
+
+      <ul>
+        <li>GitHub Pages, pentru găzduirea website-ului;</li>
+        <li>Google Apps Script, pentru procesarea formularului și generarea documentului;</li>
+        <li>Google Drive, pentru stocarea documentelor generate;</li>
+        <li>Gmail / Google Workspace, pentru transmiterea documentului către semnatar;</li>
+        <li>Google Analytics, numai dacă vizitatorul acceptă cookie-urile analitice.</li>
+      </ul>
+
+      <p>
+        Nu vindem și nu punem la dispoziția terților datele personale în scopuri de marketing.
+      </p>
+
+      <p>
+        Datele pot fi comunicate autorităților publice sau serviciilor medicale de urgență
+        doar atunci când legea sau protejarea sănătății și siguranței participantului o impun.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">8. Unde sunt păstrate datele</h2>
+
+      <p>
+        Documentele de înscriere completate prin site sunt transmise prin infrastructura Google Apps Script,
+        sunt salvate în spațiul de stocare Google Drive utilizat de Asociație și sunt transmise prin e-mail
+        la adresa indicată de semnatar.
+      </p>
+
+      <p>
+        Furnizorii tehnici utilizați pot opera infrastructură sau servicii și în afara Spațiului Economic European.
+        În aceste situații, prelucrarea se realizează în condițiile și garanțiile aplicabile furnizorului respectiv.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">9. Cât timp păstrăm datele</h2>
+
+      <p>
+        Păstrăm datele numai atât timp cât sunt necesare pentru scopurile pentru care au fost colectate,
+        pentru desfășurarea activităților, pentru gestionarea siguranței participanților,
+        pentru arhivarea documentelor și pentru respectarea obligațiilor legale aplicabile.
+      </p>
+
+      <p>
+        Documentul de înscriere poate rămâne valabil pentru participările viitoare
+        atât timp cât datele furnizate sunt corecte, complete și actuale.
+      </p>
+
+      <p>
+        Părintele, tutorele legal sau participantul adult are obligația să informeze Asociația
+        dacă apar modificări importante privind datele de contact, persoana de urgență,
+        informațiile medicale relevante sau acordul privind utilizarea imaginii.
+      </p>
+
+      <p>
+        La solicitare, analizăm dacă datele pot fi actualizate, limitate sau șterse,
+        ținând cont de obligațiile legale și de necesitatea păstrării anumitor documente.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">10. Cum protejăm datele</h2>
+
+      <p>
+        Luăm măsuri rezonabile pentru protejarea datelor împotriva accesului neautorizat,
+        pierderii, modificării sau divulgării nepermise.
+      </p>
+
+      <p>
+        Accesul la documentele de înscriere este limitat la persoanele care au nevoie de acestea
+        pentru organizarea activităților, gestionarea participanților și situațiile de siguranță.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">11. Drepturile persoanelor vizate</h2>
+
+      <p>
+        În condițiile prevăzute de legislația aplicabilă, aveți următoarele drepturi:
+      </p>
+
+      <ul>
+        <li>dreptul de a fi informat cu privire la prelucrarea datelor;</li>
+        <li>dreptul de acces la datele personale;</li>
+        <li>dreptul de rectificare a datelor inexacte sau incomplete;</li>
+        <li>dreptul la ștergerea datelor, atunci când sunt îndeplinite condițiile legale;</li>
+        <li>dreptul la restricționarea prelucrării;</li>
+        <li>dreptul de opoziție, în anumite situații;</li>
+        <li>dreptul la portabilitatea datelor, atunci când este aplicabil;</li>
+        <li>dreptul de a retrage consimțământul pentru viitor, atunci când prelucrarea se bazează pe consimțământ;</li>
+        <li>dreptul de a depune o plângere la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal.</li>
+      </ul>
+
+      <p>
+        Pentru exercitarea acestor drepturi, ne puteți scrie la:
+        <strong>contact@asociatiafiipregatit.ro</strong>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">12. Datele copiilor</h2>
+
+      <p>
+        Activitățile Asociației Fii Pregătit se adresează frecvent minorilor.
+        Datele unui copil sunt furnizate prin formular de către părinte, tutore legal
+        sau persoana care are dreptul legal de a exprima acordul privind participarea copilului.
+      </p>
+
+      <p>
+        Nu solicităm copiilor să transmită direct prin site date personale,
+        date medicale, documente sau informații de contact.
+      </p>
+    </div>
+
+    <div class="notice">
+      <h2 class="disp" style="color:#fff;margin-bottom:14px">
+        Aveți nevoie de ajutor?
+      </h2>
+
+      <p>
+        Pentru întrebări privind datele personale, actualizarea informațiilor,
+        retragerea acordului pentru imagine sau orice solicitare legată de confidențialitate,
+        ne puteți contacta la:
+      </p>
+
+      <p style="margin-top:12px">
+        <strong>contact@asociatiafiipregatit.ro</strong><br>
+        WhatsApp: <strong>0745 482 705</strong>
+      </p>
+    </div>
+
+    <p style="font-size:12px;color:#6d755f;margin-top:22px">
+      Ultima actualizare: 30.06.2026
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong>Asociația Fii Pregătit</strong><br>
+      Educație · Sănătate · Siguranță
+
+      <div class="footer-links">
+        <a href="/">Acasă</a>
+        <a href="/regulament/">Regulament</a>
+        <a href="/documente/">Înscriere</a>
+        <a href="/confidentialitate/">Politica de confidențialitate</a>
+      </div>
+    </div>
+
+    <div style="text-align:right">
+      WhatsApp: 0745.482.705<br>
+      contact@asociatiafiipregatit.ro<br>
+      CIF: 51220175
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
