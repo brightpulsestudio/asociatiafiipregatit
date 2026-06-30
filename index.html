@@ -116,7 +116,7 @@ img{max-width:100%;display:block}
   height:auto;
   opacity:1;
   filter:drop-shadow(0 12px 20px rgba(27,52,12,.16));
-  transform:rotate(20deg);
+  transform:rotate(15deg);
   transform-origin:center;
   transition:transform .28s ease, filter .28s ease;
   cursor:default;
@@ -128,6 +128,10 @@ img{max-width:100%;display:block}
 }
 /* SECTIONS */
 .sec{padding:62px 40px}
+#contact{
+  padding-top:46px;
+  padding-bottom:38px;
+}
 .eb{color:var(--orange);font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:14px}
 .eb-light{color:var(--orange-2)}
 h2.t{font-size:clamp(26px,4.5vw,38px);font-weight:600;line-height:1.06;margin-bottom:12px}
@@ -157,6 +161,13 @@ h2.t{font-size:clamp(26px,4.5vw,38px);font-weight:600;line-height:1.06;margin-bo
 .card{
   transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
   will-change:transform;
+}
+
+  .pillar-card{
+  background:rgba(23,58,16,.52);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:10px;
+  padding:20px 16px;
 }
 
 .card.hov:hover{
@@ -203,26 +214,54 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     margin-top:4px;
   }
 
-.contact-wrap{
-  padding-top:72px;
-}
-
-.contact-patch{
-  top:0;
-  right:8px;
-  left:auto;
-  width:86px;
-  height:86px;
-}
-    .contact-wrap{
-    padding-top:54px;
+  .contact-patch{
+    display:none;
   }
 
-  .contact-patch{
-    top:0;
-    right:0;
-    width:68px;
-    opacity:.72;
+   .dimensions-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .dimensions-grid .dimension-last{
+    grid-column:span 2;
+  }
+    .stop-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+   .pillars-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .pillars-grid .pillar-card:last-child{
+    grid-column:1 / -1;
+    width:calc(50% - 6px);
+    justify-self:center;
+  }
+
+    #contact .grid3{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+
+    #contact .contact-email-card{
+    grid-column:1 / -1;
+    width:calc(50% + 76px);
+    justify-self:center;
+  }
+
+    #contact{
+    padding-top:34px;
+    padding-bottom:32px;
+  }
+
+  #contact .contact-wrap{
+    padding-top:0;
+  }
+
+  #contact .grid3{
+    margin-bottom:18px !important;
   }
 }
 </style>
@@ -280,10 +319,10 @@ canvas{cursor:crosshair;touch-action:none;display:block}
       <div class="eb eb-light" style="margin-bottom:8px">Pilonii noștri</div>
       <h2 class="t disp" style="color:#fff">Educație · Sănătate · Siguranță</h2>
     </div>
-    <div class="grid3">
-      <div style="text-align:center;padding:8px"><i class="ti ti-book" style="color:var(--orange-2);font-size:30px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Educație</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Învățare prin experiență — autonomie, decizii inteligente și cunoaștere practică.</p></div>
-      <div style="text-align:center;padding:8px"><i class="ti ti-heartbeat" style="color:var(--orange-2);font-size:30px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Sănătate</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Mișcare, aer curat și o conexiune reală cu natura, departe de ecran.</p></div>
-      <div style="text-align:center;padding:8px"><i class="ti ti-shield-check" style="color:var(--orange-2);font-size:30px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Siguranță</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Instructori pregătiți, trasee verificate și grijă constantă față de fiecare copil.</p></div>
+   <div class="grid3 pillars-grid">
+      <div class="card hov pillar-card" style="text-align:center"><i class="ti ti-book" style="color:var(--orange-2);font-size:30px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Educație</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Învățare prin experiență — autonomie, decizii inteligente și cunoaștere practică.</p></div>
+      <div class="card hov pillar-card" style="text-align:center"><i class="ti ti-heartbeat" style="color:var(--orange-2);font-size:30px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Sănătate</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Mișcare, aer curat și o conexiune reală cu natura, departe de ecran.</p></div>
+      <div class="card hov pillar-card" style="text-align:center"><i class="ti ti-shield-check" style="color:var(--orange-2);font-size:30px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Siguranță</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Instructori pregătiți, trasee verificate și grijă constantă față de fiecare copil.</p></div>
     </div>
   </div>
 </section>
@@ -319,7 +358,7 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     <div class="eb eb-light">Metoda din spatele activităților</div>
     <h2 class="t disp" style="color:#fff">S.T.O.P. — patru pași între impuls și decizie.</h2>
     <p class="lead" style="color:#aebda3;margin-bottom:30px">Copiii descoperă cum reacționează creierul când apar frica sau panica și exersează un model simplu de decizie — pe care îl duc apoi acasă: la temă, la ceartă, la ecran.</p>
-    <div class="grid4-auto" style="gap:10px">
+   <div class="grid4-auto stop-grid" style="gap:10px">
       <div class="card hov" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">S</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Stop</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Oprește-te. Câteva secunde de pauză înainte de orice.</div></div>
       <div class="card hov" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">T</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Think</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Gândește. Ce e important acum? Ce risc există?</div></div>
       <div class="card hov" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">O</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Observe</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Observă. Ce e în jur, ce repere, cine mai e implicat.</div></div>
@@ -334,14 +373,14 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     <div class="eb">Cele cinci dimensiuni</div>
     <h2 class="t disp" style="color:var(--green-deep)">Nu cine ajunge primul. Cine crește pe dinăuntru.</h2>
     <p class="lead" style="color:#4c5440;margin-bottom:30px">Sub cei trei piloni, fiecare activitate atinge cinci dimensiuni ale copilului. Nu le predăm ca pe o lecție — le trăiesc, pas cu pas, prin poveste și provocare reală.</p>
-    <div class="grid4-auto" style="gap:10px;margin-bottom:26px">
+    <div class="grid4-auto dimensions-grid" style="gap:10px;margin-bottom:26px">
       <div class="card hov" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px"><i class="ti ti-heart" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">Inima</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Empatie și inteligență emoțională. Să-și recunoască emoțiile și să aibă grijă de ceilalți.</div></div>
       <div class="card hov" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px"><i class="ti ti-bulb" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">Mintea</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Gândire limpede sub presiune. Să observe, să gândească, apoi să acționeze.</div></div>
       <div class="card hov" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px"><i class="ti ti-flame" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">Voința</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Curaj și reziliență. Să-și stăpânească frica și să nu renunțe la primul „nu pot".</div></div>
       <div class="card hov" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px"><i class="ti ti-users" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">Tribul</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">„Eu sunt pentru că noi suntem." Echipă în care nimeni nu e lăsat în urmă.</div></div>
-      <div class="card hov" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px"><i class="ti ti-mountain" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">Muntele</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Respect și responsabilitate. Față de natură, față de echipă și față de sine.</div></div>
+     <div class="card hov dimension-last" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px"><i class="ti ti-mountain" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">Natura</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Respect și responsabilitate. Față de natură, față de echipă și față de sine.</div></div>
     </div>
-    <div style="border-left:3px solid var(--orange);padding:6px 0 6px 18px;max-width:560px"><p class="disp" style="color:var(--green-deep);font-size:17px;line-height:1.55;font-style:italic">„Inteligența emoțională înseamnă echilibru, responsabilitate și respect — față de tine, față de echipă, față de munte."</p></div>
+    <div style="border-left:3px solid var(--orange);padding:6px 0 6px 18px;max-width:560px"><p class="disp" style="color:var(--green-deep);font-size:17px;line-height:1.55;font-style:italic">„Inteligența emoțională înseamnă echilibru, responsabilitate și respect — față de tine, față de echipă, față de natură."</p></div>
   </div>
 </section>
 
@@ -427,7 +466,7 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     <p class="lead" style="color:#aebda3;margin-bottom:30px">În spatele fiecărei ieșiri în natură sunt ore de pregătire, echipament verificat și oameni care veghează la siguranța copiilor. Sprijinul tău ne ajută să facem toate acestea posibile — și să ducem mai departe o asociație care formează copii încrezători, calmi și pregătiți pentru viață.</p>
     <div class="grid2" style="gap:12px;margin-bottom:12px">
       <div class="card hov" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px"><i class="ti ti-file-percent" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Formularul 230</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Redirecționezi un procent din impozitul tău pe venit către asociație.<br><strong>Nu te costă nimic — banii oricum merg la stat.</strong></p><a href="https://formular230.ro/asociatiafiipregatit" target="_blank" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none">Completează formularul →</a></div>
-      <div class="card hov" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px"><i class="ti ti-building" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Sponsorizări firme</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Firmele pot redirecționa o parte din impozit către asociație, printr-un contract de sponsorizare.</p><a class="card hov" href="https://wa.me/40745482705" target="_blank" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none">Hai să discutăm →</a></div>
+      <div class="card hov" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px"><i class="ti ti-building" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Sponsorizări firme</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Firmele pot redirecționa o parte din impozit către asociație, printr-un contract de sponsorizare.</p><a href="https://wa.me/40745482705" target="_blank" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none">Hai să discutăm →</a></div>
     </div>
     <div class="card hov" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:24px">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><i class="ti ti-building-bank" style="color:var(--orange-2);font-size:24px" aria-hidden="true"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px">Donații prin transfer bancar</h3></div>
@@ -455,7 +494,7 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     <div class="grid3" style="gap:10px;margin-bottom:24px">
       <a class="card hov" href="https://wa.me/40745482705" target="_blank" rel="noopener" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block"><i class="ti ti-brand-whatsapp" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">WhatsApp</div><div style="color:#7a8268;font-size:12px">0745.482.705</div></a>
       <a class="card hov" href="tel:+40745482705" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block"><i class="ti ti-phone" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">Telefon</div><div style="color:#7a8268;font-size:12px">0745.482.705</div></a>
-     <a class="card hov" href="mailto:contact@asociatiafiipregatit.ro" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block"><i class="ti ti-mail" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">Email</div><div style="color:#7a8268;font-size:11px;word-break:break-all">contact@asociatiafiipregatit.ro</div></a>
+      <a class="card hov contact-email-card" href="mailto:contact@asociatiafiipregatit.ro" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block"><i class="ti ti-mail" style="color:var(--orange);font-size:22px" aria-hidden="true"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">Email</div><div style="color:#7a8268;font-size:11px;white-space:nowrap">contact@asociatiafiipregatit.ro</div></a>
     </div>
     <div style="display:flex;gap:12px;flex-wrap:wrap">
       <a class="soc" href="https://www.facebook.com/fiipregatit.bv/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
