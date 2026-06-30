@@ -310,17 +310,17 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
         <h3 class="disp" style="color:var(--green-deep);margin:18px 0 12px">Utilizarea imaginii</h3>
 
 <p class="help" style="margin-bottom:12px">
-  În cadrul activităților pot fi realizate fotografii și materiale video în scopul documentării și promovării activităților Asociației Fii Pregătit.
+  În cadrul activităților pot fi realizate fotografii și materiale video în care poate apărea participantul. Acestea pot fi utilizate de Asociația Fii Pregătit pentru documentarea și promovarea activităților sale, inclusiv pe website și pe canalele oficiale de social media.
 </p>
 
 <label class="check">
   <input type="radio" name="imageConsent" value="Da">
-  <span>Sunt de acord cu utilizarea fotografiilor și materialelor video.</span>
+  <span>Sunt de acord ca Asociația Fii Pregătit să utilizeze fotografii și materiale video în care apare participantul, pentru promovarea activităților sale.</span>
 </label>
 
 <label class="check">
   <input type="radio" name="imageConsent" value="Nu">
-  <span>Nu sunt de acord cu utilizarea fotografiilor și materialelor video.</span>
+  <span>Nu sunt de acord ca Asociația Fii Pregătit să utilizeze fotografii și materiale video în care apare participantul în scop de promovare.</span>
 </label>
         <div class="row">
           <button class="btn btn-light" onclick="goStep(1)">Înapoi</button>
@@ -952,38 +952,50 @@ const documentId = currentDocumentId;
 
 
 
-    <div class="doc-section">
-      <h3>8. Consimțământ privind utilizarea imaginii</h3>
+   <div class="doc-section">
+  <h3>8. Consimțământ privind utilizarea imaginii participantului</h3>
 
-      <p>
-        În cadrul activităților organizate de Asociația Fii Pregătit pot fi realizate fotografii și materiale video în scopul documentării și promovării activităților educative desfășurate.
-      </p>
+  <p>
+    În cadrul activităților organizate de Asociația Fii Pregătit pot fi realizate fotografii și materiale video în care poate apărea participantul, în scopul documentării activităților educative și al promovării proiectelor Asociației.
+  </p>
 
-      <p>Aceste materiale pot fi utilizate pe:</p>
+  <p>
+    Prin exprimarea acordului de mai jos, reprezentantul legal al participantului minor sau participantul adult își exprimă consimțământul ca imaginea participantului, inclusiv fotografii și materiale video în care acesta poate fi identificabil, să poată fi utilizată de Asociația Fii Pregătit pentru comunicarea și promovarea activităților sale.
+  </p>
 
-      <ul class="doc-list">
-        <li>website-ul Asociației;</li>
-        <li>paginile oficiale de Facebook;</li>
-        <li>Instagram;</li>
-        <li>TikTok;</li>
-        <li>YouTube;</li>
-        <li>materiale informative sau promoționale ale Asociației.</li>
-      </ul>
+  <p>Materialele pot fi publicate sau utilizate pe:</p>
 
-      <div class="doc-box">
-        <p><strong>Opțiunea exprimată privind utilizarea imaginii participantului:</strong></p>
-        <p>${imageYes} SUNT DE ACORD cu utilizarea fotografiilor și materialelor video în condițiile descrise mai sus.</p>
-        <p>${imageNo} NU SUNT DE ACORD cu utilizarea fotografiilor și materialelor video.</p>
-      </div>
+  <ul class="doc-list">
+    <li>website-ul oficial al Asociației Fii Pregătit;</li>
+    <li>paginile și conturile oficiale de Facebook, Instagram, TikTok și YouTube;</li>
+    <li>materiale informative, educative sau promoționale ale Asociației;</li>
+    <li>prezentări, afișe, broșuri, materiale de promovare sau raportare privind activitățile Asociației.</li>
+  </ul>
 
-      <p>
-        Înțeleg că refuzul utilizării imaginii nu afectează dreptul participantului de a lua parte la activitățile organizate de Asociația Fii Pregătit.
-      </p>
+  <p>
+    Asociația Fii Pregătit nu va utiliza imaginea participantului într-un mod care îi poate afecta demnitatea, reputația, siguranța sau interesul superior.
+  </p>
 
-      <p>
-        Înțeleg că îmi pot retrage consimțământul privind utilizarea imaginii pentru viitor, printr-o solicitare scrisă adresată Asociației.
-      </p>
-    </div>
+  <div class="doc-box">
+    <p><strong>Opțiunea exprimată privind utilizarea imaginii participantului:</strong></p>
+
+    <p>
+      ${imageYes} SUNT DE ACORD ca Asociația Fii Pregătit să utilizeze fotografii și materiale video în care apare participantul, în scopurile și pe canalele de comunicare menționate mai sus.
+    </p>
+
+    <p>
+      ${imageNo} NU SUNT DE ACORD ca Asociația Fii Pregătit să utilizeze fotografii și materiale video în care apare participantul în scop de promovare sau comunicare publică.
+    </p>
+  </div>
+
+  <p>
+    Refuzul acordului privind utilizarea imaginii nu afectează dreptul participantului de a lua parte la activitățile organizate de Asociația Fii Pregătit.
+  </p>
+
+  <p>
+    Consimțământul poate fi retras oricând pentru viitor, printr-o solicitare scrisă transmisă la adresa contact@asociatiafiipregatit.ro. Retragerea consimțământului nu afectează legalitatea utilizării imaginii realizate înainte de primirea solicitării.
+  </p>
+</div>
 
 
 
