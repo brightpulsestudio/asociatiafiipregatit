@@ -1,1 +1,563 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Politica de cookies · Asociația Fii Pregătit</title>
+
+<meta
+  name="description"
+  content="Politica de cookies a website-ului Asociației Fii Pregătit."
+>
+
+<link rel="icon" type="image/png" href="/LOGO-PATCH.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css"
+>
+
+<style>
+:root{
+  --green-deep:#1b340c;
+  --green:#10380e;
+  --green-2:#173a10;
+  --orange:#ff5502;
+  --orange-2:#ff7a1f;
+  --cream:#f4efe4;
+  --cream-2:#fbf9f4;
+  --ink:#22301a;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);
+  background:var(--cream-2);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+.disp{
+  font-family:'Fraunces',Georgia,serif;
+}
+
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+}
+
+a{
+  color:inherit;
+}
+
+.nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--green-deep);
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:13px 30px;
+  flex-wrap:wrap;
+}
+
+.navlink{
+  color:#cfe0c5;
+  font-size:13px;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.navlink:hover{
+  color:var(--orange);
+}
+
+.nav-cta{
+  background:var(--orange);
+  color:#fff;
+  font-size:12.5px;
+  font-weight:600;
+  padding:8px 16px;
+  border-radius:5px;
+  text-decoration:none;
+}
+
+.hero{
+  background:linear-gradient(135deg,var(--green-deep),var(--green));
+  padding:72px 32px 78px;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  right:-90px;
+  bottom:-120px;
+  width:360px;
+  height:360px;
+  border-radius:50%;
+  background:rgba(255,85,2,.22);
+}
+
+.eb{
+  color:var(--orange-2);
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:14px;
+}
+
+h1{
+  font-size:clamp(38px,6vw,64px);
+  line-height:1.02;
+  font-weight:900;
+  margin-bottom:18px;
+  position:relative;
+  z-index:2;
+}
+
+.lead{
+  font-size:16px;
+  color:#d7e0cd;
+  max-width:700px;
+  position:relative;
+  z-index:2;
+}
+
+.sec{
+  padding:58px 32px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #e6e0d2;
+  border-radius:14px;
+  padding:28px;
+  margin-bottom:18px;
+}
+
+.card h2{
+  font-size:clamp(23px,3vw,32px);
+  line-height:1.1;
+  color:var(--green-deep);
+  margin-bottom:14px;
+}
+
+.card h3{
+  font-size:18px;
+  color:var(--green-deep);
+  margin:22px 0 8px;
+}
+
+.card p,
+.card li{
+  font-size:14px;
+  color:#4c5440;
+}
+
+.card p{
+  margin-bottom:12px;
+}
+
+ul{
+  padding-left:20px;
+}
+
+li{
+  margin-bottom:8px;
+}
+
+.table-wrap{
+  overflow-x:auto;
+  margin-top:16px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:620px;
+  font-size:13px;
+}
+
+th,
+td{
+  border:1px solid #e6e0d2;
+  padding:12px;
+  text-align:left;
+  vertical-align:top;
+}
+
+th{
+  background:#f4efe4;
+  color:var(--green-deep);
+  font-weight:700;
+}
+
+td{
+  color:#4c5440;
+}
+
+.info-box{
+  background:#fbf9f4;
+  border:1px solid #e6e0d2;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  padding:18px;
+  margin:18px 0;
+}
+
+.info-box p{
+  margin-bottom:5px;
+}
+
+.notice{
+  background:var(--green);
+  color:#fff;
+  border-radius:14px;
+  padding:28px;
+  margin-top:28px;
+}
+
+.notice p{
+  color:#d7e0cd;
+  font-size:14px;
+}
+
+.notice strong{
+  color:#fff;
+}
+
+.footer-links{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.footer-links a{
+  color:#cfe0c5;
+  font-size:12px;
+  text-decoration:none;
+}
+
+.footer-links a:hover{
+  color:var(--orange-2);
+}
+
+footer{
+  background:var(--green-deep);
+  padding:36px 32px;
+  color:#9aa88c;
+  font-size:12px;
+}
+
+.footer-inner{
+  max-width:980px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+
+@media(max-width:760px){
+  .nav{
+    padding:11px 18px;
+  }
+
+  .hero{
+    padding:54px 22px 62px;
+  }
+
+  .sec{
+    padding:42px 22px;
+  }
+
+  .card{
+    padding:22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <a href="/" style="display:flex;align-items:center;text-decoration:none">
+    <img
+      src="/LOGO-OFFICIAL.png"
+      alt="Asociația Fii Pregătit"
+      style="height:clamp(52px,8vw,84px);width:auto"
+    >
+  </a>
+
+  <div style="margin-left:auto;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+    <a class="navlink" href="/">Acasă</a>
+    <a class="navlink" href="/#activitati">Activități</a>
+    <a class="navlink" href="/regulament/">Regulament</a>
+    <a class="navlink" href="/documente/">Înscriere</a>
+    <a class="navlink" href="/#contact">Contact</a>
+
+    <a
+      class="nav-cta"
+      href="https://wa.me/40745482705"
+      target="_blank"
+      rel="noopener"
+    >
+      WhatsApp
+    </a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eb">Cookie-uri și preferințe</div>
+
+    <h1 class="disp">
+      Politica de cookies
+    </h1>
+
+    <p class="lead">
+      Această pagină explică ce sunt cookie-urile, cum sunt utilizate pe website-ul nostru
+      și cum puteți alege dacă doriți sau nu folosirea cookie-urilor analitice.
+    </p>
+  </div>
+</header>
+
+<main class="sec">
+  <div class="wrap">
+
+    <div class="card">
+      <h2 class="disp">1. Ce sunt cookie-urile</h2>
+
+      <p>
+        Cookie-urile sunt fișiere mici de text stocate pe dispozitivul utilizatorului
+        atunci când vizitează un website.
+      </p>
+
+      <p>
+        Ele pot ajuta site-ul să funcționeze corect, să rețină anumite alegeri
+        sau să ofere informații statistice despre modul în care este utilizat website-ul.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">2. Ce cookie-uri folosim</h2>
+
+      <p>
+        Website-ul Asociației Fii Pregătit poate utiliza două categorii principale de cookie-uri:
+      </p>
+
+      <h3>Cookie-uri strict necesare</h3>
+
+      <p>
+        Acestea sunt necesare pentru funcționarea corectă a site-ului
+        sau pentru memorarea alegerii privind cookie-urile.
+      </p>
+
+      <p>
+        Ele nu sunt utilizate pentru publicitate, profilare sau urmărirea comportamentului utilizatorului.
+      </p>
+
+      <h3>Cookie-uri analitice</h3>
+
+      <p>
+        Cookie-urile analitice ne ajută să înțelegem, la nivel statistic,
+        cum este utilizat site-ul: ce pagini sunt vizitate, de unde vin vizitatorii,
+        ce tip de dispozitiv folosesc și ce interacțiuni generale au cu website-ul.
+      </p>
+
+      <p>
+        Folosim Google Analytics 4 numai după ce utilizatorul își exprimă acordul
+        prin bannerul de cookies.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">3. Cookie-uri Google Analytics</h2>
+
+      <p>
+        Dacă acceptați cookie-urile analitice, website-ul poate utiliza Google Analytics 4
+        pentru măsurarea traficului și a utilizării generale a paginilor.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nume cookie</th>
+              <th>Scop</th>
+              <th>Durată standard</th>
+              <th>Furnizor</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><strong>_ga</strong></td>
+              <td>Diferențiază utilizatorii unici.</td>
+              <td>Până la 2 ani</td>
+              <td>Google Analytics</td>
+            </tr>
+
+            <tr>
+              <td><strong>_ga_*</strong></td>
+              <td>Ajută la păstrarea stării sesiunii și la măsurarea utilizării site-ului.</td>
+              <td>Până la 2 ani</td>
+              <td>Google Analytics</td>
+            </tr>
+
+            <tr>
+              <td><strong>afp_cookie_consent</strong></td>
+              <td>Reține alegerea utilizatorului privind cookie-urile analitice.</td>
+              <td>Până la 6 luni</td>
+              <td>Asociația Fii Pregătit</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:16px">
+        Durata cookie-urilor Google Analytics poate fi influențată de browser,
+        de setările serviciului Google sau de alegerea făcută de utilizator.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">4. Ce nu folosim în prezent</h2>
+
+      <p>
+        În prezent, nu folosim pe site:
+      </p>
+
+      <ul>
+        <li>Meta Pixel;</li>
+        <li>TikTok Pixel;</li>
+        <li>cookie-uri de remarketing;</li>
+        <li>cookie-uri pentru publicitate personalizată;</li>
+        <li>instrumente de înregistrare a sesiunilor sau heatmaps pe formularul de înscriere;</li>
+        <li>vânzarea sau partajarea datelor de navigare în scopuri comerciale.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">5. Cum puteți controla cookie-urile</h2>
+
+      <p>
+        La prima vizită pe site, puteți alege dacă acceptați sau refuzați cookie-urile analitice.
+      </p>
+
+      <p>
+        Refuzul cookie-urilor analitice nu afectează accesul la paginile website-ului,
+        regulament sau formularul de înscriere.
+      </p>
+
+      <p>
+        De asemenea, puteți șterge sau bloca cookie-urile direct din setările browserului.
+        Rețineți că blocarea cookie-urilor strict necesare poate afecta anumite funcționalități ale site-ului.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">6. Modificarea preferințelor</h2>
+
+      <p>
+        Veți putea modifica oricând alegerea privind cookie-urile analitice
+        prin butonul „Preferințe cookie” disponibil în partea de jos a site-ului.
+      </p>
+
+      <p>
+        Dacă ștergeți cookie-urile sau datele de navigare din browser,
+        este posibil să vi se solicite din nou alegerea privind cookie-urile.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="disp">7. Legătura cu politica de confidențialitate</h2>
+
+      <p>
+        Pentru informații despre datele personale colectate prin formularul de înscriere,
+        documente, date medicale, imaginea participantului și drepturile persoanelor vizate,
+        consultați:
+      </p>
+
+      <p>
+        <a
+          href="/confidentialitate/"
+          style="color:var(--orange);font-weight:700;text-decoration:none"
+        >
+          Politica de confidențialitate →
+        </a>
+      </p>
+    </div>
+
+    <div class="notice">
+      <h2 class="disp" style="color:#fff;margin-bottom:14px">
+        Ai întrebări despre cookie-uri?
+      </h2>
+
+      <p>
+        Ne poți contacta la:
+      </p>
+
+      <p style="margin-top:12px">
+        <strong>contact@asociatiafiipregatit.ro</strong><br>
+        WhatsApp: <strong>0745 482 705</strong>
+      </p>
+    </div>
+
+    <p style="font-size:12px;color:#6d755f;margin-top:22px">
+      Ultima actualizare: 30.06.2026
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong>Asociația Fii Pregătit</strong><br>
+      Educație · Sănătate · Siguranță
+
+      <div class="footer-links">
+        <a href="/">Acasă</a>
+        <a href="/regulament/">Regulament</a>
+        <a href="/documente/">Înscriere</a>
+        <a href="/confidentialitate/">Politica de confidențialitate</a>
+        <a href="/cookies/">Politica de cookies</a>
+      </div>
+    </div>
+
+    <div style="text-align:right">
+      WhatsApp: 0745.482.705<br>
+      contact@asociatiafiipregatit.ro<br>
+      CIF: 51220175
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
