@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</script>
 <title>Asociația Fii Pregătit · Brașov</title>
 <meta name="description" content="Activități de dezvoltare personală în natură pentru copii de 7–12 ani, în jurul Brașovului. Educație, sănătate, siguranță. Curaj, calm și decizii inteligente, învățate pe traseu.">
 <meta property="og:title" content="Asociația Fii Pregătit · Brașov">
@@ -265,6 +264,26 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     margin-bottom:18px !important;
   }
 }
+
+@media(max-width:760px){
+  footer{
+    padding:34px 22px 82px !important;
+  }
+
+  footer .wrap[style*="padding-right"]{
+    padding-right:0 !important;
+  }
+
+  footer .grid2{
+    grid-template-columns:1fr !important;
+    gap:24px !important;
+  }
+
+  footer .grid2 > div:last-child{
+    text-align:left !important;
+  }
+}  
+  
 </style>
 <script src="/cookies.js" defer></script>
 </head>
@@ -508,21 +527,77 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 </section>
 
 <!-- FOOTER -->
-<footer style="background:var(--green-deep);padding:42px 40px 26px">
+<footer style="background:var(--green-deep);padding:42px 40px 30px">
   <div class="wrap grid2" style="gap:36px;margin-bottom:24px">
+    
     <div>
-      <img src="LOGO-OFFICIAL.png" alt="Asociația Fii Pregătit" style="height:clamp(64px,9vw,96px);width:auto">
-      <p style="color:#7e8c70;font-size:12px;line-height:1.7;max-width:280px;margin-bottom:6px">Mai mult decât simple activități în natură. <br> Brașov. România</p>
-      <p style="color:#4f5d43;font-size:11px">CIF: 51220175</p>
+      <img
+        src="LOGO-OFFICIAL.png"
+        alt="Asociația Fii Pregătit"
+        style="height:clamp(64px,9vw,96px);width:auto"
+      >
+
+      <p style="color:#9aa88c;font-size:12px;line-height:1.7;max-width:280px;margin:10px 0 6px">
+        Mai mult decât simple activități în natură.<br>
+        Brașov. România
+      </p>
+
+      <p style="color:#6f7f61;font-size:11px">
+        CIF: 51220175
+      </p>
     </div>
+
     <div style="text-align:right">
-      <div style="color:#5f6d51;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;font-weight:600">Contact</div>
-      <p style="color:#9aa88c;font-size:12px;line-height:2">WhatsApp: 0745.482.705<br>contact@asociatiafiipregatit.ro<br>www.asociatiafiipregatit.ro</p>
+      <div style="color:#5f6d51;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;font-weight:600">
+        Contact
+      </div>
+
+      <p style="color:#9aa88c;font-size:12px;line-height:2">
+        WhatsApp: 0745.482.705<br>
+        contact@asociatiafiipregatit.ro<br>
+        www.asociatiafiipregatit.ro
+      </p>
     </div>
+
   </div>
-  <div class="wrap" style="border-top:1px solid #2b4420;padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <span style="color:#4f5d43;font-size:11px">© 2026 Asociația Fii Pregătit</span>
-    <span class="disp" style="color:var(--orange-2);font-size:12px;font-style:italic">Fii Pregătit. Educație Sănătate. Siguranță.</span>
+
+  <div
+    class="wrap"
+    style="border-top:1px solid #2b4420;padding-top:16px;padding-right:155px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px"
+  >
+    <span style="color:#6f7f61;font-size:11px">
+      © 2026 Asociația Fii Pregătit
+    </span>
+
+    <div style="display:flex;gap:13px;flex-wrap:wrap;align-items:center">
+      <a
+        href="/regulament/"
+        style="color:#9aa88c;font-size:11px;text-decoration:none"
+      >
+        Regulament
+      </a>
+
+      <a
+        href="/documente/"
+        style="color:#9aa88c;font-size:11px;text-decoration:none"
+      >
+        Înscriere
+      </a>
+
+      <a
+        href="/confidentialitate/"
+        style="color:#9aa88c;font-size:11px;text-decoration:none"
+      >
+        Confidențialitate
+      </a>
+
+      <a
+        href="/cookies/"
+        style="color:#9aa88c;font-size:11px;text-decoration:none"
+      >
+        Cookies
+      </a>
+    </div>
   </div>
 </footer>
 </body>
