@@ -95,6 +95,51 @@ canvas{width:100%;height:210px;border:1px dashed #b9b09f;border-radius:10px;back
 .error{background:#fff1ea;border:1px solid #ffc7ad;color:#8d2b00;border-radius:8px;padding:12px 14px;font-size:13px;margin-bottom:16px}
 .success{background:var(--green);color:#fff;border-radius:14px;padding:34px;text-align:center}
 .success i{font-size:44px;color:var(--orange-2)}
+  .sending-notice{
+  margin-top:18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#eef4e9;
+  border:1px solid #cfe0c5;
+  border-radius:10px;
+  padding:14px 16px;
+  color:var(--green-deep);
+}
+
+.sending-notice strong,
+.sending-notice span{
+  display:block;
+}
+
+.sending-notice strong{
+  font-size:14px;
+  margin-bottom:2px;
+}
+
+.sending-notice div span{
+  font-size:12px;
+  color:#526149;
+}
+
+.sending-spinner{
+  width:22px;
+  height:22px;
+  border:3px solid #cfe0c5;
+  border-top-color:var(--orange);
+  border-radius:50%;
+  flex:0 0 auto;
+  animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.btn:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+}
 footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12px}
 .footer-inner{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 @media(max-width:760px){
@@ -373,8 +418,15 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
 
         <div class="row">
           <button class="btn btn-light" onclick="goStep(3)">Înapoi</button>
-          <button class="btn btn-orange" onclick="finishFlow()">Finalizează înscrierea</button>
+          <button id="finishBtn" class="btn btn-orange" onclick="finishFlow()">Finalizează înscrierea</button>
         </div>
+        <div id="sendingNotice" class="sending-notice hidden" role="status" aria-live="polite">
+  <span class="sending-spinner"></span>
+  <div>
+    <strong>Se transmite înscrierea...</strong>
+    <span>Documentul semnat este generat și trimis. Te rugăm să nu închizi pagina.</span>
+  </div>
+</div>
       </div>
     </section>
 
@@ -1217,6 +1269,13 @@ async function finishFlow(){
     return;
   }
 
+  const finishBtn = document.getElementById("finishBtn");
+  const sendingNotice = document.getElementById("sendingNotice");
+
+  finishBtn.disabled = true;
+  finishBtn.textContent = "Se transmite...";
+  sendingNotice.classList.remove("hidden");
+
   const canvas = document.getElementById("signaturePad");
   signatureDataUrl = canvas.toDataURL("image/png");
   insertSignatureInPreview();
@@ -1231,10 +1290,13 @@ async function finishFlow(){
     goStep(5);
 
   }catch(err){
+    sendingNotice.classList.add("hidden");
+    finishBtn.disabled = false;
+    finishBtn.textContent = "Finalizează înscrierea";
+
     showError("Trimiterea automată a documentului a eșuat: " + err.message);
   }
 }
-
   
 </script>
 
