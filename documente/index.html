@@ -413,7 +413,26 @@ let signatureDataUrl = "";
 let currentDocumentId = "";
 
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbweN4q-gAoMLeRGjAGdc2uItI7jvGAHxGoD2wUa8Wjt1XHnq82OvTwtYx-O2AO0csoosQ/exec";
-function showError(msg){
+const LOGO_OFFICIAL_URL = "https://asociatiafiipregatit.ro/LOGO-OFFICIAL.png";
+  async function getLogoDataUrl(){
+  const response = await fetch(LOGO_OFFICIAL_URL);
+
+  if(!response.ok){
+    throw new Error("Logo-ul oficial nu a putut fi incarcat.");
+  }
+
+  const blob = await response.blob();
+
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onloadend = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error("Logo-ul nu a putut fi convertit."));
+    
+    reader.readAsDataURL(blob);
+  });
+}
+  function showError(msg){
   const box = document.getElementById("errorBox");
   box.textContent = msg;
   box.classList.remove("hidden");
@@ -530,13 +549,14 @@ function generateDocumentId(){
   return `AFP-${y}${m}${d}-${h}${min}${s}`;
 }  
   
-function generatePreview(){
+async function generatePreview(){
   const now = new Date();
   currentDocumentId = generateDocumentId();
 const documentId = currentDocumentId;
   const generatedDate = now.toLocaleDateString("ro-RO");
   const generatedTime = now.toLocaleTimeString("ro-RO", {hour:"2-digit", minute:"2-digit"});
   const imageConsent = getImageConsent();
+  const logoDataUrl = await getLogoDataUrl();
 
   const signerName = currentType === "child" ? val("parentName") : val("adultName");
   const signerPhone = currentType === "child" ? val("parentPhone") : val("adultPhone");
@@ -548,6 +568,14 @@ const documentId = currentDocumentId;
   const imageNo = imageConsent === "Nu" ? "☑" : "☐";
 
   const preview = `
+    <div style="text-align:center;margin:0 0 18px;">
+      <img
+        src="${logoDataUrl}"
+        alt="Asociatia Fii Pregatit"
+        style="width:165px;height:auto;display:block;margin:0 auto;"
+      >
+    </div>
+
     <div class="doc-head">
       <div class="doc-kicker">Asociația Fii Pregătit</div>
       <div class="doc-title">Document de înscriere și participare</div>
@@ -1038,11 +1066,15 @@ document.getElementById("preview").innerHTML = `
 `;
 }
 
-function nextToPreview(){
+async function nextToPreview(){
   clearError();
   if(!validateData()) return;
-  generatePreview();
+try{
+  await generatePreview();
   goStep(3);
+}catch(err){
+  showError("Documentul nu a putut fi generat: " + err.message);
+}
 }
 
 function nextToSignature(){
