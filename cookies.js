@@ -332,7 +332,7 @@
       #afpSocialDock{
   position:fixed;
   right:18px;
-  bottom:82px;
+  bottom:60px;
   z-index:9997;
   display:flex;
   flex-direction:column;
@@ -411,7 +411,7 @@
         }
         #afpSocialDock{
   right:16px;
-  bottom:74px;
+  bottom:62px;
   gap:8px;
 }
 
