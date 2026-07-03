@@ -347,6 +347,89 @@ canvas{cursor:crosshair;touch-action:none;display:block}
   gap:6px;
 }
 
+.anthem-mini-player{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:12px;
+  max-width:430px;
+}
+
+.anthem-restart{
+  width:30px;
+  height:30px;
+  border:1px solid #d8d2c4;
+  border-radius:50%;
+  background:#fff;
+  color:var(--green-deep);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  flex:0 0 auto;
+  transition:.2s;
+}
+
+.anthem-restart:hover{
+  border-color:var(--orange);
+  color:var(--orange);
+  transform:rotate(-25deg);
+}
+
+.anthem-restart i{
+  font-size:17px;
+}
+
+.anthem-progress{
+  appearance:none;
+  -webkit-appearance:none;
+  width:100%;
+  height:5px;
+  border-radius:999px;
+  cursor:pointer;
+  background:linear-gradient(
+    to right,
+    var(--orange) 0%,
+    var(--orange) 0%,
+    #e6e0d2 0%,
+    #e6e0d2 100%
+  );
+  outline:none;
+}
+
+.anthem-progress::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--orange);
+  border:2px solid #fff;
+  box-shadow:0 2px 7px rgba(255,85,2,.28);
+}
+
+.anthem-progress::-moz-range-thumb{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--orange);
+  border:2px solid #fff;
+  box-shadow:0 2px 7px rgba(255,85,2,.28);
+}
+
+.anthem-time{
+  min-width:74px;
+  color:#6d755f;
+  font-size:11px;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+
+@media(max-width:760px){
+  .anthem-mini-player{
+    max-width:none;
+  }
+}
+  
 .anthem-bars{
   display:inline-flex;
   align-items:flex-end;
@@ -562,10 +645,10 @@ canvas{cursor:crosshair;touch-action:none;display:block}
       <span id="anthemButtonText">Ascultă</span>
     </button>
 
-    <audio id="anthemAudio" preload="metadata">
-      <source src="/IMN_FII_PREGATIT.mp3" type="audio/mpeg">
-      Browserul tău nu poate reda acest fișier audio.
-    </audio>
+   <audio id="anthemAudio" preload="metadata">
+  <source src="/IMN_FII_PREGATIT.mp3" type="audio/mpeg">
+  Browserul tău nu poate reda acest fișier audio.
+</audio>
 
     <div style="flex:1;min-width:200px">
       <div class="eb" style="margin-bottom:6px">Imnul nostru</div>
@@ -589,6 +672,30 @@ canvas{cursor:crosshair;touch-action:none;display:block}
         </span>
         Se redă acum
       </div>
+      <div class="anthem-mini-player">
+  <button
+    id="anthemRestartButton"
+    class="anthem-restart"
+    type="button"
+    aria-label="Redă melodia de la început"
+    title="De la început"
+  >
+    <i class="ti ti-reload" aria-hidden="true"></i>
+  </button>
+
+  <input
+    id="anthemProgress"
+    class="anthem-progress"
+    type="range"
+    min="0"
+    max="0"
+    value="0"
+    step="1"
+    aria-label="Progres melodie"
+  >
+
+  <span id="anthemTime" class="anthem-time">0:00 / 0:00</span>
+</div>
     </div>
 
     <div style="display:flex;gap:10px;flex-wrap:wrap">
@@ -775,6 +882,40 @@ canvas{cursor:crosshair;touch-action:none;display:block}
   const anthemPlayIcon = document.getElementById("anthemPlayIcon");
   const anthemButtonText = document.getElementById("anthemButtonText");
   const anthemNowPlaying = document.getElementById("anthemNowPlaying");
+  const anthemProgress = document.getElementById("anthemProgress");
+  const anthemTime = document.getElementById("anthemTime");
+  const anthemRestartButton = document.getElementById("anthemRestartButton");
+
+  function formatAnthemTime(seconds) {
+    if (!Number.isFinite(seconds)) return "0:00";
+
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+
+    return `${mins}:${String(secs).padStart(2, "0")}`;
+  }
+
+  function updateAnthemProgress() {
+    const duration = anthemAudio.duration || 0;
+    const currentTime = anthemAudio.currentTime || 0;
+    const percentage = duration ? (currentTime / duration) * 100 : 0;
+
+    anthemProgress.max = duration;
+    anthemProgress.value = currentTime;
+
+    anthemProgress.style.background = `
+      linear-gradient(
+        to right,
+        var(--orange) 0%,
+        var(--orange) ${percentage}%,
+        #e6e0d2 ${percentage}%,
+        #e6e0d2 100%
+      )
+    `;
+
+    anthemTime.textContent =
+      `${formatAnthemTime(currentTime)} / ${formatAnthemTime(duration)}`;
+  }
 
   function setAnthemPlayingState(isPlaying) {
     anthemPlayButton.classList.toggle("playing", isPlaying);
@@ -803,6 +944,25 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     }
   });
 
+  anthemRestartButton.addEventListener("click", async function () {
+    anthemAudio.currentTime = 0;
+    updateAnthemProgress();
+
+    try {
+      await anthemAudio.play();
+    } catch (error) {
+      console.error("Melodia nu a putut fi redată.", error);
+    }
+  });
+
+  anthemProgress.addEventListener("input", function () {
+    anthemAudio.currentTime = Number(anthemProgress.value);
+    updateAnthemProgress();
+  });
+
+  anthemAudio.addEventListener("loadedmetadata", updateAnthemProgress);
+  anthemAudio.addEventListener("timeupdate", updateAnthemProgress);
+
   anthemAudio.addEventListener("play", function () {
     setAnthemPlayingState(true);
   });
@@ -813,6 +973,7 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 
   anthemAudio.addEventListener("ended", function () {
     anthemAudio.currentTime = 0;
+    updateAnthemProgress();
     setAnthemPlayingState(false);
   });
 </script>
