@@ -283,6 +283,114 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     text-align:left !important;
   }
 }  
+
+/* IMN – player audio */
+.anthem-play{
+  width:84px;
+  height:84px;
+  border:0;
+  border-radius:50%;
+  background:var(--orange);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  flex-shrink:0;
+  cursor:pointer;
+  box-shadow:0 12px 26px rgba(255,85,2,.25);
+  transition:transform .22s ease, background .22s ease, box-shadow .22s ease;
+}
+
+.anthem-play:hover{
+  background:#e64d02;
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 18px 34px rgba(255,85,2,.34);
+}
+
+.anthem-play:active{
+  transform:scale(.96);
+}
+
+.anthem-play i{
+  font-size:29px;
+  line-height:1;
+}
+
+.anthem-play span{
+  font-size:9px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.3px;
+}
+
+.anthem-play.playing{
+  animation:anthemPulse 1.4s ease-in-out infinite;
+}
+
+.anthem-play.playing i{
+  animation:anthemIconPulse .85s ease-in-out infinite;
+}
+
+.anthem-now-playing{
+  display:none;
+  margin-top:5px;
+  color:var(--orange);
+  font-size:11px;
+  font-weight:700;
+}
+
+.anthem-now-playing.active{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.anthem-bars{
+  display:inline-flex;
+  align-items:flex-end;
+  gap:2px;
+  height:12px;
+}
+
+.anthem-bars span{
+  width:2px;
+  background:var(--orange);
+  border-radius:3px;
+  animation:anthemBars .8s ease-in-out infinite alternate;
+}
+
+.anthem-bars span:nth-child(1){height:5px}
+.anthem-bars span:nth-child(2){height:11px;animation-delay:.18s}
+.anthem-bars span:nth-child(3){height:7px;animation-delay:.36s}
+
+@keyframes anthemPulse{
+  0%,100%{
+    box-shadow:0 12px 26px rgba(255,85,2,.25);
+  }
+
+  50%{
+    box-shadow:0 0 0 10px rgba(255,122,31,.14),0 18px 34px rgba(255,85,2,.34);
+  }
+}
+
+@keyframes anthemIconPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(.82)}
+}
+
+@keyframes anthemBars{
+  from{transform:scaleY(.45)}
+  to{transform:scaleY(1)}
+}
+
+@media(max-width:760px){
+  .anthem-play{
+    width:72px;
+    height:72px;
+  }
+}
   
 </style>
 <script src="/cookies.js" defer></script>
@@ -438,13 +546,73 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 
 <!-- IMNUL -->
 <section class="sec" style="background:var(--cream);padding-top:52px;padding-bottom:52px">
-  <div class="wrap" style="background:#fff;border:1px solid #e6e0d2;border-radius:12px;padding:28px;display:flex;gap:22px;align-items:center;flex-wrap:wrap">
-    <a href="https://www.youtube.com/watch?v=2oHKmTc8qtg" target="_blank" rel="noopener" aria-label="Ascultă imnul pe YouTube" style="width:74px;height:74px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;text-decoration:none"><i class="ti ti-player-play" style="color:#fff;font-size:30px" aria-hidden="true"></i></a>
-    <div style="flex:1;min-width:200px"><div class="eb" style="margin-bottom:6px">Imnul nostru</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:22px;margin-bottom:4px">Fii Pregătit</h3><p style="color:#5a624c;font-size:13px;line-height:1.5">Melodia pe care o cântă tribul. Ascult-o înainte de prima ieșire.</p></div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a href="https://www.youtube.com/watch?v=2oHKmTc8qtg" target="_blank" rel="noopener" style="background:var(--green-deep);color:#fff;font-size:13px;font-weight:500;padding:11px 18px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:7px"><i class="ti ti-brand-youtube" aria-hidden="true"></i> YouTube</a>
-      <a href="https://open.spotify.com/track/3DSblfQm2yU0gX8RGz32Ki" target="_blank" rel="noopener" style="background:var(--green);color:#fff;font-size:13px;font-weight:500;padding:11px 18px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:7px"><i class="ti ti-brand-spotify" aria-hidden="true"></i> Spotify</a>
+  <div
+    class="wrap"
+    style="background:#fff;border:1px solid #e6e0d2;border-radius:12px;padding:28px;display:flex;gap:22px;align-items:center;flex-wrap:wrap"
+  >
+
+    <button
+      id="anthemPlayButton"
+      class="anthem-play"
+      type="button"
+      aria-label="Ascultă imnul Fii Pregătit"
+      aria-pressed="false"
+    >
+      <i id="anthemPlayIcon" class="ti ti-player-play" aria-hidden="true"></i>
+      <span id="anthemButtonText">Ascultă</span>
+    </button>
+
+    <audio id="anthemAudio" preload="metadata">
+      <source src="/IMN_FII_PREGATIT.mp3" type="audio/mpeg">
+      Browserul tău nu poate reda acest fișier audio.
+    </audio>
+
+    <div style="flex:1;min-width:200px">
+      <div class="eb" style="margin-bottom:6px">Imnul nostru</div>
+
+      <h3
+        class="disp"
+        style="color:var(--green-deep);font-weight:600;font-size:22px;margin-bottom:4px"
+      >
+        Fii Pregătit
+      </h3>
+
+      <p style="color:#5a624c;font-size:13px;line-height:1.5">
+        Melodia pe care o cântă tribul. Ascult-o înainte de prima ieșire.
+      </p>
+
+      <div id="anthemNowPlaying" class="anthem-now-playing">
+        <span class="anthem-bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        Se redă acum
+      </div>
     </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a
+        href="https://www.youtube.com/watch?v=2oHKmTc8qtg"
+        target="_blank"
+        rel="noopener"
+        style="background:var(--green-deep);color:#fff;font-size:13px;font-weight:500;padding:11px 18px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:7px"
+      >
+        <i class="ti ti-brand-youtube" aria-hidden="true"></i>
+        YouTube
+      </a>
+
+      <a
+        href="https://open.spotify.com/track/3DSblfQm2yU0gX8RGz32Ki"
+        target="_blank"
+        rel="noopener"
+        style="background:var(--green);color:#fff;font-size:13px;font-weight:500;padding:11px 18px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:7px"
+      >
+        <i class="ti ti-brand-spotify" aria-hidden="true"></i>
+        Spotify
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -600,5 +768,54 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     </div>
   </div>
 </footer>
+
+<script>
+  const anthemAudio = document.getElementById("anthemAudio");
+  const anthemPlayButton = document.getElementById("anthemPlayButton");
+  const anthemPlayIcon = document.getElementById("anthemPlayIcon");
+  const anthemButtonText = document.getElementById("anthemButtonText");
+  const anthemNowPlaying = document.getElementById("anthemNowPlaying");
+
+  function setAnthemPlayingState(isPlaying) {
+    anthemPlayButton.classList.toggle("playing", isPlaying);
+    anthemPlayButton.setAttribute("aria-pressed", String(isPlaying));
+
+    anthemPlayIcon.className = isPlaying
+      ? "ti ti-player-pause"
+      : "ti ti-player-play";
+
+    anthemButtonText.textContent = isPlaying
+      ? "Pauză"
+      : "Ascultă";
+
+    anthemNowPlaying.classList.toggle("active", isPlaying);
+  }
+
+  anthemPlayButton.addEventListener("click", async function () {
+    try {
+      if (anthemAudio.paused) {
+        await anthemAudio.play();
+      } else {
+        anthemAudio.pause();
+      }
+    } catch (error) {
+      console.error("Melodia nu a putut fi redată.", error);
+    }
+  });
+
+  anthemAudio.addEventListener("play", function () {
+    setAnthemPlayingState(true);
+  });
+
+  anthemAudio.addEventListener("pause", function () {
+    setAnthemPlayingState(false);
+  });
+
+  anthemAudio.addEventListener("ended", function () {
+    anthemAudio.currentTime = 0;
+    setAnthemPlayingState(false);
+  });
+</script>
+
 </body>
 </html>
