@@ -156,6 +156,40 @@
     document.body.appendChild(button);
   }
 
+  function addSocialButtons() {
+  if (document.getElementById("afpSocialDock")) return;
+
+  const socialDock = document.createElement("div");
+
+  socialDock.id = "afpSocialDock";
+
+  socialDock.innerHTML = `
+    <a
+      href="https://www.instagram.com/fiipregatit.bv/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Instagram Fii Pregătit"
+      title="Instagram"
+      class="afp-social-btn afp-instagram-btn"
+    >
+      <i class="ti ti-brand-instagram"></i>
+    </a>
+
+    <a
+      href="https://www.facebook.com/fiipregatit.bv/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Facebook Fii Pregătit"
+      title="Facebook"
+      class="afp-social-btn afp-facebook-btn"
+    >
+      <i class="ti ti-brand-facebook"></i>
+    </a>
+  `;
+
+  document.body.appendChild(socialDock);
+}
+
   function injectStyles() {
     const style = document.createElement("style");
 
@@ -295,6 +329,57 @@
         font-size:16px;
       }
 
+      #afpSocialDock{
+  position:fixed;
+  right:18px;
+  bottom:82px;
+  z-index:9997;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.afp-social-btn{
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  color:#fff;
+  text-decoration:none;
+  font-size:17px;
+  box-shadow:0 7px 16px rgba(0,0,0,.18);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.afp-social-btn:hover{
+  transform:translateY(-3px) scale(1.06);
+  box-shadow:0 11px 22px rgba(0,0,0,.24);
+}
+
+.afp-instagram-btn{
+  background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+}
+
+.afp-facebook-btn{
+  background:#1877f2;
+}
+
+@media(min-width:761px){
+  #afpCookiePreferences{
+    right:18px;
+    bottom:16px;
+    padding:7px 11px;
+    font-size:11px;
+    gap:6px;
+  }
+
+  #afpCookiePreferences i{
+    font-size:14px;
+  }
+}
+
       @media(max-width:760px){
         #afpCookieBanner{
           left:12px;
@@ -324,6 +409,17 @@
           right:12px;
           bottom:12px;
         }
+        #afpSocialDock{
+  right:16px;
+  bottom:74px;
+  gap:8px;
+}
+
+.afp-social-btn{
+  width:34px;
+  height:34px;
+  font-size:17px;
+}
       }
     `;
 
@@ -344,6 +440,7 @@
     }
 
     addPreferencesButton();
+    addSocialButtons();
   }
 
   if (document.readyState === "loading") {
