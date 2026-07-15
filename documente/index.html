@@ -266,9 +266,13 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
               <input id="childName" type="text">
             </div>
             <div class="field">
-              <label>Data nașterii copilului *</label>
-              <input id="childBirth" type="date">
-            </div>
+  <label>Data nașterii copilului *</label>
+  <div style="display:flex;gap:8px">
+    <select id="childBirthDay"><option value="">Zi</option></select>
+    <select id="childBirthMonth"><option value="">Lună</option></select>
+    <select id="childBirthYear"><option value="">An</option></select>
+  </div>
+</div>
           </div>
         </div>
 
@@ -287,10 +291,14 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
               <label>Email *</label>
               <input id="adultEmail" type="email">
             </div>
-            <div class="field">
-              <label>Data nașterii *</label>
-              <input id="adultBirth" type="date">
-            </div>
+           <div class="field">
+  <label>Data nașterii *</label>
+  <div style="display:flex;gap:8px">
+    <select id="adultBirthDay"><option value="">Zi</option></select>
+    <select id="adultBirthMonth"><option value="">Lună</option></select>
+    <select id="adultBirthYear"><option value="">An</option></select>
+  </div>
+</div>
           </div>
         </div>
 
@@ -551,7 +559,60 @@ function goStep(n){
   window.scrollTo({top:0,behavior:"smooth"});
   if(n===4) setTimeout(setupSignaturePad,100);
 }
+const LUNI_RO = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
 
+function populateBirthSelects(prefix){
+  const daySel = document.getElementById(prefix+"Day");
+  const monthSel = document.getElementById(prefix+"Month");
+  const yearSel = document.getElementById(prefix+"Year");
+
+  for(let d=1; d<=31; d++){
+    const opt = document.createElement("option");
+    opt.value = String(d).padStart(2,"0");
+    opt.textContent = d;
+    daySel.appendChild(opt);
+  }
+
+  LUNI_RO.forEach((nume, idx) => {
+    const opt = document.createElement("option");
+    opt.value = String(idx+1).padStart(2,"0");
+    opt.textContent = nume;
+    monthSel.appendChild(opt);
+  });
+
+  const currentYear = new Date().getFullYear();
+  for(let y=currentYear; y>=currentYear-100; y--){
+    const opt = document.createElement("option");
+    opt.value = String(y);
+    opt.textContent = y;
+    yearSel.appendChild(opt);
+  }
+}
+
+populateBirthSelects("childBirth");
+populateBirthSelects("adultBirth");
+
+function getBirthDateIso(prefix){
+  const d = document.getElementById(prefix+"Day").value;
+  const m = document.getElementById(prefix+"Month").value;
+  const y = document.getElementById(prefix+"Year").value;
+  if(!d || !m || !y) return "";
+  return `${y}-${m}-${d}`;
+}
+
+function formatBirthDateRo(iso){
+  if(!iso) return "";
+  const [y,m,d] = iso.split("-");
+  return `${d}.${m}.${y}`;
+}
+
+function requireBirthDate(prefix, label){
+  if(!getBirthDateIso(prefix)){
+    showError("Completează câmpul: " + label);
+    return false;
+  }
+  return true;
+}
 function nextFromRegulament(){
   if(!document.getElementById("regulamentOk").checked){
     showError("Te rog să confirmi că ai citit regulamentul înainte de a continua.");
@@ -593,12 +654,12 @@ function validateData(){
     if(!requireField("parentPhone","Telefon părinte/tutore")) return false;
     if(!requireField("parentEmail","Email părinte/tutore")) return false;
     if(!requireField("childName","Nume și prenume copil")) return false;
-    if(!requireField("childBirth","Data nașterii copilului")) return false;
+    if(!requireBirthDate("childBirth","Data nașterii copilului")) return false;
   } else {
     if(!requireField("adultName","Nume și prenume")) return false;
     if(!requireField("adultPhone","Telefon")) return false;
     if(!requireField("adultEmail","Email")) return false;
-    if(!requireField("adultBirth","Data nașterii")) return false;
+    if(!requireBirthDate("adultBirth","Data nașterii")) return false;
   }
 
   if(!requireField("allergies","Alergii")) return false;
@@ -657,7 +718,7 @@ const documentId = currentDocumentId;
   const signerPhone = currentType === "child" ? val("parentPhone") : val("adultPhone");
   const signerEmail = currentType === "child" ? val("parentEmail") : val("adultEmail");
   const participantName = currentType === "child" ? val("childName") : val("adultName");
-  const participantBirth = currentType === "child" ? val("childBirth") : val("adultBirth");
+  const participantBirth = currentType === "child" ? formatBirthDateRo(getBirthDateIso("childBirth")) : formatBirthDateRo(getBirthDateIso("adultBirth"));
 
   const imageYes = imageConsent === "Da" ? "☑" : "☐";
   const imageNo = imageConsent === "Nu" ? "☑" : "☐";
