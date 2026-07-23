@@ -568,37 +568,79 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 </section>
 
 <!-- CINE SUNTEM -->
-<section class="sec" style="background:var(--cream)">
-  <div class="wrap grid2" style="align-items:center;gap:34px">
-    <div>
+<section id="cine-suntem" class="sec" style="background:var(--cream)">
+  <style>
+    #cine-suntem .cs-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:44px;
+      align-items:start;
+    }
+    #cine-suntem .cs-text .eb{margin-bottom:14px}
+    #cine-suntem .cs-text h2{margin-bottom:16px}
+    #cine-suntem .cs-text p{
+      color:#4c5440;
+      font-size:15px;
+      line-height:1.85;
+      margin-bottom:14px;
+    }
+    #cine-suntem .cs-text p:last-child{margin-bottom:0}
+    #cine-suntem .cs-media{
+      position:sticky;
+      top:88px;
+      display:flex;
+      justify-content:center;
+    }
+    #cine-suntem .cs-frame{
+      width:100%;
+      max-width:440px;
+      aspect-ratio:3/4;
+      overflow:hidden;
+      border-radius:18px;
+      border:1px solid rgba(27,52,12,.16);
+      background:#fff;
+      box-shadow:0 26px 54px rgba(27,52,12,.20),0 8px 18px rgba(27,52,12,.08);
+    }
+    #cine-suntem .cs-frame img{
+      width:100%;height:100%;
+      object-fit:cover;object-position:center 48%;
+      display:block;
+    }
+    @media(max-width:860px){
+      #cine-suntem .cs-grid{
+        grid-template-columns:1fr;
+        gap:24px;
+      }
+      #cine-suntem .cs-media{
+        position:static;
+        order:-1;              /* poza apare prima pe telefon */
+        margin-bottom:6px;
+      }
+      #cine-suntem .cs-frame{
+        max-width:340px;
+        aspect-ratio:4/5;
+      }
+      #cine-suntem .cs-text p{font-size:14.5px}
+    }
+  </style>
+
+  <div class="wrap cs-grid">
+    <div class="cs-text">
       <div class="eb">Cine suntem</div>
       <h2 class="t disp" style="color:var(--green-deep)">Doi părinți, doi instructori și natura ca sală de clasă.</h2>
-      <p style="color:#4c5440;font-size:14px;line-height:1.8;margin-bottom:12px">
-  <strong>Asociația „Fii Pregătit”</strong> este o organizație non-guvernamentală, non-profit, cu sediul în Brașov, înființată în 2024. Ne-am propus un singur lucru: să creștem copii de 7–12 ani care prind curaj, devin autonomi, își înțeleg emoțiile și învață să ia decizii responsabile — nu dintr-un manual, ci pe munte, în situații reale.
-</p>
-      <p style="color:#4c5440;font-size:14px;line-height:1.8;margin-bottom:12px">
-  Totul a început cu cei doi băieți ai noștri și o întrebare simplă: „Cum îi pregătim pentru viață?” Am înțeles repede că un copil are nevoie de mai mult decât de activități frumoase. Are nevoie de contexte adevărate în care să dea piept cu neprevăzutul, să capete încredere și să descopere că se poate baza pe el însuși.
-</p>
-      <p style="color:#4c5440;font-size:14px;line-height:1.8;margin-bottom:12px">
-  Suntem o familie din Brașov, părinți a doi băieți, și lucrăm direct cu copiii în natură — cu grijă, cu structură și cu multă atenție la siguranță.
-</p>
-      <p style="color:#4c5440;font-size:14px;line-height:1.8;margin-bottom:12px">
-  <strong>Eu, Corina,</strong> am o formare pedagogică, iar practica în școli a rămas cea mai frumoasă experiență din anii de facultate. De când am devenit mamă, am înțeles însă mult mai multe — lucruri pe care nu le prinzi la niciun curs. Ani la rând am construit o carieră în corporație, dar de când au apărut băieții am simțit tot mai limpede că viața nu încape într-un birou în care îmi vedeam copiii prea rar. În 2025 am ales altceva: să fiu prezentă. Aduc în „Fii Pregătit” grija și ritmul care țin tribul unit, ca fiecare copil să se simtă văzut și niciunul să nu rămână în urmă.
-</p>
-      <p style="color:#4c5440;font-size:14px;line-height:1.8">
-  <strong>Lau</strong> aduce cealaltă jumătate: calmul și deciziile clare atunci când apare neprevăzutul. Este cadru în Ministerul Afacerilor Interne (M.A.I.), cu ani de experiență în intervenții speciale și negociere în situații de criză — o pregătire care ne ajută să gândim fiecare activitate în natură până la cel mai mic detaliu, ca totul să fie sigur, clar și potrivit pentru copii.
-</p>
-        </div>
-<div style="display:flex;justify-content:center;align-items:center">
-  <div style="width:100%;max-width:460px;aspect-ratio:3/4;overflow:hidden;border-radius:18px;border:1px solid rgba(27,52,12,.16);background:#fff;box-shadow:0 26px 54px rgba(27,52,12,.20),0 8px 18px rgba(27,52,12,.08)">
-    <img
-      src="adapost-noi.jpg"
-      alt="Familia Fii Pregătit într-un adăpost construit în natură"
-      style="width:100%;height:100%;object-fit:cover;object-position:center 48%;border-radius:0"
-    >
+      <p><strong>Asociația „Fii Pregătit”</strong> este o organizație non-guvernamentală, non-profit, cu sediul în Brașov, înființată în 2024. Ne-am propus un singur lucru: să creștem copii de 7–12 ani care prind curaj, devin autonomi, își înțeleg emoțiile și învață să ia decizii responsabile — nu dintr-un manual, ci pe munte, în situații reale.</p>
+      <p>Totul a început cu cei doi băieți ai noștri și o întrebare simplă: „Cum îi pregătim pentru viață?” Am înțeles repede că un copil are nevoie de mai mult decât de activități frumoase. Are nevoie de contexte adevărate în care să dea piept cu neprevăzutul, să capete încredere și să descopere că se poate baza pe el însuși.</p>
+      <p>Suntem o familie din Brașov, părinți a doi băieți, și lucrăm direct cu copiii în natură — cu grijă, cu structură și cu multă atenție la siguranță.</p>
+      <p><strong>Eu, Corina,</strong> am o formare pedagogică, iar practica în școli a rămas cea mai frumoasă experiență din anii de facultate. De când am devenit mamă, am înțeles însă mult mai multe — lucruri pe care nu le prinzi la niciun curs. Ani la rând am construit o carieră în corporație, dar de când au apărut băieții am simțit tot mai limpede că viața nu încape într-un birou în care îmi vedeam copiii prea rar. În 2025 am ales altceva: să fiu prezentă. Aduc în „Fii Pregătit” grija și ritmul care țin tribul unit, ca fiecare copil să se simtă văzut și niciunul să nu rămână în urmă.</p>
+      <p><strong>Lau</strong> aduce cealaltă jumătate: calmul și deciziile clare atunci când apare neprevăzutul. Este cadru în Ministerul Afacerilor Interne (M.A.I.), cu ani de experiență în intervenții speciale și negociere în situații de criză — o pregătire care ne ajută să gândim fiecare activitate în natură până la cel mai mic detaliu, ca totul să fie sigur, clar și potrivit pentru copii.</p>
+    </div>
+
+    <div class="cs-media">
+      <div class="cs-frame">
+        <img src="adapost-noi.jpg" alt="Familia Fii Pregătit într-un adăpost construit în natură">
+      </div>
+    </div>
   </div>
-</div>
-     </div>
 </section>
 
 <!-- METODA -->
