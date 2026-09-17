@@ -343,7 +343,7 @@
       #afpSocialDock{
         position:fixed;
         right:18px;
-        bottom:68px;
+        bottom:60px;
         z-index:9997;
         display:flex;
         flex-direction:column;
@@ -351,16 +351,16 @@
       }
 
       .afp-social-btn{
-        width:42px;
-        height:42px;
+        width:34px;
+        height:34px;
         display:flex;
         align-items:center;
         justify-content:center;
         border-radius:50%;
         color:#fff;
         text-decoration:none;
-        font-size:21px;
-        box-shadow:0 7px 16px rgba(0,0,0,.20);
+        font-size:17px;
+        box-shadow:0 7px 16px rgba(0,0,0,.18);
         transition:transform .2s ease, box-shadow .2s ease;
       }
 
@@ -426,15 +426,15 @@
         }
 
         #afpSocialDock{
-          right:14px;
-          bottom:68px;
+          right:16px;
+          bottom:62px;
           gap:8px;
         }
 
         .afp-social-btn{
-          width:42px;
-          height:42px;
-          font-size:21px;
+          width:34px;
+          height:34px;
+          font-size:17px;
         }
       }
     `;
