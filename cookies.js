@@ -201,6 +201,56 @@
     document.body.appendChild(socialDock);
   }
 
+  function replaceBrandLine() {
+    const replacements = [
+      ["Educație · Sănătate · Siguranță", "Siguranță · Sănătate · Educație"],
+      ["Educație • Sănătate • Siguranță", "Siguranță • Sănătate • Educație"],
+      ["EDUCAȚIE · SĂNĂTATE · SIGURANȚĂ", "SIGURANȚĂ · SĂNĂTATE · EDUCAȚIE"],
+      ["EDUCAȚIE • SĂNĂTATE • SIGURANȚĂ", "SIGURANȚĂ • SĂNĂTATE • EDUCAȚIE"]
+    ];
+
+    function replaceInString(value) {
+      let updated = value;
+
+      replacements.forEach(function (pair) {
+        updated = updated.split(pair[0]).join(pair[1]);
+      });
+
+      return updated;
+    }
+
+    if (document.body) {
+      const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT
+      );
+
+      const textNodes = [];
+      let node;
+
+      while ((node = walker.nextNode())) {
+        textNodes.push(node);
+      }
+
+      textNodes.forEach(function (textNode) {
+        const updated = replaceInString(textNode.nodeValue || "");
+
+        if (updated !== textNode.nodeValue) {
+          textNode.nodeValue = updated;
+        }
+      });
+    }
+
+    document.querySelectorAll("meta[content]").forEach(function (meta) {
+      const current = meta.getAttribute("content") || "";
+      const updated = replaceInString(current);
+
+      if (updated !== current) {
+        meta.setAttribute("content", updated);
+      }
+    });
+  }
+
   function injectStyles() {
     const style = document.createElement("style");
 
@@ -443,6 +493,7 @@
   }
 
   function init() {
+    replaceBrandLine();
     injectStyles();
 
     const consent = getCookie(COOKIE_NAME);
