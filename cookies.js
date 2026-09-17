@@ -233,19 +233,6 @@
       }
 
       textNodes.forEach(function (textNode) {
-        const parent = textNode.parentElement;
-        const section = parent ? parent.closest("section") : null;
-        const sectionEyebrow = section ? section.querySelector(".eb") : null;
-        const preservePillarsOrder =
-          parent &&
-          parent.tagName === "H2" &&
-          sectionEyebrow &&
-          sectionEyebrow.textContent.trim() === "Pilonii noștri";
-
-        if (preservePillarsOrder) {
-          return;
-        }
-
         const updated = replaceInString(textNode.nodeValue || "");
 
         if (updated !== textNode.nodeValue) {
@@ -262,6 +249,45 @@
         meta.setAttribute("content", updated);
       }
     });
+  }
+
+  function normalizePillarsSection() {
+    const grid = document.querySelector(".pillars-grid");
+    if (!grid) return;
+
+    const section = grid.closest("section");
+    if (!section) return;
+
+    const eyebrow = section.querySelector(".eb");
+    if (!eyebrow || eyebrow.textContent.trim() !== "Pilonii noștri") return;
+
+    const title = section.querySelector("h2.t");
+    if (title) {
+      title.textContent = "Siguranță · Sănătate · Educație";
+    }
+
+    const intro = section.querySelector("div[style*='text-align:center'] p");
+    if (intro) {
+      intro.textContent = intro.textContent
+        .replace("educație, sănătate și siguranță", "siguranță, sănătate și educație");
+    }
+
+    const cards = Array.from(grid.children);
+    const order = {
+      "siguranță": 0,
+      "sănătate": 1,
+      "educație": 2
+    };
+
+    cards
+      .sort(function (a, b) {
+        const aTitle = (a.querySelector("h3")?.textContent || "").trim().toLowerCase();
+        const bTitle = (b.querySelector("h3")?.textContent || "").trim().toLowerCase();
+        return (order[aTitle] ?? 99) - (order[bTitle] ?? 99);
+      })
+      .forEach(function (card) {
+        grid.appendChild(card);
+      });
   }
 
   function injectStyles() {
@@ -507,6 +533,7 @@
 
   function init() {
     replaceBrandLine();
+    normalizePillarsSection();
     injectStyles();
 
     const consent = getCookie(COOKIE_NAME);
