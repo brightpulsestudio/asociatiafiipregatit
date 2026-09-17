@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
-  <script src="/cookies.js" defer>
-</script>
+  <script src="/cookies.js" defer></script>
+  <script src="/protection.js" defer></script>
   <style>
     :root{--green-deep:#1b340c;--green:#10380e;--green-2:#173a10;--orange:#ff5502;--orange-2:#ff7a1f;--cream:#f4efe4;--cream-2:#fbf9f4;--ink:#22301a;--muted:#5a624c;--line:#e6e0d2}
     *{box-sizing:border-box;margin:0;padding:0}
@@ -32,7 +32,7 @@
     .method{background:var(--cream)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}.step{background:#fff;border:1px solid var(--line);border-radius:10px;padding:21px;position:relative}.step b{display:block;color:var(--orange);font-family:'Fraunces',Georgia,serif;font-size:28px;line-height:1;margin-bottom:9px}.step h3{color:var(--green-deep);font-size:13px;letter-spacing:.5px;margin-bottom:6px}.step p{color:var(--muted);font-size:12.5px;line-height:1.6}
     .safety{background:var(--green-deep)}.safety-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:start}.safety-list{display:grid;gap:12px}.safety-item{display:flex;gap:13px;align-items:flex-start;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);padding:16px;border-radius:8px}.safety-item i{color:var(--orange-2);font-size:21px;flex:0 0 auto}.safety-item p{color:#dbe4d4;font-size:13px;line-height:1.55}.team{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.team-card{border-left:3px solid var(--orange);padding:8px 0 8px 15px}.team-card strong{display:block;color:#fff;font-family:'Fraunces',Georgia,serif;font-size:20px}.team-card span{color:#aebda3;font-size:12px;line-height:1.55;display:block;margin-top:4px}
     .offer{background:var(--cream-2)}.offer-box{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 54px rgba(27,52,12,.09);padding:36px}.offer-list{list-style:none;margin-top:20px}.offer-list li{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13.5px;padding:7px 0}.offer-list i{color:var(--orange);font-size:18px}.offer-contact{background:var(--green-deep);border-radius:12px;padding:30px;color:#fff;display:flex;flex-direction:column;justify-content:center;text-align:center}.offer-contact i.offer-icon{color:var(--orange-2);font-size:44px;margin-bottom:12px}.offer-contact h3{font-family:'Fraunces',Georgia,serif;font-size:28px;line-height:1.15;margin-bottom:10px}.offer-contact p{color:#d7dfd1;font-size:13px;margin-bottom:20px}.offer-contact .btn{width:100%}
-    .photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;padding:0 25px 25px}.photo-strip img{width:100%;height:145px;object-fit:cover;border-radius:8px;background:var(--cream)}
+    .photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;padding:0 25px 25px}.photo-strip a{display:block;cursor:zoom-in}.photo-strip img{width:100%;height:145px;object-fit:cover;border-radius:8px;background:var(--cream)}.photo-strip a:focus-visible{outline:3px solid #f4b942;outline-offset:4px;border-radius:8px}
     .full-copy{margin-top:24px;color:var(--muted);font-size:14px;line-height:1.8}.full-copy p{margin:10px 0}.full-copy strong{color:var(--green-deep)}
     .behavior-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:22px}.behavior-grid span{background:var(--cream);padding:11px 13px;border-radius:7px;font-size:12px;font-weight:600}
     .nature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.nature-card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:25px}.nature-card h3{font-family:'Fraunces',Georgia,serif;color:var(--green-deep);font-size:25px;line-height:1.15;margin:5px 0 15px}.nature-card p,.nature-card li{color:var(--muted);font-size:13px;line-height:1.7}.nature-card ul{padding-left:18px}.bear{margin-top:18px;background:var(--cream);border-left:4px solid var(--orange);padding:18px;border-radius:8px}.feedback-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:25px}.feedback-grid img{width:100%;border-radius:9px}
@@ -210,10 +210,10 @@
 <strong>Fiecare copil primește:</strong> Diploma de Explorator, personalizată cu numele fiecărui copil, și Ghidul Exploratorului, de păstrat acasă.</div>
 </div>
 <div class="photo-strip">
-<img src="pdf-media/a1-grup-padure.jpg" alt="Exploratorii Sălbăticiei - activitate în pădure">
-<img src="pdf-media/a1-diploma.jpg" alt="Diploma de Explorator">
-<img src="pdf-media/a1-apa.jpg" alt="Exploratorii Sălbăticiei - activitate în apropierea apei">
-<img src="pdf-media/a1-semnalizare.jpg" alt="Exploratorii Sălbăticiei - semnalizare în natură">
+<a href="pdf-media/a1-grup-padure.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a1-grup-padure.jpg" alt="Exploratorii Sălbăticiei - activitate în pădure"></a>
+<a href="pdf-media/a1-diploma.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a1-diploma.jpg" alt="Diploma de Explorator"></a>
+<a href="pdf-media/a1-apa.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a1-apa.jpg" alt="Exploratorii Sălbăticiei - activitate în apropierea apei"></a>
+<a href="pdf-media/a1-semnalizare.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a1-semnalizare.jpg" alt="Exploratorii Sălbăticiei - semnalizare în natură"></a>
 </div>
 </article>
     <article class="activity">
@@ -249,12 +249,12 @@
 <strong>Fiecare copil primește:</strong> Diploma de Salvator, personalizată cu numele fiecărui copil, și Ghidul Salvatorului, de păstrat acasă.</div>
 </div>
 <div class="photo-strip">
-<img src="pdf-media/a2-targa.jpg" alt="Expediția Salvatorilor - targă improvizată">
-<img src="pdf-media/a2-instructaj.jpg" alt="Expediția Salvatorilor - instructaj">
-<img src="pdf-media/a2-prim-ajutor-1.jpg" alt="Expediția Salvatorilor - prim ajutor">
-<img src="pdf-media/a2-prim-ajutor-2.jpg" alt="Expediția Salvatorilor - exersare pas cu pas">
-<img src="pdf-media/a2-grup.jpg" alt="Expediția Salvatorilor - activitate de grup">
-<img src="pdf-media/a2-diploma.jpg" alt="Diploma de Salvator">
+<a href="pdf-media/a2-targa.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a2-targa.jpg" alt="Expediția Salvatorilor - targă improvizată"></a>
+<a href="pdf-media/a2-instructaj.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a2-instructaj.jpg" alt="Expediția Salvatorilor - instructaj"></a>
+<a href="pdf-media/a2-prim-ajutor-1.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a2-prim-ajutor-1.jpg" alt="Expediția Salvatorilor - prim ajutor"></a>
+<a href="pdf-media/a2-prim-ajutor-2.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a2-prim-ajutor-2.jpg" alt="Expediția Salvatorilor - exersare pas cu pas"></a>
+<a href="pdf-media/a2-grup.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a2-grup.jpg" alt="Expediția Salvatorilor - activitate de grup"></a>
+<a href="pdf-media/a2-diploma.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a2-diploma.jpg" alt="Diploma de Salvator"></a>
 </div>
 </article>
     <article class="activity">
@@ -291,11 +291,11 @@
 <strong>Fiecare copil primește:</strong> Harta aventurii, tagul exploratorului cu NATO & Morse și mesaj final personalizat.</div>
 </div>
 <div class="photo-strip">
-<img src="pdf-media/a3-grup-principal.jpg" alt="Tribul Pădurii - copiii descifrează misiunea">
-<img src="pdf-media/a3-harta.jpg" alt="Harta aventurii">
-<img src="pdf-media/a3-grup-selfie.jpg" alt="Tribul Pădurii - activitate de echipă">
-<img src="pdf-media/a3-grup-poiana.jpg" alt="Tribul Pădurii - grupul în poiană">
-<img src="pdf-media/a3-tag-mesaj.jpg" alt="Tagul NATO și mesajul final">
+<a href="pdf-media/a3-grup-principal.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a3-grup-principal.jpg" alt="Tribul Pădurii - copiii descifrează misiunea"></a>
+<a href="pdf-media/a3-harta.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a3-harta.jpg" alt="Harta aventurii"></a>
+<a href="pdf-media/a3-grup-selfie.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a3-grup-selfie.jpg" alt="Tribul Pădurii - activitate de echipă"></a>
+<a href="pdf-media/a3-grup-poiana.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a3-grup-poiana.jpg" alt="Tribul Pădurii - grupul în poiană"></a>
+<a href="pdf-media/a3-tag-mesaj.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a3-tag-mesaj.jpg" alt="Tagul NATO și mesajul final"></a>
 </div>
 </article>
     <article class="activity indoor">
@@ -324,14 +324,14 @@
 <strong>Fiecare copil primește:</strong> Diploma de Explorator, personalizată cu numele fiecărui copil, și Ghidul Exploratorului, de păstrat acasă.</div>
 </div>
 <div class="photo-strip">
-<img src="pdf-media/a4-diploma.jpg" alt="Diploma de Explorator">
-<img src="pdf-media/a4-stop.jpg" alt="Materialul Metoda S.T.O.P.">
-<img src="pdf-media/a4-ghid.jpg" alt="Ghidul Exploratorului">
-<img src="pdf-media/a4-siguranta.jpg" alt="Măsuri de siguranță în natură">
-<img src="pdf-media/a4-checklist.jpg" alt="Checklist pentru drumeție">
-<img src="pdf-media/a4-clasa-1.jpg" alt="Aventura din sala de clasă">
-<img src="pdf-media/a4-clasa-2.jpg" alt="Copiii participă la activitatea din clasă">
-<img src="pdf-media/a4-clasa-3.jpg" alt="Material prezentat în sala de clasă">
+<a href="pdf-media/a4-diploma.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a4-diploma.jpg" alt="Diploma de Explorator"></a>
+<a href="pdf-media/a4-stop.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a4-stop.jpg" alt="Materialul Metoda S.T.O.P."></a>
+<a href="pdf-media/a4-ghid.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a4-ghid.jpg" alt="Ghidul Exploratorului"></a>
+<a href="pdf-media/a4-siguranta.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a4-siguranta.jpg" alt="Măsuri de siguranță în natură"></a>
+<a href="pdf-media/a4-checklist.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a4-checklist.jpg" alt="Checklist pentru drumeție"></a>
+<a href="pdf-media/a4-clasa-1.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a4-clasa-1.jpg" alt="Aventura din sala de clasă"></a>
+<a href="pdf-media/a4-clasa-2.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a4-clasa-2.jpg" alt="Copiii participă la activitatea din clasă"></a>
+<a href="pdf-media/a4-clasa-3.jpg" target="_blank" title="Deschide fotografia la rezoluție maximă"><img src="pdf-media/a4-clasa-3.jpg" alt="Material prezentat în sala de clasă"></a>
 </div>
 </article>
   </div>
