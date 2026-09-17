@@ -233,6 +233,19 @@
       }
 
       textNodes.forEach(function (textNode) {
+        const parent = textNode.parentElement;
+        const section = parent ? parent.closest("section") : null;
+        const sectionEyebrow = section ? section.querySelector(".eb") : null;
+        const preservePillarsOrder =
+          parent &&
+          parent.tagName === "H2" &&
+          sectionEyebrow &&
+          sectionEyebrow.textContent.trim() === "Pilonii noștri";
+
+        if (preservePillarsOrder) {
+          return;
+        }
+
         const updated = replaceInString(textNode.nodeValue || "");
 
         if (updated !== textNode.nodeValue) {
