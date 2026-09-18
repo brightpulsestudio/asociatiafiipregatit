@@ -498,6 +498,31 @@ canvas{cursor:crosshair;touch-action:none;display:block}
   }
 }
   
+
+/* Combined education programmes card */
+#activitati .education-card{
+  grid-column:1 / -1;
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+  background:#fff;
+  border:1px solid #e6e0d2;
+  border-top:3px solid var(--orange);
+}
+.education-card-copy{min-width:0;padding:30px}
+.education-card-kicker{color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;line-height:1.8;margin-bottom:12px}
+.education-card h3{color:var(--green-deep);font-weight:600;font-size:clamp(24px,2.8vw,32px);line-height:1.15;margin-bottom:18px}
+.education-card-description{color:#5a624c;font-size:13px;line-height:1.75}
+.education-card-description p + p{margin-top:10px}
+.education-card-media{position:relative;min-height:360px}
+.education-card-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+@media(max-width:760px){
+  #activitati .education-card{grid-template-columns:minmax(0,1fr)}
+  .education-card-copy{padding:24px}
+  .education-card h3{font-size:25px}
+  .education-card-media{min-height:0}
+  .education-card-photo{position:static;height:auto;aspect-ratio:4 / 3}
+}
+
 </style>
 <script src="/cookies.js" defer></script>
 <script src="/protection.js" defer></script>
@@ -714,8 +739,19 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     <div class="grid2">
       <div class="card hov" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Copii 7–12 · weekend</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Activități pentru copii</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Dezvoltare personală, doar pentru cei mici. Copiii sunt aduși și preluați de părinți la punctul de întâlnire. Aici lucrăm autonomia, curajul și deciziile inteligente.</div></div>
       <div class="card hov" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Familie · de la 5 ani</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Drumeții de familie</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Mergem pe traseu împreună cu părinții și ne bucurăm de natură ca o familie mare. La unele drumeții pot veni și copilași începând cu 5 ani.</div></div>
-      <a class="card hov activity-link-card" href="/propunere-activitati/" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Școli · în parteneriat</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Săptămâna Verde <br> Școala Altfel</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Programe în colaborare cu școlile, adaptate clasei și vârstei — o zi în natură care iese din rutina sălii de clasă.</div><span class="activity-card-details">Vezi detalii <i class="ti ti-arrow-right" aria-hidden="true"></i></span></a>
-      <a class="card hov activity-link-card" href="/propunere-activitati/" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">After-school-uri · centre educaționale · tabere · grupuri organizate</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Programe pentru after-school-uri și grupuri organizate</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Activități tematice pentru after-school-uri, centre educaționale, tabere și grupuri organizate — de la „Exploratorii Sălbăticiei" la „Tribul Pădurii", cu misiuni, bushcraft și ghidul exploratorului.</div><span class="activity-card-details">Vezi detalii <i class="ti ti-arrow-right" aria-hidden="true"></i></span></a>
+      <a class="card hov activity-link-card education-card" href="/propunere-activitati/">
+        <div class="education-card-copy">
+          <div class="education-card-kicker">ȘCOLI · AFTER-SCHOOL-URI · CENTRE EDUCAȚIONALE · TABERE · GRUPURI ORGANIZATE</div>
+          <h3 class="disp">Săptămâna Verde / Școala Altfel / Activități Tematice</h3>
+          <div class="education-card-description">
+            <p>Copiii explorează, iau decizii și descoperă că pot mai mult,</p>
+            <p>Experiența devine învățare atunci când copilul înțelege ce a trăit și poate duce mai departe ceea ce a descoperit.</p>
+            <p>Educația pentru viață nu se învață doar din cărți. Unele lucruri trebuie trăite.</p>
+          </div>
+          <span class="activity-card-details">Vezi detalii <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="education-card-media"><img class="education-card-photo" src="/propunere-activitati/pdf-media/a3-grup-principal.jpg" alt="Grup de copii și instructori la o activitate în natură" loading="lazy"></div>
+      </a>
     </div>
   </div>
 </section>
