@@ -38,18 +38,21 @@
     .nature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.nature-card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:25px}.nature-card h3{font-family:'Fraunces',Georgia,serif;color:var(--green-deep);font-size:25px;line-height:1.15;margin:5px 0 15px}.nature-card p,.nature-card li{color:var(--muted);font-size:13px;line-height:1.7}.nature-card ul{padding-left:18px}.bear{margin-top:18px;background:var(--cream);border-left:4px solid var(--orange);padding:18px;border-radius:8px}.feedback-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:25px}.feedback-grid img{width:100%;border-radius:9px}
     .final-cta{background:linear-gradient(rgba(16,56,14,.88),rgba(16,56,14,.94)),url('/adapost-noi.jpg') center/cover no-repeat;padding:88px 40px;text-align:center}.final-cta h2{font-family:'Fraunces',Georgia,serif;color:#fff;font-size:clamp(34px,5vw,52px);line-height:1.05;max-width:790px;margin:0 auto 15px}.final-cta p{color:#d8e1d1;font-size:15px;max-width:620px;margin:0 auto 25px}
     footer{background:var(--green-deep);padding:42px 40px 30px}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:24px}.footer-logo{height:clamp(64px,9vw,96px);width:auto}.footer-links{border-top:1px solid #2b4420;padding-top:16px;padding-right:155px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}.footer-contact{text-align:right}
+    .step,.nature-card,.safety-item,.offer-contact,.bear,.behavior-grid span,.photo-strip img{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,filter .22s ease,background-color .22s ease}
+    .quick-nav{position:fixed;left:18px;bottom:22px;z-index:30;display:flex;align-items:center;gap:8px}.quick-nav a{display:inline-flex;align-items:center;justify-content:center;height:44px;min-width:44px;border:1px solid rgba(255,255,255,.42);border-radius:999px;background:rgba(27,52,12,.94);color:#fff;text-decoration:none;box-shadow:0 10px 28px rgba(16,56,14,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .2s ease,background .2s ease,box-shadow .2s ease}.quick-nav a:hover{background:var(--orange);transform:translateY(-3px);box-shadow:0 14px 30px rgba(255,85,2,.28)}.quick-nav .quick-home{gap:7px;padding:0 15px;font-size:12px;font-weight:700}.quick-nav i{font-size:20px}
+    @media(hover:hover){.step:hover,.nature-card:hover,.offer-contact:hover,.bear:hover,.behavior-grid span:hover{transform:translateY(-4px);filter:brightness(1.035);box-shadow:0 16px 34px rgba(27,52,12,.14);border-color:#f0b38f}.safety-item:hover{transform:translateY(-3px);filter:brightness(1.18);border-color:rgba(255,122,31,.45);box-shadow:0 14px 30px rgba(0,0,0,.18)}.photo-strip img:hover{transform:translateY(-3px) scale(1.015);filter:brightness(1.07);box-shadow:0 12px 24px rgba(27,52,12,.2)}}
     @media(max-width:800px){.sec{padding:58px 22px}.grid3,.grid4{grid-template-columns:1fr}.grid2,.cards,.about-layout,.safety-layout,.offer-box{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.topbar{padding:17px 22px}.topbar img{height:65px}.top-cta span{display:none}.hero{min-height:680px}.hero-bg{background:linear-gradient(90deg,rgba(16,56,14,.96),rgba(16,56,14,.72)),url('/cerc-ubuntu.jpeg') center/cover no-repeat}.hero-inner{padding:132px 23px 70px}.hero h1{letter-spacing:-1.4px}.about-image{max-width:520px;margin:10px auto 0}.stat{right:10px}.team{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-contact{text-align:left}.footer-links{padding-right:0}.final-cta{padding:70px 22px}footer{padding:38px 22px 85px}}
-    @media(max-width:520px){.steps{grid-template-columns:1fr}.btn-ghost{margin:9px 0 0}.hero-tag{font-size:10px}.activity h3{font-size:23px}.offer-box{padding:22px}.topbar .top-cta{padding:10px 12px}.audience{padding:24px 22px}.audience-row{justify-content:flex-start}.stat{position:relative;right:auto;bottom:auto;margin:-25px 14px 0}.hero::after{inset:10px}}
+    @media(max-width:520px){.steps{grid-template-columns:1fr}.btn-ghost{margin:9px 0 0}.hero-tag{font-size:10px}.activity h3{font-size:23px}.offer-box{padding:22px}.topbar .top-cta{padding:10px 12px}.audience{padding:24px 22px}.audience-row{justify-content:flex-start}.stat{position:relative;right:auto;bottom:auto;margin:-25px 14px 0}.hero::after{inset:10px}.quick-nav{left:10px;bottom:12px;gap:6px}.quick-nav a{height:41px;min-width:41px}.quick-nav .quick-home{padding:0 12px}.quick-nav i{font-size:18px}}
     @media(max-width:800px){.nature-grid{grid-template-columns:1fr}.photo-strip,.feedback-grid{grid-template-columns:1fr 1fr}.behavior-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:520px){.behavior-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <header class="hero">
+  <header class="hero" id="sus">
     <div class="hero-bg" aria-hidden="true">
 </div>
     <div class="topbar wrap">
-      <img src="/LOGO-OFFICIAL.png" alt="Asociația Fii Pregătit">
+      <a href="/" aria-label="Mergi la pagina principală"><img src="/LOGO-OFFICIAL.png" alt="Asociația Fii Pregătit"></a>
       <a class="top-cta" href="https://wa.me/40745482705?text=Bun%C4%83!%20Doresc%20detalii%20despre%20activit%C4%83%C8%9Bile%20pentru%20grupuri." target="_blank" rel="noopener">
 <i class="ti ti-brand-whatsapp">
 </i>
@@ -565,10 +568,16 @@
 </div>
 </section>
 
-  <footer>
+  <nav class="quick-nav" aria-label="Navigare rapidă">
+    <a class="quick-home" href="/" aria-label="Mergi la homepage"><i class="ti ti-home" aria-hidden="true"></i><span>Homepage</span></a>
+    <a href="#sus" aria-label="Mergi sus de tot" title="Sus"><i class="ti ti-arrow-up" aria-hidden="true"></i></a>
+    <a href="#jos" aria-label="Mergi jos de tot" title="Jos"><i class="ti ti-arrow-down" aria-hidden="true"></i></a>
+  </nav>
+
+  <footer id="jos">
 <div class="wrap footer-grid">
 <div>
-<img class="footer-logo" src="/LOGO-OFFICIAL.png" alt="Asociația Fii Pregătit">
+<a href="/" aria-label="Mergi la pagina principală"><img class="footer-logo" src="/LOGO-OFFICIAL.png" alt="Asociația Fii Pregătit"></a>
 <p style="color:#9aa88c;font-size:12px;line-height:1.7;max-width:300px;margin:10px 0 12px">Organizație non-guvernamentală, non-profit, înregistrată în România.<br>Mai mult decât simple activități în natură.</p>
 <p style="color:#6f7f61;font-size:11px;line-height:1.9">Asociația „Fii Pregătit”<br>Sediu social: Str. Lemnarilor nr. 25A, Brașov, jud. Brașov, România<br>CIF / CUI: 51220175<br>Înscrisă în Registrul Asociațiilor și Fundațiilor,<br>Judecătoria Brașov · Dosar nr. 28304/197/2024 · 05.11.2024<br>
 <a href="/verificare/" style="color:#9aa88c;text-decoration:underline;text-underline-offset:2px">Identitate juridică și domeniu oficial</a>

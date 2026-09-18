@@ -175,6 +175,29 @@ h2.t{font-size:clamp(26px,4.5vw,38px);font-weight:600;line-height:1.06;margin-bo
   transform:translateY(-3px);
   box-shadow:0 16px 32px rgba(0,0,0,.16);
 }
+.activity-link-card{
+  display:flex;
+  flex-direction:column;
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+}
+.activity-link-card:focus-visible{
+  outline:3px solid var(--orange);
+  outline-offset:4px;
+}
+.activity-card-details{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  width:max-content;
+  margin-top:18px;
+  color:var(--orange);
+  font-size:12px;
+  font-weight:700;
+}
+.activity-card-details i{font-size:16px;transition:transform .2s ease}
+.activity-link-card:hover .activity-card-details i{transform:translateX(4px)}
 .fp-input{width:100%;padding:10px 12px;border:1px solid #d8d2c4;border-radius:5px;font-size:13px;background:var(--cream-2);outline:none;font-family:inherit;color:var(--ink)}
 .fp-input:focus{border-color:var(--orange);background:#fff}
 .soc{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid #cdd6bd;border-radius:50%;color:var(--green-deep);text-decoration:none;font-size:20px;transition:.2s}
@@ -691,8 +714,8 @@ canvas{cursor:crosshair;touch-action:none;display:block}
     <div class="grid2">
       <div class="card hov" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Copii 7–12 · weekend</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Activități pentru copii</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Dezvoltare personală, doar pentru cei mici. Copiii sunt aduși și preluați de părinți la punctul de întâlnire. Aici lucrăm autonomia, curajul și deciziile inteligente.</div></div>
       <div class="card hov" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Familie · de la 5 ani</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Drumeții de familie</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Mergem pe traseu împreună cu părinții și ne bucurăm de natură ca o familie mare. La unele drumeții pot veni și copilași începând cu 5 ani.</div></div>
-      <div class="card hov" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Școli · în parteneriat</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Săptămâna Verde <br> Școala Altfel</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Programe în colaborare cu școlile, adaptate clasei și vârstei — o zi în natură care iese din rutina sălii de clasă.</div></div>
-      <div class="card hov" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">After-school · tematic</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Programe pentru after-school-uri </h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Activități tematice livrate prin after-school-uri — de la „Exploratorii Sălbăticiei" la „Tribul Pădurii", cu misiuni, bushcraft și ghidul exploratorului.</div></div>
+      <a class="card hov activity-link-card" href="/propunere-activitati/" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Școli · în parteneriat</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Săptămâna Verde <br> Școala Altfel</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Programe în colaborare cu școlile, adaptate clasei și vârstei — o zi în natură care iese din rutina sălii de clasă.</div><span class="activity-card-details">Vezi detalii <i class="ti ti-arrow-right" aria-hidden="true"></i></span></a>
+      <a class="card hov activity-link-card" href="/propunere-activitati/" style="background:#fff;border:1px solid #e6e0d2;padding:24px"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">After-school-uri · centre educaționale · tabere · grupuri organizate</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Programe pentru after-school-uri și grupuri organizate</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Activități tematice pentru after-school-uri, centre educaționale, tabere și grupuri organizate — de la „Exploratorii Sălbăticiei" la „Tribul Pădurii", cu misiuni, bushcraft și ghidul exploratorului.</div><span class="activity-card-details">Vezi detalii <i class="ti ti-arrow-right" aria-hidden="true"></i></span></a>
     </div>
   </div>
 </section>
