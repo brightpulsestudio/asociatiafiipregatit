@@ -574,6 +574,15 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 }
 .education-card .activity-card-details span{font-size:22px;line-height:1}
 
+
+/* Match the visible height of the two overview photos */
+@media(min-width:1001px){
+  #activitati .activity-overview:nth-child(2) .activity-overview-media img:not(.afp-watermark){
+    transform:scale(1.25);
+    transform-origin:center;
+  }
+}
+
 </style>
 <script src="/cookies.js" defer></script>
 <script src="/protection.js" defer></script>
