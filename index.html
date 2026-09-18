@@ -514,12 +514,14 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 .education-card-description{color:#5a624c;font-size:13px;line-height:1.75}
 .education-card-description p + p{margin-top:10px}
 .education-card-media{position:relative;min-height:360px}
+.education-card-media .afp-protected-image{position:absolute;inset:0;width:100%;height:100%}
 .education-card-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 @media(max-width:760px){
   #activitati .education-card{grid-template-columns:minmax(0,1fr)}
   .education-card-copy{padding:24px}
   .education-card h3{font-size:25px}
   .education-card-media{min-height:0}
+  .education-card-media .afp-protected-image{position:relative;inset:auto;height:auto}
   .education-card-photo{position:static;height:auto;aspect-ratio:4 / 3}
 }
 
