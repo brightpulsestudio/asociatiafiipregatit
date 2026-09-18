@@ -39,6 +39,10 @@
       bottom: 4% !important;
       width: clamp(54px, 18%, 150px) !important;
       height: auto !important;
+      aspect-ratio: auto !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      border-radius: 0 !important;
       opacity: .42 !important;
       filter: drop-shadow(0 1px 3px rgba(0,0,0,.55));
       pointer-events: none !important;
