@@ -577,9 +577,8 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 
 /* Match the visible height of the two overview photos */
 @media(min-width:1001px){
-  #activitati .activity-overview:nth-child(2) .activity-overview-media img:not(.afp-watermark){
-    transform:scale(1.25);
-    transform-origin:center;
+  #activitati .activity-overview:nth-child(2){
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
   }
 }
 
